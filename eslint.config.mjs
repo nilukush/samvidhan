@@ -4,7 +4,7 @@ import astro from 'eslint-plugin-astro';
 import tseslint from 'typescript-eslint';
 
 /**
- * ESLint is pinned to ^9 because eslint-plugin-astro targets the 9.x line.
+ * ESLint 10 with eslint-plugin-astro 3.1.0 (which peer requires eslint >=10).
  * The parser is passed as the astro-eslint-parser module namespace, mirroring
  * how the plugin's own flat preset wires it (it has no default export).
  * Rules are taken from the plugin's recommended preset; config wiring is ours.
