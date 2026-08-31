@@ -61,12 +61,12 @@ All options scored 1 to 10 on the five criteria that matter for this project (hi
 
 | Option | Cost safety | SEO | Search quality | Buildability | Maintainability | Average |
 | --- | --- | --- | --- | --- | --- | --- |
-| A. Astro 6 static + client side hybrid search (Orama) | 10 | 9 | 7 | 8 | 9 | 8.6 |
+| A. Astro static + client side hybrid search (Orama) | 10 | 9 | 7 | 8 | 9 | 8.6 |
 | B. Astro static + Cloudflare Workers AI + Vectorize | 7 | 9 | 8 | 6 | 6 | 7.2 |
 | C. Next.js on Vercel with serverless RAG | 6 | 7 | 8 | 7 | 5 | 6.6 |
 | D. Hugo + Pagefind (keyword only) | 10 | 9 | 4 | 9 | 9 | 8.2 but fails a required capability |
 
-Option A details. Astro 6 (MIT, actively maintained, team now funded by Cloudflare since January 2026 while the framework stays open and platform agnostic) generates pure static HTML, which is the strongest possible position for SEO, GEO, Core Web Vitals, and zero cost hosting. Search runs entirely in the browser: Pagefind (MIT) for keyword search over built HTML, and Orama (Apache 2.0) for hybrid keyword plus vector search. The vector strategy is the one the Debugger forced, overriding the Analyzer's initial runtime idea: precompute all chunk embeddings at build time, ship quantized vectors (int8 base64 about 2.6 MB, or 1 bit about 240 KB at roughly 95 percent quality retention), and embed only the user's query string in a Web Worker using transformers.js (Apache 2.0). This avoids a 23 MB model download dominating mobile first load.
+Option A details. Astro (MIT, actively maintained, version 7 at build time, team now funded by Cloudflare since January 2026 while the framework stays open and platform agnostic) generates pure static HTML, which is the strongest possible position for SEO, GEO, Core Web Vitals, and zero cost hosting. Search runs entirely in the browser: Pagefind (MIT) for keyword search over built HTML, and Orama (Apache 2.0) for hybrid keyword plus vector search. The vector strategy is the one the Debugger forced, overriding the Analyzer's initial runtime idea: precompute all chunk embeddings at build time, ship quantized vectors (int8 base64 about 2.6 MB, or 1 bit about 240 KB at roughly 95 percent quality retention), and embed only the user's query string in a Web Worker using transformers.js (Apache 2.0). This avoids a 23 MB model download dominating mobile first load.
 
 Option B is held as a Phase 3 upgrade path only if in browser semantic quality disappoints. Verified free limits if ever used: Workers AI 10,000 neurons per day, Vectorize 5 million stored and 30 million queried vector dimensions per month. A 5,000 chunk corpus at 384 dimensions is 1.92 million stored dimensions, which fits, but any traffic spike against a Workers endpoint creates a billing surface. The consensus is to keep the request path purely static.
 
@@ -148,7 +148,7 @@ These are the only decisions that genuinely need a human answer. Everything else
 - LiveLaw, 131st Amendment Bill defeat (April 2026): https://www.livelaw.in/top-stories/lok-sabha-rejects-the-constitution-131st-bill-2026-on-delimitation-530736
 - Orama: https://github.com/oramasearch/orama and https://docs.askorama.ai/docs/orama-js/plugins/plugin-embeddings
 - Pagefind: https://github.com/CloudCannon/pagefind and https://pagefind.app
-- Astro 6 and Cloudflare: https://astro.build/blog/astro-6/ and https://blog.cloudflare.com/astro-joins-cloudflare/
+- Astro 6 announcement and Cloudflare: https://astro.build/blog/astro-6/ and https://blog.cloudflare.com/astro-joins-cloudflare/ (project executes on Astro 7.2.9)
 - Cloudflare Pages limits: https://developers.cloudflare.com/pages/platform/limits/
 - Cloudflare Workers AI pricing: https://developers.cloudflare.com/workers-ai/platform/pricing/
 - Cloudflare Vectorize pricing: https://developers.cloudflare.com/vectorize/platform/pricing/

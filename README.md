@@ -23,7 +23,7 @@ Planning complete. Analysis, design system, and implementation plan are in the d
 
 | Layer | Choice | License | Why |
 | --- | --- | --- | --- |
-| Site | Astro 6 | MIT | Content first, ships near zero JavaScript, best in class SEO |
+| Site | Astro 7 | MIT | Content first, ships near zero JavaScript, best in class SEO |
 | Keyword search | Pagefind | MIT | Post build indexing of static HTML, chunked lazy loading |
 | Semantic search | Orama + transformers.js | Apache 2.0 | Hybrid full text and vector search in the browser, no API keys |
 | Tests | Vitest, Playwright, axe, Lighthouse CI | MIT | Free, CI friendly |

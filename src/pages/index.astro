@@ -1,0 +1,22 @@
+---
+import { SITE_NAME, SITE_TAGLINE } from '../config';
+
+// Computed in frontmatter because prettier-plugin-astro misformats templates
+// that mix adjacent text and expressions such as `{A}: {B}` inside a tag.
+const title = `${SITE_NAME}: ${SITE_TAGLINE}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main>
+      <h1>{SITE_NAME}</h1>
+      <p>{SITE_TAGLINE}</p>
+    </main>
+  </body>
+</html>

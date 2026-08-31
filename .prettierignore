@@ -1,0 +1,12 @@
+node_modules
+dist
+.astro
+coverage
+playwright-report
+test-results
+package-lock.json
+data/source
+
+# Prose documents are formatted by hand, not by Prettier
+*.md
+docs/**

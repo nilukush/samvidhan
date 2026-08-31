@@ -12,7 +12,7 @@ Global regression rule: after every step, run `npm test` (all Vitest suites), `n
 
 ## Step 1: Repository and Astro scaffold with CI
 
-├─ Objective: a git repository with an Astro 6 project, pinned dependencies, format and lint baseline, and a GitHub Actions workflow that runs the full test suite on every push.
+├─ Objective: a git repository with an Astro project (Astro 7 at execution time; research had cited 6), pinned dependencies, format and lint baseline, and a GitHub Actions workflow that runs the full test suite on every push.
 ├─ Prerequisites: none.
 ├─ Test First:
 │  ├─ Test type: unit plus CI integration
@@ -300,3 +300,7 @@ Stop and reassess when: any previously green test fails after a later step, extr
 - The Step 3 sanity bands (article counts, structure checks) act as data regression tests for future PDF updates.
 - The Step 5 contrast test and Step 13 audits act as design system regression tests: a token change that breaks AA contrast fails the build.
 - Performance budgets are executable assertions (Lighthouse CI), not aspirations.
+
+## Change Log
+
+- 2026-08-31, Step 1 executed. Substitutions, none material: (a) workflow validation used a YAML parse plus structural assertions in Vitest instead of actionlint, which is not installed locally; the workflow's first real run happens when a GitHub remote is connected. (b) Astro resolved to 7.2.9 rather than the 6.x cited by research; docs updated, no plan impact. (c) ESLint pinned to ^9 because eslint-plugin-astro and astro-eslint-parser target the 9.x line; the parser is wired via a module namespace import, matching the plugin's own preset. (d) prettier-plugin-astro 0.14.1 misformats templates mixing adjacent text and expressions (`{A}: {B}`), so the page title is computed in frontmatter; template authors must avoid that pattern or format will fight the source.
