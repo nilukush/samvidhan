@@ -13,6 +13,7 @@
     "preview": "astro preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "data:extract": "node scripts/extract/run.ts",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write ."
   },

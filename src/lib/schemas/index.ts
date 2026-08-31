@@ -32,8 +32,8 @@ export const ClauseSchema = z.object({
 export const ArticleSchema = z.object({
   /** Bare number or number with capital letter suffix, for example "14", "51A". */
   number: z.string().regex(/^\d{1,3}[A-Z]?$/, 'article number must look like 14 or 51A'),
-  /** Part number as a string key referencing the owning part, for example "3". */
-  part: z.string().regex(/^\d{1,2}$/),
+  /** Part number as a string key referencing the owning part, for example "3" or "4A" for Part IVA. */
+  part: z.string().regex(/^\d{1,2}[A-Z]?$/, 'part reference must look like 3 or 4A'),
   title: z.string().min(1),
   clauses: z.array(ClauseSchema).min(1),
   status: ArticleStatusEnum,

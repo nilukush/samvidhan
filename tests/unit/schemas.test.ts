@@ -22,6 +22,11 @@ describe('article schema', () => {
     const invalid = { ...fixture('valid-article'), clauses: [{ number: '1' }] };
     expect(() => ArticleSchema.parse(invalid)).toThrow();
   });
+
+  test('accepts a part reference with a letter suffix such as Part IVA', () => {
+    const article = { ...fixture('valid-article'), part: '4A' };
+    expect(() => ArticleSchema.parse(article)).not.toThrow();
+  });
 });
 
 describe('part and schedule schemas', () => {
