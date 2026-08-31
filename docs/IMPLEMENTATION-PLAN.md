@@ -40,7 +40,7 @@ Global regression rule: after every step, run `npm test` (all Vitest suites), `n
 │  └─ Expected: fail, schemas do not exist.
 ├─ Implementation:
 │  ├─ Scope: `src/content/config.ts` Astro content collections plus a shared Zod schema module under `src/lib/schemas/` used by both the collections and the data pipeline. Fixtures under `tests/fixtures/`.
-│  └─ Constraints: statuses limited to the design system enums (in force, amended, omitted, repealed, pending, rejected, lapsed). Article numbers normalized as strings ("14", "14A", "51A") because letter suffixes exist.
+│  └─ Constraints: statuses limited to the design system enums (in force, amended, omitted, repealed, pending, rejected, lapsed). Article numbers normalized as strings ("14", "14A", "51A") because letter suffixes exist. Amendments carry the full legislative milestone set as separate optional date fields (introducedIn, passedLokSabha, passedRajyaSabha, assent, inForce) plus an operativeNote, because introduction, passage, enactment, and commencement are distinct dates: the 106th was introduced 19 September 2023, passed by Lok Sabha 20 September (454 to 2) and Rajya Sabha 21 September (214 to 0), enacted by assent and gazette 28 September 2023, and brought into force 16 April 2026, while its reservation remains inoperative pending census and delimitation under Article 334A.
 ├─ Acceptance Criteria:
 │  ├─ Tests pass: all schema tests green.
 │  ├─ No regressions: scaffold tests still green.

@@ -44,7 +44,16 @@ No existing site combines current consolidated text, plain language explainers, 
 
 Rejected as data sources: captn3m0/constitution (no LICENSE file, last push 2020) and civictech-India/constitution-of-india (no LICENSE file, last push 2021). Both predate the 105th and 106th Amendments and carry default all rights reserved status. TheDebugger agent flagged this as the top licensing risk. The Analyzer agent's milder position (use MIT Yash Handa JSON for structure) is accepted in reduced form: structural cross check only.
 
-Current status as verified 31 August 2026: the 106th Amendment (Nari Shakti Vandan Adhiniyam, 2023) is the latest enacted amendment. The Constitution (131st Amendment) Bill, 2026 was defeated in Lok Sabha on 17 April 2026 (298 to 230, short of the special majority). The 106th Amendment itself came into force on 16 April 2026. This is exactly the kind of "upcoming and historical change" content the site must present well.
+Current status as verified 31 August 2026, with the 106th Amendment's full legislative milestone set (source: Wikipedia, One Hundred and Sixth Amendment of the Constitution of India):
+
+- 19 September 2023: bill introduced in Lok Sabha during the special session
+- 20 September 2023: Lok Sabha passed it, 454 to 2
+- 21 September 2023: Rajya Sabha passed it unanimously, 214 to 0
+- 28 September 2023: presidential assent and gazette publication (enactment)
+- 16 April 2026: Ministry of Law and Justice gazette notification brought the Act into force
+- The 33 percent reservation itself remains inoperative pending the first census after commencement plus a delimitation exercise (new Article 334A)
+
+The 106th remains the latest enacted amendment. The Constitution (131st Amendment) Bill, 2026, an attempt to expedite implementation, was defeated in Lok Sabha on 17 April 2026 (298 to 230, short of the special majority). Distinct dates for introduction, passage, assent, and commencement are exactly the kind of precision the amendment data model and pages must capture (see the schema constraint added to Step 2 of the implementation plan).
 
 ## 4. Technical Approach Evaluation
 
