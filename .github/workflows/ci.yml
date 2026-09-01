@@ -15,6 +15,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npm run model:fetch
+      - run: npm run data:embed
       - run: npm run lint
       - run: npm test
       - run: npm run build

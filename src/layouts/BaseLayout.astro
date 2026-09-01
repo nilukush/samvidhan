@@ -42,6 +42,14 @@ const { title = `${SITE_NAME}: ${SITE_TAGLINE}`, description = `${SITE_TAGLINE}`
           <h2 id="search-title">Search the Constitution</h2>
           <button type="button" class="search-close" aria-label="Close search">Close</button>
         </div>
+        <div class="search-tabs" role="tablist" aria-label="Search mode">
+          <button type="button" id="tab-keywords" role="tab" aria-selected="true" aria-controls="panel-keywords"
+            >Keywords</button
+          >
+          <button type="button" id="tab-concept" role="tab" aria-selected="false" aria-controls="panel-concept"
+            >Concept</button
+          >
+        </div>
         <input
           id="search-input"
           type="search"
@@ -51,7 +59,14 @@ const { title = `${SITE_NAME}: ${SITE_TAGLINE}`, description = `${SITE_TAGLINE}`
           aria-label="Search query"
         />
         <div id="search-status" role="status" aria-live="polite"></div>
-        <div id="search-results"></div>
+        <div id="panel-keywords" role="tabpanel" aria-labelledby="tab-keywords">
+          <div id="search-results"></div>
+        </div>
+        <div id="panel-concept" role="tabpanel" aria-labelledby="tab-concept" hidden>
+          <p class="concept-note">Finds meaning, not just words. The first search downloads a language model.</p>
+          <div id="concept-status" role="status" aria-live="polite"></div>
+          <div id="concept-results"></div>
+        </div>
       </div>
     </div>
 
@@ -114,6 +129,56 @@ const { title = `${SITE_NAME}: ${SITE_TAGLINE}`, description = `${SITE_TAGLINE}`
     background: var(--color-surface);
     padding: var(--space-1) var(--space-3);
     cursor: pointer;
+  }
+
+  .search-tabs {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .search-tabs button {
+    font: inherit;
+    font-weight: 700;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+    cursor: pointer;
+  }
+
+  .search-tabs button[aria-selected='true'] {
+    background: var(--color-navy);
+    color: var(--color-paper);
+    border-color: var(--color-navy);
+  }
+
+  .concept-note {
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+    margin: var(--space-2) 0;
+  }
+
+  #concept-status {
+    font-size: var(--text-body-s);
+    min-height: 1.25em;
+    margin: var(--space-2) 0;
+  }
+
+  #concept-results ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #concept-results li {
+    border-bottom: 1px solid var(--color-line);
+    padding: var(--space-2) 0;
+  }
+
+  #concept-results a {
+    font-weight: 700;
+    color: var(--color-link);
   }
 
   #search-input {

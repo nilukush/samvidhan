@@ -13,12 +13,34 @@ const astroRecommendedRules =
   astro.configs['flat/recommended'].find((c) => c.name === 'astro/recommended')?.rules ?? {};
 
 export default [
-  { ignores: ['dist/**', '.astro/**', 'node_modules/**', 'coverage/**', 'playwright-report/**', 'test-results/**'] },
+  {
+    ignores: [
+      'dist/**',
+      '.astro/**',
+      'node_modules/**',
+      'coverage/**',
+      'playwright-report/**',
+      'test-results/**',
+      'public/vendor/**',
+    ],
+  },
   {
     // The search dialog controller is a plain browser script outside any bundler.
     files: ['public/**/*.js'],
     languageOptions: {
-      globals: { document: 'readonly', window: 'readonly', setTimeout: 'readonly', clearTimeout: 'readonly' },
+      globals: {
+        document: 'readonly',
+        window: 'readonly',
+        navigator: 'readonly',
+        fetch: 'readonly',
+        Worker: 'readonly',
+        self: 'readonly',
+        importScripts: 'readonly',
+        onmessage: 'writable',
+        postMessage: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+      },
     },
   },
   js.configs.recommended,

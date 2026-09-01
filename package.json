@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run data:sync && astro build && pagefind --site dist",
+    "build": "npm run data:sync && npm run vendor:ai && astro build && pagefind --site dist",
     "preview": "astro preview",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -18,11 +18,16 @@
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
     "e2e": "playwright test",
-    "data:amendments": "node scripts/extract/amendments.ts"
+    "data:amendments": "node scripts/extract/amendments.ts",
+    "data:embed": "node scripts/embed/run.ts",
+    "vendor:ai": "./scripts/vendor-ai.sh",
+    "model:fetch": "./scripts/fetch-model.sh"
   },
   "dependencies": {
     "@fontsource/fraunces": "^5.3.0",
     "@fontsource/public-sans": "^5.3.0",
+    "@huggingface/transformers": "^4.2.0",
+    "@orama/orama": "^3.1.18",
     "astro": "^7.2.9",
     "zod": "^4.5.4"
   },
