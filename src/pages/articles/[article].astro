@@ -4,8 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Badge from '../../components/Badge.astro';
 import ExplainerBox from '../../components/ExplainerBox.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import { cleanLegalText, compareByDocumentOrder, toRomanPart } from '../../lib/display';
-import { SITE_NAME } from '../../config';
+import { buildLede } from '../../lib/lede';
+import { SITE_NAME, SITE_URL } from '../../config';
 
 export async function getStaticPaths() {
   const articles = (await getCollection('articles')).sort(compareByDocumentOrder);
@@ -36,15 +38,41 @@ const clauseRows = article.clauses.map((clause) => ({
   text: cleanLegalText(clause.text),
 }));
 
-const firstClauseText = article.clauses[0]?.text ?? '';
-const description = cleanLegalText(firstClauseText).slice(0, 155);
+const lede = buildLede(article);
+const description = lede.slice(0, 155);
+
+const legislationLd = {
+  name: `Article ${article.number}. ${article.title.replace(/\.$/, '')}`,
+  '@id': `${SITE_URL}/articles/${entry.id.toLowerCase()}/`,
+  url: `${SITE_URL}/articles/${entry.id.toLowerCase()}/`,
+  legislationType: 'ConstitutionalLaw',
+  isPartOf: { '@type': 'Legislation', name: 'Constitution of India', '@id': `${SITE_URL}/` },
+  datePublished: '1950-01-26',
+  inLanguage: 'en',
+  keywords: `Constitution of India, Article ${article.number}, ${partName}`,
+};
+
+const breadcrumbLd = {
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: `Part ${roman}: ${partName}`,
+      item: `${SITE_URL}/parts/${article.part}/`,
+    },
+    { '@type': 'ListItem', position: 3, name: `Article ${article.number}` },
+  ],
+};
 ---
 
 <BaseLayout
   searchType="Articles"
-  title={`Article ${article.number}. ${article.title} | ${SITE_NAME}`}
+  title={`Article ${article.number}. ${article.title.slice(0, 40)} | ${SITE_NAME}`}
   description={description}
 >
+  <JsonLd type="Legislation" data={legislationLd} />
+  <JsonLd type="BreadcrumbList" data={breadcrumbLd} />
   <div class="container page">
     <Breadcrumb
       items={[
@@ -70,6 +98,8 @@ const description = cleanLegalText(firstClauseText).slice(0, 155);
             ))
           }
         </div>
+
+        <p class="article-lede">{lede}</p>
 
         <ol class="clauses">
           {
@@ -173,6 +203,15 @@ const description = cleanLegalText(firstClauseText).slice(0, 155);
     color: var(--color-navy);
     font-size: var(--text-display-l);
     margin-bottom: var(--space-4);
+  }
+
+  .article-lede {
+    font-size: var(--text-body-l);
+    line-height: 1.7;
+    max-width: 42rem;
+    margin: 0 0 var(--space-8);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-line);
   }
 
   .article-number {

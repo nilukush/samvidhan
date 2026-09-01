@@ -15,7 +15,23 @@ interface Props {
   searchType?: string;
 }
 
-const { title = `${SITE_NAME}: ${SITE_TAGLINE}`, description = `${SITE_TAGLINE}`, searchType = 'Pages' } = Astro.props;
+const props = Astro.props;
+const rawTitle = props.title ?? `${SITE_NAME}: ${SITE_TAGLINE}`;
+const rawDescription = props.description ?? SITE_TAGLINE;
+const searchType = props.searchType ?? 'Pages';
+// Title budget: 60 characters. Long titles are truncated but the site name
+// suffix is preserved by clamping only the content portion.
+const SUFFIX = ` | ${SITE_NAME}`;
+let title: string;
+if (rawTitle.length <= 60) {
+  title = rawTitle;
+} else if (rawTitle.endsWith(SUFFIX)) {
+  const content = rawTitle.slice(0, -SUFFIX.length);
+  title = content.slice(0, 60 - SUFFIX.length - 1).trimEnd() + '…' + SUFFIX;
+} else {
+  title = rawTitle.slice(0, 57).trimEnd() + '…';
+}
+const description = rawDescription.length > 155 ? rawDescription.slice(0, 155) : rawDescription;
 ---
 
 <!doctype html>

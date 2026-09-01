@@ -37,7 +37,11 @@ const THEME_LABELS: Record<string, string> = {
 };
 ---
 
-<BaseLayout searchType="Amendments" title={`${amendment.title} | ${SITE_NAME}`} description={amendment.summary}>
+<BaseLayout
+  searchType="Amendments"
+  title={`${amendment.title.slice(0, 40)} | ${SITE_NAME}`}
+  description={(amendment.summary ?? amendment.title).slice(0, 155)}
+>
   <div class="container page">
     <Breadcrumb
       items={[

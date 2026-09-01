@@ -1,0 +1,15 @@
+---
+interface Props {
+  type: 'Legislation' | 'BreadcrumbList';
+  data: Record<string, unknown>;
+}
+
+const { type, data } = Astro.props;
+const graph = {
+  '@context': 'https://schema.org',
+  '@type': type,
+  ...data,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />

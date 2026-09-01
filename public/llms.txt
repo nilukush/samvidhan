@@ -1,0 +1,37 @@
+# Samvidhan: The Constitution of India, made readable
+
+The full text of the Constitution of India as on 1 May 2026, with all 471 articles, 26 parts, 12 schedules, and the complete timeline of 106 amendments. Each article page carries the current legal text and its amendment history.
+
+## Sections
+
+- [Preamble](https://samvidhan.pages.dev/preamble/): The opening words of the Constitution
+- [All articles](https://samvidhan.pages.dev/articles/): Every article by number
+- [Parts](https://samvidhan.pages.dev/parts/): The 26 parts of the Constitution
+- [Schedules](https://samvidhan.pages.dev/schedules/): The 12 schedules
+- [Amendments](https://samvidhan.pages.dev/amendments/): Timeline of all 106 amendments from 1951 to 2026
+- [Upcoming changes](https://samvidhan.pages.dev/changes/upcoming/): Constitution amendment bills before Parliament
+
+## Key articles
+
+- [Article 14: Equality before law](https://samvidhan.pages.dev/articles/14/)
+- [Article 19: Freedom of speech](https://samvidhan.pages.dev/articles/19/)
+- [Article 21: Life and personal liberty](https://samvidhan.pages.dev/articles/21/)
+- [Article 32: Enforcement of fundamental rights](https://samvidhan.pages.dev/articles/32/)
+- [Article 368: Amendment procedure](https://samvidhan.pages.dev/articles/368/)
+
+## Key amendments
+
+- [42nd Amendment (1976): The mini Constitution](https://samvidhan.pages.dev/amendments/42/)
+- [73rd Amendment (1992): Panchayati Raj](https://samvidhan.pages.dev/amendments/73/)
+- [101st Amendment (2016): GST](https://samvidhan.pages.dev/amendments/101/)
+- [106th Amendment (2023): Women's reservation](https://samvidhan.pages.dev/amendments/106/)
+
+## Data
+
+The Constitution text is public domain under Indian law (EBC v. D.B. Modak, 2008). Amendment facts are derived from Wikipedia (CC BY-SA 4.0, attributed). Bill tracking paraphrases PRS India and sansad.in. The official source PDF is vendored at data/source/constitution-of-india.pdf.
+
+## Verification
+
+Constitution text: verified against the official edition as on 1 May 2026, on 31 August 2026.
+Amendments: 1 to 106, verified 31 August 2026.
+Bill tracker: last verified 31 August 2026.
