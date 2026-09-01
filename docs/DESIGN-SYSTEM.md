@@ -31,7 +31,7 @@ Primary palette, anchored to the official Tiranga specification approximations (
   --color-ink: #1a1a2e;         /* body text, near black with navy cast */
   --color-navy: #06038d;        /* Ashoka Chakra navy, primary brand */
   --color-navy-deep: #040266;   /* hover, footer ground */
-  --color-saffron: #ff671f;     /* accent, large graphics only */
+  --color-saffron: #f25c0a;     /* accent, large graphics only; darkened from flag #FF671F for WCAG 3:1, see note */
   --color-saffron-soft: #ffe8db;/* tinted backgrounds, badges */
   --color-green: #046a38;       /* success, "in force", amendment added */
   --color-green-soft: #e2f0e8;
@@ -59,7 +59,7 @@ Contrast rules (verified ratios):
 | link #0B47D1 on paper | about 7:1 | links |
 | navy #06038D on paper | about 14:1 | headings, primary buttons |
 | ivory #FDFBF7 on navy | about 14:1 | hero, footer text |
-| saffron #FF671F on paper | about 3:1 | large type (24 px plus or 19 px bold) and graphics only, never small text |
+| saffron #F25C0A on paper | 3.2:1 | meaningful graphics and large type only, never small text. The flag approximation #FF671F measures 2.8:1 and is kept out of tokens; divergence logged in the plan change log |
 | amber #8A5A00 on amber-soft | about 5.5:1 | pending badges |
 | red #B3261E on red-soft | about 6:1 | rejected, omitted |
 

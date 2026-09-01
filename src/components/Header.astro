@@ -1,0 +1,183 @@
+---
+import Chakra from './Chakra.astro';
+import { SITE_NAME } from '../config';
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="/">
+      <Chakra size={28} class="wordmark-chakra" />
+      <span>{SITE_NAME}</span>
+    </a>
+
+    <nav aria-label="Primary" class="primary-nav">
+      <ul>
+        <li><a href="/preamble">Preamble</a></li>
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/parts">Parts</a></li>
+        <li><a href="/schedules">Schedules</a></li>
+        <li><a href="/amendments">Amendments</a></li>
+        <li><a href="/changes/upcoming">Changes</a></li>
+      </ul>
+    </nav>
+
+    <a class="search-trigger" href="/search">
+      <span>Search</span>
+      <kbd aria-hidden="true">/</kbd>
+    </a>
+
+    <details class="mobile-menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <nav aria-label="Primary" class="mobile-nav">
+        <ul>
+          <li><a href="/preamble">Preamble</a></li>
+          <li><a href="/articles">Articles</a></li>
+          <li><a href="/parts">Parts</a></li>
+          <li><a href="/schedules">Schedules</a></li>
+          <li><a href="/amendments">Amendments</a></li>
+          <li><a href="/changes/upcoming">Changes</a></li>
+          <li><a href="/search">Search</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+
+  <div class="tricolor-rule" aria-hidden="true"></div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--color-paper);
+    border-bottom: 1px solid var(--color-line);
+    position: relative;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    min-height: 64px;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+
+  .wordmark-chakra {
+    color: var(--color-navy);
+    flex-shrink: 0;
+  }
+
+  .primary-nav ul {
+    display: flex;
+    gap: var(--space-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .primary-nav a {
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--text-body-s);
+  }
+
+  .primary-nav a:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+  }
+
+  .search-trigger {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-body-s);
+    text-decoration: none;
+    min-width: 10rem;
+  }
+
+  .search-trigger kbd {
+    font-family: var(--font-mono);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    padding: 0 var(--space-1);
+    background: var(--color-paper);
+    margin-left: auto;
+  }
+
+  .tricolor-rule {
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      var(--color-saffron) 0 33.4%,
+      var(--color-paper) 33.4% 66.7%,
+      var(--color-green) 66.7% 100%
+    );
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 48rem) {
+    .primary-nav,
+    .search-trigger {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+      margin-left: auto;
+    }
+
+    .mobile-menu summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: var(--text-body-s);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-s);
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-surface);
+      list-style: none;
+    }
+
+    .mobile-menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      margin: var(--space-2) 0 0;
+      padding: var(--space-2) 0;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-m);
+      background: var(--color-surface);
+    }
+
+    .mobile-nav li + li {
+      border-top: 1px solid var(--color-line);
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: var(--space-2) var(--space-3);
+      color: var(--color-ink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+  }
+</style>

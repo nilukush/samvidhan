@@ -1,0 +1,104 @@
+---
+import { SITE_NAME } from '../config';
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <section>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="/preamble">Preamble</a></li>
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/parts">Parts</a></li>
+        <li><a href="/schedules">Schedules</a></li>
+        <li><a href="/amendments">Amendments</a></li>
+        <li><a href="/changes/upcoming">Upcoming changes</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>About</h2>
+      <ul>
+        <li><a href="/about">About {SITE_NAME}</a></li>
+        <li><a href="/sources">Sources and licensing</a></li>
+      </ul>
+      <p>
+        The Constitution of India is public domain under Indian law. Amendment facts are derived from Wikipedia (CC
+        BY-SA 4.0, attributed). Bill tracking paraphrases PRS India and sansad.in.
+      </p>
+    </section>
+
+    <section>
+      <h2>The Record</h2>
+      <ul class="record">
+        <li>Constitution text: official edition as on 1 May 2026, verified 31 August 2026</li>
+        <li>Amendments: 1 to 106, verified 31 August 2026</li>
+        <li>Bill tracker: starts with the upcoming changes page</li>
+      </ul>
+    </section>
+  </div>
+  <div class="container footer-note">
+    <p>{SITE_NAME} is an independent civic project, not a government website.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-navy-deep);
+    color: var(--color-paper);
+    margin-top: var(--space-16);
+    padding: var(--space-12) 0 var(--space-6);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 48rem) {
+    .footer-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .site-footer h2 {
+    font-size: var(--text-heading-m);
+    color: var(--color-paper);
+    margin-bottom: var(--space-3);
+  }
+
+  .site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer li {
+    margin-bottom: var(--space-2);
+  }
+
+  .site-footer a {
+    color: var(--color-paper);
+  }
+
+  .site-footer .record li {
+    font-size: var(--text-body-s);
+    color: var(--color-paper);
+  }
+
+  .site-footer p {
+    font-size: var(--text-body-s);
+    margin-top: var(--space-3);
+  }
+
+  .footer-note {
+    margin-top: var(--space-8);
+    border-top: 1px solid rgba(253, 251, 247, 0.25);
+    padding-top: var(--space-4);
+  }
+
+  .footer-note p {
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="47" fill="none" stroke="#06038d" stroke-width="5" />
+  <circle cx="50" cy="50" r="8" fill="#06038d" />
+  <g stroke="#06038d" stroke-width="3">
+    <line x1="50" y1="12" x2="50" y2="88" />
+    <line x1="12" y1="50" x2="88" y2="50" />
+    <line x1="23" y1="23" x2="77" y2="77" />
+    <line x1="77" y1="23" x2="23" y2="77" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(15 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(45 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(75 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(105 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(135 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(165 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(195 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(225 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(255 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(285 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(315 50 50)" />
+    <line x1="50" y1="12" x2="88" y2="50" transform="rotate(345 50 50)" />
+  </g>
+</svg>

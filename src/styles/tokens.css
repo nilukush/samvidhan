@@ -1,0 +1,60 @@
+/*
+ * Samvidhan design tokens. Single source of truth for color, type, and space.
+ * Contrast pairs are enforced by tests/unit/tokens.test.ts; changing a value
+ * there requires rechecking docs/DESIGN-SYSTEM.md section 3.
+ */
+:root {
+  /* Brand. Saffron is darkened from the flag approximation #FF671F to
+     #F25C0A so meaningful graphics clear WCAG 3:1 on paper (2.82 fails). */
+  --color-ink: #1a1a2e;
+  --color-navy: #06038d;
+  --color-navy-deep: #040266;
+  --color-saffron: #f25c0a;
+  --color-saffron-soft: #ffe8db;
+  --color-green: #046a38;
+  --color-green-soft: #e2f0e8;
+  --color-paper: #fdfbf7;
+  --color-surface: #ffffff;
+  --color-line: #e5e0d5;
+
+  /* Semantic */
+  --color-link: #0b47d1;
+  --color-amber: #8a5a00;
+  --color-amber-soft: #fff3d6;
+  --color-red: #b3261e;
+  --color-red-soft: #fdecea;
+
+  /* Feedback */
+  --color-focus: #ffdd00;
+
+  /* Type families */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-text: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+
+  /* Fluid type scale, 1.25 ratio */
+  --text-display-xl: clamp(2.6rem, 6vw, 4.25rem);
+  --text-display-l: clamp(2rem, 4vw, 2.75rem);
+  --text-heading-l: 1.75rem;
+  --text-heading-m: 1.375rem;
+  --text-body-l: 1.125rem;
+  --text-body: 1rem;
+  --text-body-s: 0.875rem;
+  --text-mono-ref: 0.9375rem;
+
+  /* Space, 4px grid */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Radius and layout */
+  --radius-s: 4px;
+  --radius-m: 12px;
+  --container: 72rem;
+}
