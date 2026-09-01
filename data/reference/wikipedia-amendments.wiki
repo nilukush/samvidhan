@@ -1,0 +1,416 @@
+{{Short description|Types of amendments}}
+{{Use Indian English|date=December 2013}}
+{{Use dmy dates|date=March 2022}}
+{{Indian Constitution TOC}}
+
+As of March 2026, there have been 106<ref>{{Cite web|url=https://www.india.gov.in/my-government/constitution-india/amendments|title=Amendments {{!}} National Portal of India|website=india.gov.in|access-date=2019-03-11|archive-url=https://web.archive.org/web/20181122212554/https://www.india.gov.in/my-government/constitution-india/amendments|archive-date=22 November 2018|url-status=live}}</ref> [[Amendment of the Constitution of India|amendments of the Constitution of India]] since it was first enacted in 1950.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/coifiles/amendment.htm |title=The Constitution Amendment Acts |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080427052233/http://indiacode.nic.in/coiweb/coifiles/amendment.htm |archive-date=27 April 2008 |url-status=dead }}</ref>
+
+The Indian Constitution is one of the most amended national constitutions in the world.<ref name="Krishnamurthy2009">{{cite journal|url=http://www.yale.edu/yjil/files_PDFs/vol34/Krishnamurthy.pdf |page=219 |title=Colonial Cousins: Explaining India and Canada's Unwritten Constitutional Principles |last=Krishnamurthi |first=Vivek |date=2009 |volume=34 |issue=1 |journal=[[Yale Journal of International Law]] |url-status=dead |archive-url=https://web.archive.org/web/20160304075730/http://www.yale.edu/yjil/files_PDFs/vol34/Krishnamurthy.pdf |archive-date=2016-03-04 }}</ref> The Constitution spells out governmental powers with so much detail that many matters addressed by statute in other democracies must be addressed via constitutional amendment in India. As a result, the Constitution is amended roughly twice a year.
+
+There are three types of amendments to the [[Constitution of India]] of which the second and third types of amendments are governed by [[Amendment of the Constitution of India|Article 368]].
+
+* The first type of amendment must be passed by a "[[Majority|simple majority]]" in each house of the [[Parliament of India]].
+* The second type of amendment must be passed by a prescribed "[[Supermajority|special majority]]" of each house of Parliament; and
+* The third type of amendment must be passed by a "special majority" in each house of Parliament and ratified by at least one half of the [[State Legislative Assembly (India)|State Legislatures]]. Examples of the third type of amendment include amendments No. 3, 6, 7, 8, 13, 14, 15, 16, 22, 23, 24, 25, 28, 30, 31, 32, 35, 36, 38, 39, 42, 43, 44, 45, 46, 51, 54, 61, 62, 70, 73, 74, 75, 79, 84, 88, 95, 99, 101, and 104.<ref name="Nature and Scope">{{cite web|title=Constitution Amendment: Nature and Scope of the Amending Process, (page 10)|url=http://164.100.47.134/intranet/CAI/1.pdf|work=Lok Sabha Secretariat|access-date=1 December 2013|url-status=dead|archive-url=https://web.archive.org/web/20131203013055/http://164.100.47.134/intranet/CAI/1.pdf|archive-date=3 December 2013}}</ref>
+__TOC__
+{{clear}}
+
+==<span lang="Hindi " dir="ltr">List</span> of amendments==
+{| class="wikitable sortable"
+|-
+! No. || Amendments || Enforced since || Objectives || [[Prime Minister of India|Prime Minister]]
+|-
+| [[First Amendment of the Constitution of India|1st]] ||15, 19, 85, 87, 174, 176, 341, 342, 372 and 376.<br>Insert articles 31A and 31B.<br>Insert schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend1.htm |title=First Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080422192347/http://indiacode.nic.in/coiweb/amend/amend1.htm |archive-date=22 April 2008 |url-status=dead }}</ref> ||18 June 1951<ref name="AMENDMENT ACTS">{{cite web |url=https://legislative.gov.in/amendment-acts |title=AMENDMENT ACTS}}</ref>
+|| Added special provision for the advancement of any socially and educationally<ref>{{Cite web|url=https://legislative.gov.in/constitution-first-amendment-act-1951|title = THE CONSTITUTION (FIRST AMENDMENT) ACT, 1951&#124;Legislative Department &#124; Ministry of Law and Justice &#124; GoI}}</ref> backward classes or for the [[Scheduled Castes and Scheduled Tribes]] (SCs and STs). To fully secure the constitutional validity of [[Zamindar|zamindari]] abolition laws and to place reasonable restrictions on freedom of speech. A new constitutional device, called Schedule 9, introduced to protect against laws that are contrary to constitutionally guaranteed [[Fundamental rights in India|fundamental rights]]. These laws encroach upon property rights, freedom of speech and equality before law.
+| rowspan="17"|[[Jawaharlal Nehru]]
+|-
+| [[Second Amendment of the Constitution of India|2nd]] || Amend article 81(1)(b).<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend2.htm |title=Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080422192351/http://indiacode.nic.in/coiweb/amend/amend2.htm |archive-date=22 April 2008 |url-status=dead }}</ref> || 1 May 1953
+|| Removed the upper limit of 750,000 people, allowing for a single member to represent a larger population in a parliamentary constituency by amending Article 81(1)(b).
+|-
+| [[Third Amendment of the Constitution of India|3rd]] || Amend schedule 7.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend3.htm |title=Third Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181136/http://indiacode.nic.in/coiweb/amend/amend3.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 22 February 1955
+||  Re-enacted entry 33 of the [[Concurrent List]] in the Seventh Schedule with relation to include trade and commerce in, and the production, supply and distribution of four classes of essential commodities, viz., foodstuffs, including edible oil seeds and oils; cattle fodder, including oilcakes and other concentrates; raw cotton whether ginned or unginned, and cotton seeds; and raw jute.
+|-
+| [[Fourth Amendment of the Constitution of India|4th]] || Amend articles 31, 31A, and 305.<br>Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend4.htm |title=Fourth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080621113611/http://indiacode.nic.in/coiweb/amend/amend4.htm |archive-date=21 June 2008 |url-status=dead }}</ref> || 27 April 1955
+|| Primarily dealt with property rights and the state's power of acquisition. The amendment also included provisions to fix limits on the amount of agricultural land that an individual could own or occupy. Aimed to give the state full control over mineral and oil resources. 
+|-
+| [[Fifth Amendment of the Constitution of India|5th]] || Amend article 3.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend5.htm |title=Fifth Amendment |publisher=Indiacode.nic.in |access-date=2013-11-26 |archive-url=https://web.archive.org/web/20080121181302/http://indiacode.nic.in/coiweb/amend/amend5.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 24 December 1955
+|| Empowered the President to prescribe a time limit for a [[State Legislature (India)|State Legislature]] to convey its views on proposed Central laws relating to the formation of new States and alteration of areas, boundaries or names of existing [[States and union territories of India|States]]. Also permitted the President to extend the prescribed limit.
+|-
+| [[Sixth Amendment of the Constitution of India|6th]] || Amend articles 269 and 286.<br>Amend schedule 7.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend6.htm |title=Sixth Amendment |publisher=Indiacode.nic.in |date=1956-09-11 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181352/http://indiacode.nic.in/coiweb/amend/amend6.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 11 September 1956
+|| Amend the [[Union List]] and [[State List]] with respect to raising of taxes.
+|-
+| [[Seventh Amendment of the Constitution of India|7th]] || Amend articles 1, 3, 49, 80, 81, 82, 131, 153, 158, 168, 170, 171, 216, 217, 220, 222, 224, 230, 231 and 232.<br>Insert articles 258A, 290A, 298, 350A, 350B, 371, 372A and 378A.<br>Amend part 8.<br>Amend schedules 1, 2, 4 and 7.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend7.htm |title=Seventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20170501011646/http://indiacode.nic.in/coiweb/amend/amend7.htm |archive-date=1 May 2017 |url-status=dead }}</ref> || 1 November 1956
+|| Reorganisation of states on linguistic lines, abolition of Class A, B, C, D states and introduction of [[Union Territory|Union territories]].
+|-
+| [[Eighth Amendment of the Constitution of India|8th]] || Amend article 334.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend8.htm |title=Eighth Amendment |publisher=Indiacode.nic.in |access-date=2013-11-26 |archive-url=https://web.archive.org/web/20080121181534/http://indiacode.nic.in/coiweb/amend/amend8.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 5 January 1960
+|| Extended the period of reservation of seats for the Scheduled Castes and Scheduled Tribes and [[Anglo-Indian]]s in the [[Lok Sabha]] and the State Legislative Assemblies till 1970.
+|-
+| [[Ninth Amendment of the Constitution of India|9th]] || Amend schedule 1.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend9.htm |title=Ninth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080125225558/http://indiacode.nic.in/coiweb/amend/amend9.htm |archive-date=25 January 2008 |url-status=dead }}</ref> || 28 December 1960
+|| Minor adjustments to territory of Indian Union consequent to agreement with Pakistan for settlement of disputes by demarcation of border villages, etc.
+|-
+| [[Tenth Amendment of the Constitution of India|10th]] || Amend article 240.<br>Amend schedule 1.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend10.htm |title=Tenth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121180953/http://indiacode.nic.in/coiweb/amend/amend10.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 11 August 1961
+|| [[Annexation of Dadra and Nagar Haveli|Incorporation of Dadra and Nagar Haveli]] as a Union Territory, consequent to acquisition from Portugal.
+|-
+| [[Eleventh Amendment of the Constitution of India|11th]] || Amend articles 66 and 71.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend11.htm |title=Eleventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121180958/http://indiacode.nic.in/coiweb/amend/amend11.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 19 December 1961
+|| Election of [[Vice President of India|Vice President]] by Electoral College consisting of members of both Houses of Parliament, instead of election by a Joint Sitting of Parliament. Indemnify the President and Vice President Election procedure from challenge on grounds of existence of any vacancies in the electoral college.
+|-
+| [[Twelfth Amendment of the Constitution of India|12th]] || Amend article 240.<br>Amend schedule 1.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend12.htm |title=Twelfth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181003/http://indiacode.nic.in/coiweb/amend/amend12.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 20 December 1961 
+|| [[Annexation of Goa|Incorporation of Goa, Daman and Diu]] as a Union Territory, consequent to acquisition from Portugal.
+|-
+| [[Thirteenth Amendment of the Constitution of India|13th]] || Amend article 170.<br>Insert new article 371A.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend13.htm |title=Thirteenth Amendment |publisher=Indiacode.nic.in |date=1962-12-28 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181009/http://indiacode.nic.in/coiweb/amend/amend13.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 1 December 1962
+|| Special protection under Article 371A for newly create State of Nagaland.
+|-
+| [[Fourteenth Amendment of the Constitution of India|14th]] || Amend articles 81 and 240.<br>Insert article 239A.<br>Amend schedules 1 and 4.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend14.htm |title=Fourteenth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181013/http://indiacode.nic.in/coiweb/amend/amend14.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 28 December 1962
+|| Incorporation of Pondicherry into the Union of India and creation of Legislative Assemblies for Himachal Pradesh, Tripura, Manipur and Goa.
+|-
+| [[Fifteenth Amendment of the Constitution of India|15th]] || Amend articles 124, 128, 217, 222, 224, 226, 297, 311 and 316.<br>Insert article 224A.<br>Amend schedule 7.<ref>{{cite web |url=https://www.india.gov.in/my-government/constitution-india/amendments/constitution-india-fifteenth-amendment-act-1963 |title=Fifteenth Amendment |date=1963 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20180512124027/https://www.india.gov.in/my-government/constitution-india/amendments/constitution-india-fifteenth-amendment-act-1963 |archive-date=12 May 2018 |url-status=dead }}</ref> || 5 October 1963
+|| Raise retirement age of [[High Courts of India|High Court]] judges from 60 to 62 and other minor amendments for rationalising interpretation of rules regarding judges etc.
+|-
+| [[Sixteenth Amendment of the Constitution of India|16th]] || Amend articles 19, 84 and 173.<br>Amend schedule 3.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend16.htm |title=Sixteenth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181019/http://indiacode.nic.in/coiweb/amend/amend16.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 5 October 1963
+|| Make it obligatory for seekers of public office to swear their allegiance to the Indian Republic and prescribe the various obligatory templates.
+|-
+| [[Seventeenth Amendment of the Constitution of India|17th]] || Amend article 31A.<br>Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend17.htm |title=Seventeenth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080626201406/http://indiacode.nic.in/coiweb/amend/amend17.htm |archive-date=26 June 2008 |url-status=dead }}</ref> || 20 June 1964
+|| To secure the constitutional validity of acquisition of Estates and place land acquisition laws in Schedule 9 of the constitution.
+|-
+| [[Eighteenth Amendment of the Constitution of India|18th]] || Amend article 3.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend18.htm |title=Eighteenth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080428005951/http://indiacode.nic.in/coiweb/amend/amend18.htm |archive-date=28 April 2008 |url-status=dead }}</ref> || 27 August 1966
+|| Technical Amendment to include Union Territories in Article 3 and hence permit reorganisation of Union Territories.
+| rowspan="3"|[[Lal Bahadur Shastri]]
+|-
+| [[Nineteenth Amendment of the Constitution of India|19th]] || Amend article 324.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend19.htm |title=Nineteenth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181038/http://indiacode.nic.in/coiweb/amend/amend19.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 11 December 1966
+|| Abolish Election Tribunals and enable trial of election petitions by regular High Courts.
+|-
+| [[Twentieth Amendment of the Constitution of India|20th]] || Insert article 233A.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend20.htm |title=Twentieth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181048/http://indiacode.nic.in/coiweb/amend/amend20.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 22 December 1966
+|| Indemnify & validate judgments, decrees, orders and sentences passed by judges and to validate the appointment, posting, promotion and transfer of judges barring a few who were not eligible for appointment under article 233. Amendment needed to overcome the effect of judgment invalidating appointments of certain judges in the state of Uttar Pradesh.
+|-
+| [[Twenty-first Amendment of the Constitution of India|21st]] || Amend schedule 8.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend21.htm |title=Twenty First Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080621113115/http://indiacode.nic.in/coiweb/amend/amend21.htm |archive-date=21 June 2008 |url-status=dead }}</ref> || 10 April 1967
+|| Include [[Sindhi language|Sindhi]] as an [[Eighth Schedule to the Constitution of India|official language]].
+| rowspan="22"|[[Indira Gandhi]]
+|-
+| [[Twenty-second Amendment of the Constitution of India|22nd]] || Amend article 275.<br>Insert articles 244A and 371B.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend22.htm |title=Twenty Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181100/http://indiacode.nic.in/coiweb/amend/amend22.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 25 September 1969
+|| Provision to form Autonomous states within the State of Assam.
+|-
+| [[Twenty-third Amendment of the Constitution of India|23rd]] || Amend articles 330, 332, 333 and 334.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend23.htm |title=Twenty Third Amendment |publisher=Indiacode.nic.in |date=1970-01-23 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181105/http://indiacode.nic.in/coiweb/amend/amend23.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 23 January 1970
+|| Discontinued reservation of seats for the Scheduled Tribes in Nagaland, both in the Lok Sabha and the [[State Legislative Assembly (India)|State Legislative Assembly]] and stipulated that not more than one Anglo-Indian could be nominated by the [[Governor (India)|Governor]] to any State Legislative Assembly. Extend reservation for SCs and STs and Anglo-Indian members in the Lok Sabha and State Assemblies for another ten years, i.e. up to 1980.
+|-
+| [[Twenty-fourth Amendment of the Constitution of India|24th]] || Amend articles 13 and 368.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend24.htm |title=Twenty Fourth Amendment |publisher=Indiacode.nic.in |date=1971-11-05 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181110/http://indiacode.nic.in/coiweb/amend/amend24.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 5 November 1971
+|| Article 13(4) added. Enable Parliament to dilute Fundamental Rights through amendments to the Constitution.
+It was made compulsory for the President to give consent to the Constitution Amendment Bill.
+|-
+| [[Twenty-fifth Amendment of the Constitution of India|25th]] || Amend article 31.<br>Insert article 31C.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend25.htm |title=Twenty Fifth Amendment |publisher=Indiacode.nic.in |date=1972-04-20 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080409005816/http://indiacode.nic.in/coiweb/amend/amend25.htm |archive-date=9 April 2008 |url-status=dead }}</ref> || 8 December 1971
+|| Restrict property rights and compensation in case the state takes over private property.
+However, the [[Supreme Court of India|Supreme Court]] quashed a part of Article 31C (4) to the extent it took away the power of judicial review. This was done in the landmark case of ''[[Kesavananda Bharati v. State of Kerala]]'' (1973) 4 SCC 225 which for the first time enunciated the [[Basic structure doctrine]].
+|-
+| [[Twenty-sixth Amendment of the Constitution of India|26th]] || Amend article 366.<br>Insert article 363A.<br>Remove articles 291 and 362.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend26.htm |title=Twenty Sixth Amendment |publisher=Indiacode.nic.in |date=1971-12-28 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20111206041333/http://indiacode.nic.in/coiweb/amend/amend26.htm |archive-date=6 December 2011 |url-status=dead }}</ref> || 28 December 1971
+|| Abolition of [[Privy Purse in India|privy purse]] paid to former rulers of princely states which were incorporated into the Indian Republic.
+|-
+| [[Twenty-seventh Amendment of the Constitution of India|27th]] || Amend articles 239A and 240.<br>Insert articles 239B and 371C.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend27.htm |title=Twenty Seventh Amendment |publisher=Indiacode.nic.in |date=1971-12-30 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181121/http://indiacode.nic.in/coiweb/amend/amend27.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || (i) 30 December 1971 & (ii) 15 February 1972<ref name="AMENDMENT ACTS"/>
+|| Reorganisation of Mizoram into a Union Territory with a legislature and council of ministers.
+|-
+| [[Twenty-eighth Amendment of the Constitution of India|28th]] || Insert article 312A.<br>Remove article 314.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend28.htm |title=Twenty Eighth Amendment |publisher=Indiacode.nic.in |date=1972-08-27 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181125/http://indiacode.nic.in/coiweb/amend/amend28.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 29 August 1972
+|| Rationalise Civil Service rules to make it uniform across those appointed prior to Independence and post Independence.
+|-
+| [[Twenty-ninth Amendment of the Constitution of India|29th]] || Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend29.htm |title=Twenty Ninth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181131/http://indiacode.nic.in/coiweb/amend/amend29.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 9 June 1972
+|| 'Kerala land reform acts' and amendments to these act placed under Schedule 9 of the constitution.
+|-
+| [[Thirtieth Amendment of the Constitution of India|30th]] || Amend article 133.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend30.htm |title=Thirtieth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181141/http://indiacode.nic.in/coiweb/amend/amend30.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 9 June 1972
+|| Change the basis for appeals in Supreme Court of India in case of Civil Suits from value criteria to one involving substantial question of law.
+|-
+| [[Thirty-first Amendment of the Constitution of India|31st]] || Amend articles 81, 330 and 332.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend31.htm |title=Thirty First Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181146/http://indiacode.nic.in/coiweb/amend/amend31.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 17 October 1973
+|| Increase size of Parliament from 525 to 545 seats. Increased seats going to the new states formed in North East India and minor adjustment consequent to 1971 Delimitation exercise.
+|-
+| [[Thirty-second Amendment of the Constitution of India|32nd]] || Amend article 371.<br>Insert articles [[Article 371 (D)|371D]] and 371E.<br>Amend schedule 7.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend32.htm |title=Thirty Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181151/http://indiacode.nic.in/coiweb/amend/amend32.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 1 July 1974
+|| Protection of regional rights in Telangana and Andhra regions of State of Andhra Pradesh.
+Supreme Court in [https://api.sci.gov.in/jonew/judis/8854.pdf ''P. Sambamurthy v. State of Andhra Pradesh''] 1987 SCC  (1) 362 held clause (3) and (5) along with its Proviso of Article 371D as unconstitutional and void. It was found to be violative of basic structure doctrine, against the concept of justice and the principle of the rule of law.<ref>{{Cite web |title=P. SAMBAMURTHY & ORS. ETC. ETC. vs STATE OF ANDHRA PRADESH & ANR. |url=https://api.sci.gov.in/jonew/judis/8854.pdf |website=[[Supreme Court of India]]}}</ref>
+|-
+| [[Thirty-third Amendment of the Constitution of India|33rd]] || Amend articles 101 and 190.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend33.htm |title=Thirty Third Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181156/http://indiacode.nic.in/coiweb/amend/amend33.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 19 May 1974
+|| Prescribes procedure for resignation by members of parliament and state legislatures and the procedure for verification and acceptance of resignation by house speaker.
+|-
+| [[Thirty-fourth Amendment of the Constitution of India|34th]] || Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend34.htm |title=Thirty Fourth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181201/http://indiacode.nic.in/coiweb/amend/amend34.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 7 September 1974
+|| Place land reform acts and amendments to these act under Schedule 9 of the constitution.
+|-
+| [[Thirty-fifth Amendment of the Constitution of India|35th]] || Amend articles 80 and 81.<br>Insert article 2A.<br>Insert schedule 10.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend35.htm |title=Thirty Fifth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181206/http://indiacode.nic.in/coiweb/amend/amend35.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 1 March 1975
+||Terms and Conditions for the [[1975 Sikkimese monarchy referendum|Incorporation of Sikkim]] into the Union of India.
+|-
+| [[Thirty-sixth Amendment of the Constitution of India|36th]] || Amend articles 80 and 81.<br>Insert article 371F.<br>Remove article 2A.<br>Amend schedules 1 and 4.<br>Remove schedule 10.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend36.htm |title=Thirty Sixth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080626201410/http://indiacode.nic.in/coiweb/amend/amend36.htm |archive-date=26 June 2008 |url-status=dead }}</ref> || 26 April 1975
+|| Formation of Sikkim as a State within the Indian Union.
+|-
+| [[Thirty-seventh Amendment of the Constitution of India|37th]] || Amend articles 239A and 240.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend37.htm |title=Thirty Seventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181217/http://indiacode.nic.in/coiweb/amend/amend37.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 3 May 1975
+|| Formation of Arunachal Pradesh legislative assembly.
+|-
+| [[Thirty-eighth Amendment of the Constitution of India|38th]] || Amend articles 123, 213, 239B, 352, 356, 359 and 360.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend38.htm |title=Thirty Eighth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20071231214551/http://indiacode.nic.in/coiweb/amend/amend38.htm |archive-date=31 December 2007 |url-status=dead }}</ref> || 1 August 1975
+|| Enhances the powers of President and Governors to pass ordinances.
+|-
+| [[Thirty-ninth Amendment of the Constitution of India|39th]] || Amend articles 71 and 329.<br>Insert article 329A.<br>Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend39.htm |title=Thirty Ninth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181222/http://indiacode.nic.in/coiweb/amend/amend39.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 10 August 1975
+|| Amendment designed to negate the judgement of [[Allahabad High Court|Allahabad HC]] in ''[[State of Uttar Pradesh v. Raj Narain]]'' 1975 SCR (3) 333 invalidating PM Indira Gandhi's election to parliament. Amendment placed restrictions on judicial scrutiny of post of Prime Minister.<ref>{{cite web |title=HOW THE CONGRESS HAD WRECKED CONSTITUTION |url=http://www.dailypioneer.com/columnists/edit/how-the-congress-had-wrecked-constitution.html |url-status=dead |archive-url=https://web.archive.org/web/20160304075617/http://www.dailypioneer.com/columnists/edit/how-the-congress-had-wrecked-constitution.html |archive-date=4 March 2016 |access-date=2015-12-09 |publisher=dailypioneer.com}}</ref> Irrespective of electoral malpractice, no case can be filed against president, vice president, speaker of lok sabha and prime minister. 
+Later, clauses (4) and (5) of Article 329A were struck down by the Supreme Court in ''[https://api.sci.gov.in/judgment/judis/21398.pdf Indira Nehru Gandhi v. Raj Narain]'' 1976 (2) SCR 347, for being in violation of basic structure.
+|-
+| [[Fortieth Amendment of the Constitution of India|40th]] || Amend article 297.<br>Amend schedule 9.<ref>{{cite web |url=https://www.india.gov.in/my-government/constitution-india/amendments/constitution-india-fortieth-amendment-act-1976 |title=Fortieth Amendment |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20180512112413/https://www.india.gov.in/my-government/constitution-india/amendments/constitution-india-fortieth-amendment-act-1976 |archive-date=12 May 2018 |url-status=live }}</ref> || 27 May 1976
+|| Enable Parliament to make laws with respect to Exclusive Economic Zone and vest the mineral wealth with Union of India.
+Place land reform & other acts and amendments to these act under Schedule 9 of the constitution.
+|-
+| [[Forty-first Amendment of the Constitution of India|41st]] || Amend article 316.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend41.htm |title=Forty First Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080621113120/http://indiacode.nic.in/coiweb/amend/amend41.htm |archive-date=21 June 2008 |url-status=dead }}</ref> || 7 September 1976
+|| Raise Retirement Age Limit of Chairmen and Members of Joint Public Service Commissions and State Public Service Commissions from sixty to sixty two. No case can be filed against prime minister, governor, president, even after they demit office (which was later struck down by supreme court)
+|-
+| [[Forty-second Amendment of the Constitution of India|42nd]] || Amend articles 31, 31C, 39, 55, 74, 77, 81, 82, 83, 100, 102, 103, 105, 118, 145, 150, 166, 170, 172, 189, 191, 192, 194, 208, 217, 225, 226, 227, 228, 311, 312, 330, 352, 353, 356, 357, 358, 359, 366, 368 and 371F.<br>Insert articles 31D, 32A, 39A, 43A, 48A, 131A, 139A, 144A, 226A, 228A and 257A.<br>Insert parts IVA and XIVA.<br>Amend schedule 7.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend42.htm |title=Forty Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20150328040620/http://indiacode.nic.in/coiweb/amend/amend42.htm |archive-date=28 March 2015 |url-status=dead }}</ref> ||  3 January, 1 February & 1 April 1977<ref name="AMENDMENT ACTS"/>
+|| Amendment passed during internal emergency by Indira Gandhi. Provides for curtailment of fundamental rights, imposes [[Fundamental Rights, Directive Principles and Fundamental Duties of India|fundamental duties]] and changes to the basic structure of the constitution by making India a "Sovereign Socialist Secular Democratic Republic".
+However, the Supreme Court, in ''[[Minerva Mills v. Union of India]]''  1980 SCC (3) 625, quashed the amendments to Articles 31C and 368 as it was in contravention with the basic structure of the Constitution.
+|-
+| [[Forty-third Amendment of the Constitution of India|43rd]] || Amend articles 145, 226, 228 and 366.<br>Remove articles 31D, 32A, 131A, 144A, 226A and 228A.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend43.htm |title=Forty Third Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080427160830/http://indiacode.nic.in/coiweb/amend/amend43.htm |archive-date=27 April 2008 |url-status=dead }}</ref> || 13 April 1978
+|| Amendment passed after revocation of internal emergency in the Country. Repeals some of the more 'Anti-Freedom' amendments enacted through Amendment Bill 42.
+| rowspan="2"|[[Morarji Desai]]
+|-
+| [[Forty-fourth Amendment of the Constitution of India|44th]] || Amend articles 19, 22, 30, 31A, 31C, 38, 71, 74, 77, 83, 103, 105, 123, 132, 133, 134, 139A, 150, 166, 172, 192, 194, 213, 217, 225, 226, 227, 239B, 329, 352, 356, 358, 359, 360 and 371F.<br>Insert articles 134A and 361A.<br>Remove articles 31, 257A and 329A.<br>Amend part 12.<br>Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend44.htm |title=Forty Fourth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080621114155/http://indiacode.nic.in/coiweb/amend/amend44.htm |archive-date=21 June 2008 |url-status=dead }}</ref> || 20 June, 1 August & 6 September 1979<ref name="AMENDMENT ACTS"/>
+|| Amendment passed after revocation of internal emergency in the Country.
+Article 19(1)(f) right to property was omitted. 
+Provides for human rights safeguards and mechanisms to prevent abuse of executive and legislative authority.
+Annuls some Amendments enacted in Amendment Bill 42.
+|-
+| [[Forty-fifth Amendment of the Constitution of India|45th]] || Amend article 334.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend45.htm |title=Forty Fifth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181237/http://indiacode.nic.in/coiweb/amend/amend45.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 25 January 1980
+|| Extend reservation for SCs and STs and nomination of Anglo Indian members in Parliament and State Assemblies for another ten years i.e. up to 1990.
+| rowspan="7"| [[Indira Gandhi]]
+|-
+| [[Forty-sixth Amendment of the Constitution of India|46th]] || Amend articles 269, 286 and 366.<br>Amend schedule 7.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend46.htm |title=Forty Sixth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181246/http://indiacode.nic.in/coiweb/amend/amend46.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 2 February 1983
+|| Amendment to negate judicial pronouncements on scope and applicability on Sales Tax.
+|-
+| [[Forty-seventh Amendment of the Constitution of India|47th]] || Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend47.htm |title=Forty Seventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181247/http://indiacode.nic.in/coiweb/amend/amend47.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 26 August 1984
+|| Place land reform acts and amendments to these act under Schedule 9 of the constitution.
+|-
+| [[Forty-eighth Amendment of the Constitution of India|48th]] || Amend article 356.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend48.htm |title=Forty Eighth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181252/http://indiacode.nic.in/coiweb/amend/amend48.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 1 April 1984
+|| Article 356 amended to permit President's rule up to two years in the state of Punjab.
+|-
+| [[Forty-ninth Amendment of the Constitution of India|49th]] || Amend article 244.<br>Amend schedules 5 and 6.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend49.htm |title=Forty Ninth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181257/http://indiacode.nic.in/coiweb/amend/amend49.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 11 September 1984
+|| Recognise Tripura as a tribal state and enable the creation of a [[Tripura Tribal Areas Autonomous District Council]].
+|-
+| [[Fiftieth Amendment of the Constitution of India|50th]] || Amend article 33.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend50.htm |title=Fiftieth Amendment |publisher=Indiacode.nic.in |date=1984-08-18 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181307/http://indiacode.nic.in/coiweb/amend/amend50.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 11 September 1984
+|| Technical Amendment to curtailment of Fundamental Rights as per Part III as prescribed in Article 33 to cover Security Personnel protecting property and communication infrastructure.
+|-
+| [[Fifty-first Amendment of the Constitution of India|51st]] || Amend articles 330 and 332.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend51.htm |title=Fifty First Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181312/http://indiacode.nic.in/coiweb/amend/amend51.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 16 June 1984
+|| Provide reservation to Scheduled Tribes in Nagaland, Meghalaya, Mizoram and Arunachal Pradesh in Loksabha, similarly for Meghalaya and Arunachal in their Legislative Assemblies.
+|-
+| [[Fifty-second Amendment of the Constitution of India|52nd]] || Amend articles 101, 102, 190 and 191.<br>Insert schedule 10.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend52.htm |title=Fifty Nine Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20071217095542/http://indiacode.nic.in/coiweb/amend/amend52.htm |archive-date=17 December 2007 |url-status=dead }}</ref> || 1 March 1985
+|| Anti Defection Law – Provide disqualification of members from parliament and assembly in case of defection from one party to other. 
+However, para 7 of the 10th Schedule was struck down by the Supreme Court in the case of ''[https://api.sci.gov.in/judgment/judis/12491.pdf Kihoto Hollohan v. Zachillhu]'' 1992 SCR (1) 686, for being in contravention with Article 368 of the Constitution.
+| rowspan="10"|[[Rajiv Gandhi]]
+|-
+|-
+| [[Fifty-third Amendment of the Constitution of India|53rd]] || Insert article 371G.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend53.htm |title=Fifty Third Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181317/http://indiacode.nic.in/coiweb/amend/amend53.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 20 February 1986 
+|| Special provision with respect to the State of Mizoram.
+|-
+| [[Fifty-fourth Amendment of the Constitution of India|54th]] || Amend articles 125 and 221.<br>Amend schedule 2.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend54.htm |title=Fifty Fourth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181322/http://indiacode.nic.in/coiweb/amend/amend54.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 1 April 1986
+|| Increase the salary of [[Chief Justice of India]] & other Judges and to provide for determining future increases without the need for constitutional amendment.
+|-
+| [[Fifty-fifth Amendment of the Constitution of India|55th]] || Insert article 371H.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend55.htm |title=Fifty Fifth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181327/http://indiacode.nic.in/coiweb/amend/amend55.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 20 February 1987
+|| Special powers to Governor consequent to formation of state of Arunachal Pradesh.
+|-
+| [[Fifty-sixth Amendment of the Constitution of India|56th]] || Insert article 371I.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend56.htm |title=Fifty Sixth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181332/http://indiacode.nic.in/coiweb/amend/amend56.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 30 May 1987
+|| Transition provision to enable formation of state of Goa.
+|-
+| [[Fifty-seventh Amendment of the Constitution of India|57th]] || Amend article 332.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend57.htm |title=Fifty Seventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181337/http://indiacode.nic.in/coiweb/amend/amend57.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 21 September 1987
+|| Provide reservation to Scheduled Tribes in Nagaland, Meghalaya, Mizoram and Arunachal Pradesh Legislative Assemblies.
+|-
+| [[Fifty-eighth Amendment of the Constitution of India|58th]] || Insert article 394A.<br>Amend part 22.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend58.htm |title=Fifty Eighth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181342/http://indiacode.nic.in/coiweb/amend/amend58.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 9 December 1987
+|| Provision to publish authentic Hindi translation of constitution as on date and provision to publish authentic Hindi translation of future amendments.
+|-
+| [[Fifty-ninth Amendment of the Constitution of India|59th]] || Amend article 356.<br>Insert article 359A.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend59.htm |title=Fifty Ninth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181348/http://indiacode.nic.in/coiweb/amend/amend59.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 30 March 1988
+|| Article 356 amended to permit President's rule up to three years in the state of Punjab, Articles 352 and Article 359A amended to permit imposing emergency in state of Punjab or in specific districts of the state of Punjab.
+|-
+| [[Sixtieth Amendment of the Constitution of India|60th]] || Amend article 276.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend60.htm |title=Sixtieth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181357/http://indiacode.nic.in/coiweb/amend/amend60.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 20 December 1988
+|| Profession Tax increased from a maximum of Rs. 250/- to a maximum of Rs. 2500/-.
+|-
+| [[Sixty-first Amendment of the Constitution of India|61st]] || Amend article 326.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend61.htm |title=Sixty First Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181402/http://indiacode.nic.in/coiweb/amend/amend61.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 28 March 1989
+|| Reduce age for voting rights from 21 to 18.
+|-
+| [[Sixty-second Amendment of the Constitution of India|62nd]] || Amend article 334.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend62.htm |title=Sixty Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181408/http://indiacode.nic.in/coiweb/amend/amend62.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 25 January 1990
+|| Extend reservation for SCs and STs and nomination of Anglo Indian members in Parliament and State Assemblies for another ten years i.e. up to 2000.
+| rowspan="6"|[[V. P. Singh]]
+|-
+| [[Sixty-third Amendment of the Constitution of India|63rd]] || Amend article 356.<br>Remove article 359A.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend63.htm |title=Sixty Third Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181413/http://indiacode.nic.in/coiweb/amend/amend63.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 6 January 1990
+|| Emergency powers applicable to State of Punjab, accorded in Article 359A as per amendment 59 repealed.
+|-
+| [[Sixty-fourth Amendment of the Constitution of India|64th]] || Amend article 356.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend64.htm |title=Sixty Fourth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181418/http://indiacode.nic.in/coiweb/amend/amend64.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 16 April 1990
+|| Article 356 amended to permit President's rule up to three years and six months in the state of Punjab.
+|-
+| [[Sixty-fifth Amendment of the Constitution of India|65th]] || Amend article 338.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend65.htm |title=Sixty Fifth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181423/http://indiacode.nic.in/coiweb/amend/amend65.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 12 March 1992<ref name="AMENDMENT ACTS"/>
+|| National Commission for Scheduled Castes and Scheduled Tribes formed and its statutory powers specified in The Constitution.
+|-
+| [[Sixty-sixth Amendment of the Constitution of India|66th]] || Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend66.htm |title=Sixty Sixth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080412112753/http://indiacode.nic.in/coiweb/amend/amend66.htm |archive-date=12 April 2008 |url-status=dead }}</ref> || 7 June 1990
+|| Place land reform acts and amendments to these act under Schedule 9 of the constitution.
+|-
+| [[Sixty-seventh Amendment of the Constitution of India|67th]] || Amend article 356.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend67.htm |title=Sixty Seventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181428/http://indiacode.nic.in/coiweb/amend/amend67.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 4 October 1990
+|| Article 356 amended to permit President's rule up to four years in the state of Punjab.
+|-
+| [[Sixty-eighth Amendment of the Constitution of India|68th]] || Amend article 356.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend68.htm |title=Sixty Eighth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181433/http://indiacode.nic.in/coiweb/amend/amend68.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 12 March 1991
+|| Article 356 amended to permit President's rule up to five years in the state of Punjab. 
+| rowspan="1"| [[Chandra Shekhar]]
+|-
+| [[Sixty-ninth Amendment of the Constitution of India|69th]] || Insert articles 239AA and 239AB.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend69.htm |title=Sixty Ninth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20160821020032/http://indiacode.nic.in/coiweb/amend/amend69.htm |archive-date=21 August 2016 |url-status=dead }}</ref> || 1 February 1992<ref name="AMENDMENT ACTS"/>
+|| To provide for a legislative assembly and council of ministers for [[National Capital Territory of Delhi]]. Delhi continues to be a Union Territory.
+| rowspan="10"|[[P. V. Narasimha Rao]]
+|-
+| [[Seventieth Amendment of the Constitution of India|70th]] || Amend articles 54 and 239AA.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend70.htm |title=Seventieth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181449/http://indiacode.nic.in/coiweb/amend/amend70.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 21 December 1991
+|| Include National Capital Territory of Delhi and Union Territory of Pondicherry in [[Electoral College (India)|Electoral College]] for presidential election.
+|-
+| [[Seventy-first Amendment of the Constitution of India|71st]] || Amend schedule 8.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend71.htm |title=Seventy First Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181454/http://indiacode.nic.in/coiweb/amend/amend71.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 31 August 1992
+||  Include [[Konkani language|Konkani]], [[Meitei language|Manipuri]] and [[Nepali language|Nepali]] as official languages.
+|-
+| [[Seventy-second Amendment of the Constitution of India|72nd]] || Amend article 332.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend72.htm |title=Seventy Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181459/http://indiacode.nic.in/coiweb/amend/amend72.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 5 December 1992
+|| Provide reservation to Scheduled Tribes in Tripura State Legislative Assembly.
+|-
+| [[Seventy-third Amendment of the Constitution of India|73rd]] || Insert part 9. Insert schedule 11.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend73.htm |title=Seventy Third Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20030505042750/http://indiacode.nic.in/coiweb/amend/amend73.htm |archive-date=5 May 2003 |url-status=dead }}</ref> || 24 April 1993
+|| Statutory provisions for Panchayati Raj as third level of administration in villages.
+|-
+| [[Seventy-fourth Amendment of the Constitution of India|74th]] || Insert part 9A, insert schedule 12, amend article 280.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend74.htm |title=Seventy Fourth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080621113745/http://indiacode.nic.in/coiweb/amend/amend74.htm |archive-date=21 June 2008 |url-status=dead }}</ref> || 1 June 1993
+|| Statutory provisions for Local Administrative bodies as third level of administration in urban areas such as towns and cities.
+|-
+| [[Seventy-fifth Amendment of the Constitution of India|75th]] || Amend article 323B.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend75.htm |title=Seventy Fifth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181509/http://indiacode.nic.in/coiweb/amend/amend75.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 15 May 1994
+|| Provisions for setting up Rent Control Tribunals.
+|-
+| [[Seventy-sixth Amendment of the Constitution of India|76th]] || Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend76.htm |title=Seventy Sixth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181515/http://indiacode.nic.in/coiweb/amend/amend76.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 31 August 1994
+|| Enable continuance of 69% [[Reservation in India|reservation]] in Tamil Nadu by including the relevant Tamil Nadu Act under 9th Schedule of the constitution.
+|-
+| [[Seventy-seventh Amendment of the Constitution of India|77th]] || Amend article 16.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend77.htm |title=Seventy Seventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181519/http://indiacode.nic.in/coiweb/amend/amend77.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 17 June 1995
+|| A technical amendment to protect reservation to SCs and STs Employees in promotions.
+|-
+| [[Seventy-eighth Amendment of the Constitution of India|78th]] || Amend schedule 9.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend78.htm |title=Seventy Eighth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181524/http://indiacode.nic.in/coiweb/amend/amend78.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 30 August 1995
+|| Place land reform acts and amendments to these act under Schedule 9 of the constitution.
+|-
+| [[Seventy-ninth Amendment of the Constitution of India|79th]] || Amend article 334.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend79.htm |title=Seventy Ninth Amendment |publisher=Indiacode.nic.in |date=1999-10-21 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181529/http://indiacode.nic.in/coiweb/amend/amend79.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 25 January 2000
+|| Extend reservation for SCs and STs and nomination of Anglo Indian members in Parliament and State Assemblies for another ten years i.e. up to 2010.
+| rowspan="14"|[[Atal Bihari Vajpayee]]
+|-
+| [[Eightieth Amendment of the Constitution of India|80th]] || Amend articles 269 and 270.<br>Remove article 272.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend80.htm |title=Eightieth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121164338/http://indiacode.nic.in/coiweb/amend/amend80.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 9 June 2000
+||Implement Tenth Finance Commission recommendation to simplify the tax structures by pooling and sharing all taxes between states and the centre.
+|-
+| [[Eighty-first Amendment of the Constitution of India|81st]] || Amend article 16.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend81.htm |title=Eighty First Amendment |publisher=Indiacode.nic.in |date=1997-08-29 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080217021050/http://indiacode.nic.in/coiweb/amend/amend81.htm |archive-date=17 February 2008 |url-status=dead }}</ref> || 9 June 2000
+|| Protect SCs and STs reservation in filling backlog of vacancies.
+|-
+| [[Eighty-second Amendment of the Constitution of India|82nd]] || Amend article 335.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend82.htm |title=Eighty Second Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181540/http://indiacode.nic.in/coiweb/amend/amend82.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 8 September 2000
+|| Permit relaxation of qualifying marks and other criteria in reservation in promotion for SCs and STs candidates.
+|-
+| [[Eighty-third Amendment of the Constitution of India|83rd]] || Amend article 243M.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend83.htm |title=Eighty Third Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181546/http://indiacode.nic.in/coiweb/amend/amend83.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 8 September 2000
+|| Exempt Arunachal Pradesh from reservation for Scheduled Castes in Panchayati Raj institutions.
+|-
+| [[Eighty-fourth Amendment of the Constitution of India|84th]] || Amend articles 55, 81, 82, 170, 330 and 332.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend84.htm |title=Eighty Fourth Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181551/http://indiacode.nic.in/coiweb/amend/amend84.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 21 February 2002
+|| Extend the usage of 1971 national census population figures for statewise distribution of parliamentary seats.
+|-
+| [[Eighty-fifth Amendment of the Constitution of India|85th]] || Amend article 16.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend85.htm |title=Eighty Fifth Amendment |publisher=Indiacode.nic.in |date=2002-01-04 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080121181555/http://indiacode.nic.in/coiweb/amend/amend85.htm |archive-date=21 January 2008 |url-status=dead }}</ref> || 4 January 2002
+|| A technical amendment to protect Consequential seniority in case of promotions of SCs and STs Employees.
+|-
+| [[Eighty-sixth Amendment of the Constitution of India|86th]] || Amend articles 45 and 51A.<br>Insert article 21A.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend86.htm |title=Eighty Sixth Amendment |publisher=Indiacode.nic.in |date=2002-12-12 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20111209092059/http://indiacode.nic.in/coiweb/amend/amend86.htm |archive-date=9 December 2011 |url-status=dead }}</ref> || 12 December 2002
+|| Provides Right to Education until the age of fourteen.
+|-
+| [[Eighty-seventh Amendment of the Constitution of India|87th]] || Amend articles 81, 82, 170 and 330.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend87.htm |title=Eighty Seventh Amendment |publisher=Indiacode.nic.in |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080913211803/http://indiacode.nic.in/coiweb/amend/amend87.htm |archive-date=13 September 2008 |url-status=dead }}</ref> || 22 June 2003
+|| Extend the usage of 2001 national census population figures for statewise distribution of parliamentary seats.
+|-
+| [[Eighty-eighth Amendment of the Constitution of India|88th]] || Amend article 270.<br>Insert article 268A.<br>Amend schedule 7.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend88.htm |title=Eighty Eighth Amendment |publisher=Indiacode.nic.in |date=2004-01-15 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080915093245/http://indiacode.nic.in/coiweb/amend/amend88.htm |archive-date=15 September 2008 |url-status=dead }}</ref> || 15 January 2004
+|| To extend statutory cover for levy and utilisation of Service Tax.
+|-
+| [[Eighty-ninth Amendment of the Constitution of India|89th]] || Amend article 338.<br>Insert article 338A.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend89.htm |title=Eighty Ninth Amendment |publisher=Indiacode.nic.in |date=2003-09-28 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080915093253/http://indiacode.nic.in/coiweb/amend/amend89.htm |archive-date=15 September 2008 |url-status=dead }}</ref> || 28 September 2003
+|| The National Commission for Scheduled Castes and Scheduled Tribes was bifurcated into The National Commission for Scheduled Castes and The National Commission for Scheduled Tribes.
+|-
+| [[Ninetieth Amendment of the Constitution of India|90th]] || Amend article 332.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend90.htm |title=Ninetieth Amendment |publisher=Indiacode.nic.in |date=2004-09-28 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080421235120/http://indiacode.nic.in/coiweb/amend/amend90.htm |archive-date=21 April 2008 |url-status=dead }}</ref> || 28 September 2003
+|| Reservation in Assam Assembly relating to Bodoland Territory Area.
+|-
+| [[Ninety-first Amendment of the Constitution of India|91st]] || Amend articles 75 and 164.<br>Insert article 361B.<br>Amend schedule 10.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend91.pdf |title=Ninety First Amendment (pdf) |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080626223433/http://indiacode.nic.in/coiweb/amend/amend91.pdf |archive-date=26 June 2008 |url-status=dead }}</ref> || 1 January 2004
+|| Restrict the size of council of ministers to 15% of legislative members & to strengthen Anti Defection laws.
+|-
+| [[Ninety-second Amendment of the Constitution of India|92nd]] 
+| Amend schedule 8.<ref>{{cite web|title=Texts of the Constitution Amendment Acts|url=http://164.100.47.134/intranet/CAI/A.pdf|work=Lok Sabha Secretariat|access-date=5 December 2013|pages=672–673|url-status=dead|archive-url=https://web.archive.org/web/20131203013036/http://164.100.47.134/intranet/CAI/A.pdf|archive-date=3 December 2013}}</ref> 
+| 7 January 2004
+| Include [[Bodo language|Bodo]], [[Dogri language|Dogri]], [[Santali language|Santali]] and [[Maithali language|Maithili]] as official languages.
+|-
+| [[Ninety-third Amendment of the Constitution of India|93rd]] 
+| Amend article 15.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend93.htm |title=Ninety Third Amendment |publisher=Indiacode.nic.in |date=2006-01-20 |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20080621112914/http://indiacode.nic.in/coiweb/amend/amend93.htm |archive-date=21 June 2008 |url-status=dead }}</ref> 
+| 20 January 2006
+| To enable provision of reservation (27%) for [[Other Backward Class]](OBCs) in government as well as private educational institutions.
+|  rowspan="6"|[[Manmohan Singh]]
+|-
+| [[Ninety-fourth Amendment of the Constitution of India|94th]] 
+| Amend article 164.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend94.pdf |title=Ninety Fourth Amendment (pdf) |access-date=2011-11-19 |archive-url=https://web.archive.org/web/20090205233954/http://indiacode.nic.in/coiweb/amend/amend94.pdf |archive-date=5 February 2009 |url-status=dead }}</ref> 
+| 12 June 2006
+| To provide for a Minister of Tribal Welfare in newly created Jharkhand and Chhattisgarh States including Madhya Pradesh and Odisha.
+|-
+| [[Ninety-fifth Amendment of the Constitution of India|95th]] 
+| Amend article 334.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend95.pdf |title=Ninety Fifth Amendment (pdf) |access-date=2011-12-27 |archive-url=https://web.archive.org/web/20120130230833/http://indiacode.nic.in/coiweb/amend/amend95.pdf |archive-date=30 January 2012 |url-status=dead }}</ref> 
+| 25 January 2010 
+| To extend reservation for SCs and STs and nomination of Anglo Indian members in Parliament and State Assemblies for another ten years i.e. up to 2020.
+|-
+| [[Ninety-sixth Amendment of the Constitution of India|96th]] 
+| Amend schedule 8.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend96.pdf |title=Ninety Sixth Amendment (pdf) |access-date=2011-12-27 |archive-url=https://web.archive.org/web/20120130194222/http://indiacode.nic.in/coiweb/amend/amend96.pdf |archive-date=30 January 2012 |url-status=dead }}</ref> 
+| 23 September 2011 
+| Substituted "Odia" in the place of "Oriya".
+|-
+| [[Ninety-seventh Amendment of the Constitution of India|97th]] 
+| Amend Art 19 and add Art 43B and Part IXB.<ref>{{cite web |url=http://indiacode.nic.in/coiweb/amend/amend97.pdf |title=Ninety Seventh Amendment (pdf) |access-date=2011-12-27 |archive-url=https://web.archive.org/web/20120522144037/http://indiacode.nic.in/coiweb/amend/amend97.pdf |archive-date=22 May 2012 |url-status=dead }}</ref> 
+| 12 January 2012 
+| Added the words "or co-operative societies" after the word "or unions" in Article 19(l)(c) and insertion of article 43B i.e., Promotion of Co-operative Societies and added Part-IXB i.e., The Co-operative Societies. In July 2021 Supreme Court Struck Part of the amendment as it was not ratified by the states.<ref>{{Cite web|url=https://www.hindustantimes.com/india-news/sc-quashes-part-of-upa-era-constitutional-amendment-101626804819445.html|title=SC quashes part of UPA-era constitutional amendment|date=20 July 2021}}</ref>
+
+The amendment objective is to encourage economic activities of cooperatives which in turn help progress of rural India. It is expected to not only ensure autonomous and democratic functioning of cooperatives, but also the accountability of the management to the members and other stakeholders.<ref>{{cite web|url=http://pib.nic.in/newsite/erelease.aspx?relid=81715|title=Ninety Seventh Amendment (PIB)|access-date=28 October 2012|archive-url=https://web.archive.org/web/20141217045456/http://pib.nic.in/newsite/erelease.aspx?relid=81715|archive-date=17 December 2014|url-status=live}}</ref>
+|-
+| [[Ninety-eighth Amendment of the Constitution of India|98th]] 
+| To insert Article 371J in the Constitution<ref name=98am /> 
+| 1 January 2013
+| To empower the Governor of Karnataka to take steps to develop the Hyderabad-Karnataka Region.<ref name=98am>{{cite web|url=http://bombayhighcourt.nic.in/libweb/actc/Consti.98amend.PDF|title=Ninety Eighth Third Amendment|publisher=[[Ministry of Law and Justice (India)]]|access-date=11 May 2013|archive-url=https://web.archive.org/web/20131224111610/http://bombayhighcourt.nic.in/libweb/actc/Consti.98amend.PDF|archive-date=24 December 2013|url-status=dead}}</ref>
+|-
+| style="background:#e6e6e6" | [[Ninety-ninth Amendment of the Constitution of India|99th]] 
+|style="background:#e6e6e6" | Insertion of new articles 124A, 124B and 124C. Amendments to Articles 127, 128, 217, 222, 224A, 231.<ref>{{cite web|title=The Constitutions (Ninety-ninth Amendment) Bill, 2014|url=http://www.prsindia.org/uploads/media/constitution%20121st/121st%20(A)%20Bill%20as%20passed%20by%20LS.pdf|publisher=Govt, of India|access-date=15 August 2014|archive-url=https://web.archive.org/web/20140819083558/http://www.prsindia.org/uploads/media/constitution%20121st/121st%20(A)%20Bill%20as%20passed%20by%20LS.pdf|archive-date=19 August 2014|url-status=dead}}</ref> 
+|style="background:#e6e6e6" | 13 April 2015<ref>{{cite web|title=Constitution (Ninety-ninth Amendment) Act, 2014|url=http://onelawstreet.com/wp-content/uploads/2015/01/Gazette-Constitution-Ninety-ninth-Amendment-Act-2014.pdf|website=1, Law Street|access-date=23 June 2015|archive-url=https://web.archive.org/web/20150623095503/http://onelawstreet.com/wp-content/uploads/2015/01/Gazette-Constitution-Ninety-ninth-Amendment-Act-2014.pdf|archive-date=23 June 2015|url-status=live}}</ref> Struck down on 16 October 2015
+|style="background:#e6e6e6" | Formation of a [[National Judicial Appointments Commission]]. 16 State assemblies out of 29 States including [[Goa]], [[Rajasthan]], [[Tripura]], [[Gujarat]] and [[Telangana]] ratified the Central Legislation, enabling the President of India to give assent to the bill.<ref>{{cite web|url=https://www.jagranjosh.com/current-affairs/16-states-ratified-national-judicial-appointments-commission-bill-2014-1419859039-1|title=16 States ratified National Judicial Appointments Commission Bill, 2014|date=29 December 2014|website=Jagranjosh.com|access-date=2 January 2019|archive-url=https://web.archive.org/web/20180618131346/https://www.jagranjosh.com/current-affairs/16-states-ratified-national-judicial-appointments-commission-bill-2014-1419859039-1|archive-date=18 June 2018|url-status=live}}</ref> The amendment was struck down by the Supreme Court on 16 October 2015.
+| rowspan="8" |[[Narendra Modi]]
+|-
+| [[One Hundredth Amendment of the Constitution of India|100th]]
+| Amendment of First Schedule to Constitution<ref>{{cite web|url=http://egazette.nic.in/WriteReadData/2015/164169.pdf|title=One Hundredth Amendment|archive-url=https://web.archive.org/web/20150922005422/http://egazette.nic.in/writereaddata/2015/164169.pdf|archive-date=22 September 2015|url-status=live|access-date=2019-01-12}}</ref>
+| 31 July 2015
+| Exchange of certain [[India–Bangladesh enclaves|enclave territories]] with [[Bangladesh]] and conferment of citizenship rights to residents of enclaves consequent to signing of Land Boundary Agreement (LBA) Treaty between India and Bangladesh.
+|-
+| [[One Hundred and First Amendment of the Constitution of India|101st]]
+| Add of articles 246A, 269A, 279A. Deletion of Article 268A.
+
+Amend articles 248, 249, 250, 268, 269, 270, 271, 286, 366, 368, Sixth Schedule, Seventh Schedule.<ref>{{cite web|url=http://egazette.nic.in/WriteReadData/2016/171639.pdf|title=One Hundred and First Amendment|archive-url=https://web.archive.org/web/20180417143055/http://egazette.nic.in/WriteReadData/2016/171639.pdf|archive-date=17 April 2018|url-status=live|access-date=2019-01-12}}</ref>
+| 1 July 2017
+| Introduced the [[Goods and Services Tax (India)|Goods and Services Tax]].
+|-
+|[[One Hundred and Second Amendment of the Constitution of India|102nd]]
+|Add articles 338B, 342A, and add Clause 26C.
+Modification of articles 338, 366.<ref>{{Cite web|url=http://egazette.nic.in/WriteReadData/2018/188471.pdf|title=One Hundred and Second Amendment|archive-url=https://web.archive.org/web/20190113182339/http://egazette.nic.in/WriteReadData/2018/188471.pdf|archive-date=13 January 2019|url-status=live|access-date=2019-01-12}}</ref>
+|11 August 2018
+|Constitutional status to [[National Commission for Backward Classes]]
+|-
+|[[One Hundred and Third Amendment of the Constitution of India|103rd]]
+|Amend Article 15, add Clause [6],
+Amend to Article 16, add Clause [6].<ref>{{Cite web|url=http://egazette.nic.in/WriteReadData/2019/195175.pdf|title=One Hundred and Third Amendment|archive-url=https://web.archive.org/web/20190112200433/http://egazette.nic.in/WriteReadData/2019/195175.pdf|archive-date=12 January 2019|url-status=live|access-date=2019-01-12}}</ref>
+|12 January 2019
+|A maximum of 10% Reservation for [[Economically Weaker Section]]s (EWSs) of citizens of classes other than the classes mentioned in clauses (4) and (5) of Article 15, i.e. Classes other than socially and educationally backward classes of citizens or the Scheduled Castes and the Scheduled Tribes. Inserted Clause [6] under Article 15 as well as Inserted Clause [6] under Article 16.
+|-
+|[[One Hundred and Fourth Amendment of the Constitution of India|104th]]
+| Amend article 334.<ref>{{cite web |url=http://egazette.nic.in/WriteReadData/2020/215637.pdf|title=One Hundred and Fourth Amendment|access-date=2019-12-12}}</ref> 
+| 25 January 2020 
+| To extend the reservation of seats for SCs and STs in the Lok Sabha and states assemblies for another 10 years i.e. up to 2030. Removed the [[Anglo-Indian reserved seats in the Lok Sabha|reserved seats for the Anglo-Indian community]] in the Lok Sabha and state assemblies by not extending it further.<ref>{{Cite web|url=https://www.livelaw.in/news-updates/constitution-104th-amendment-act-to-come-into-force-151919|title=Anglo Indian Representation To Lok Sabha, State Assemblies Done Away; SC-ST Reservation Extended For 10 Years: Constitution (104th Amendment) Act To Come Into Force On 25th Jan|website=www.livelaw.in|date=23 January 2020|access-date=25 January 2020}}</ref>
+|-
+|[[One Hundred and Fifth Amendment of the Constitution of India|105th]]
+|Amend Article 338B, 342A and 366.<ref>{{cite web |title=The Constitution (One Hundred and fifth amendment) Act 2021 |url=https://legislative.gov.in/sites/default/files/CONSTITUTION%20%28ONE%20HUNDRED%20AND%20FIFTH%20AMENDMENT%29%20ACT%2C%202021_1.pdf |publisher=Ministry of Law and Justice |access-date=29 May 2022}}</ref>
+|10 August 2021
+|To restore the power of the state governments to identify Other Backward Classes (OBCs) that are socially and educationally backward. This amendment annulled the Supreme Court judgement of 11 May 2021, which had empowered only the Central government for such identification.<ref>{{cite news |title=Lok Sabha clears Bill restoring States' rights to specify OBC groups |url=https://www.thehindu.com/news/national/lok-sabha-clears-bill-restoring-right-of-states-to-specify-obc-groups/article61431520.ece |access-date=29 May 2022 |work=The Hindu |date=11 August 2021 |language=en-IN}}</ref>
+|-
+|[[One Hundred and Sixth Amendment of the Constitution of India|106th]]
+|Amend article 239AA.
+Insert of articles 330A, 332A, 334A.
+|28 September 2023<ref>{{Cite web |date=2023-09-29 |title=Women's reservation Bill gets President's assent, becomes law |url=https://indianexpress.com/article/india/womens-reservation-bill-gets-presidents-assent-8962038/ |access-date=2023-09-30 |website=The Indian Express |language=en}}</ref>
+|To reserve one-third of the seats in the [[Lok Sabha]] (330A), [[State legislative assemblies of India|state legislative assemblies]] (332A) and [[Delhi Legislative Assembly]] (239AA) for women for a period of 15 years after coming to effect (334A).
+|}
+
+==See also==
+* [[Constitution of India]]
+* [[Lawmaking procedure in India]]
+* [[List of acts of the Parliament of India]]
+
+==References==
+{{reflist}}
+
+==External links==
+* [http://constitution-of-india.pykih.com/ Pykih Data Visualization of Constitutional Amendments]
+* [http://abclive.in/103rd-constitutional-amendment/ Know The Genesis of 103rd Constitutional Amendment]
+
+{{DEFAULTSORT:Constitution of India, Amendments}}
+[[Category:Amendments of the Constitution of India| ]]
+[[Category:India law-related lists]]

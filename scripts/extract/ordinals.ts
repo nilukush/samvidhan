@@ -80,11 +80,71 @@ const CARDINALS: Record<string, number> = {
 /** Ordinals used in compounds; cardinals cover the multiplier position of "one hundred and sixth". */
 const WORD_VALUES: Record<string, number> = { ...CARDINALS, ...UNITS, ...TENS };
 
+const ORDINAL_UNITS: string[] = [
+  'first',
+  'second',
+  'third',
+  'fourth',
+  'fifth',
+  'sixth',
+  'seventh',
+  'eighth',
+  'ninth',
+  'tenth',
+  'eleventh',
+  'twelfth',
+  'thirteenth',
+  'fourteenth',
+  'fifteenth',
+  'sixteenth',
+  'seventeenth',
+  'eighteenth',
+  'nineteenth',
+];
+
+const CARDINAL_UNITS: string[] = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+const TENS_WORDS: string[] = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+/** Words for the ordinal form used in official act titles, 1 to 999. */
+export function numberToOrdinalWords(n: number): string {
+  if (!Number.isInteger(n) || n < 1 || n > 999) {
+    throw new RangeError(`numberToOrdinalWords expects 1 to 999, received ${n}`);
+  }
+
+  let words = '';
+  if (n >= 100) {
+    const hundreds = Math.floor(n / 100);
+    words += `${CARDINAL_UNITS[hundreds - 1]} hundred`;
+    n %= 100;
+    if (n === 0) return capitalize(`${words}th`);
+    words += ' and ';
+  }
+
+  if (n < 20) {
+    words += ORDINAL_UNITS[n - 1];
+    return capitalize(words);
+  }
+
+  const tens = Math.floor(n / 10);
+  const units = n % 10;
+  if (units === 0) {
+    words += TENS_WORDS[tens - 2].slice(0, -1) + 'ieth';
+  } else {
+    words += `${TENS_WORDS[tens - 2]}-${ORDINAL_UNITS[units - 1]}`;
+  }
+  return capitalize(words);
+}
+
+function capitalize(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 export function ordinalWordToNumber(word: string): number | null {
   const cleaned = word
     .trim()
     .toLowerCase()
     .replace(/[-\u2013\u2014]/g, ' ')
+    .replace(/\bhundredth\b/g, 'hundred')
     .replace(/\s+/g, ' ');
   if (cleaned === '') return null;
 

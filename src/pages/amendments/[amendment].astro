@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { getAmendments } from '../../lib/amendments';
+import { SITE_NAME } from '../../config';
+
+// getStaticPaths is hoisted by Astro and cannot see frontmatter variables,
+// so the data loads inside it and once more for the page body.
+export async function getStaticPaths() {
+  const amendments = getAmendments();
+  return amendments.map((amendment, index) => ({
+    params: { amendment: String(amendment.number) },
+    props: {
+      amendment,
+      prev: amendments[index - 1] ?? null,
+      next: amendments[index + 1] ?? null,
+    },
+  }));
+}
+
+const amendments = getAmendments();
+const { amendment, prev, next } = Astro.props;
+
+const milestones: Array<{ label: string; value: string }> = [];
+if (amendment.introducedIn) milestones.push({ label: 'Introduced in Lok Sabha', value: amendment.introducedIn });
+if (amendment.passedLokSabha) milestones.push({ label: 'Passed by Lok Sabha', value: amendment.passedLokSabha });
+if (amendment.passedRajyaSabha) milestones.push({ label: 'Passed by Rajya Sabha', value: amendment.passedRajyaSabha });
+if (amendment.assent) milestones.push({ label: 'Presidential assent and gazette', value: amendment.assent });
+if (amendment.inForce) milestones.push({ label: 'Brought into force', value: amendment.inForce });
+
+const THEME_LABELS: Record<string, string> = {
+  rights: 'Rights',
+  federal: 'Federal structure',
+  emergency: 'Emergency era',
+  social: 'Social change',
+  general: 'Other',
+};
+---
+
+<BaseLayout title={`${amendment.title} | ${SITE_NAME}`} description={amendment.summary}>
+  <div class="container page">
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: 'Amendments', href: '/amendments/' },
+        { label: `Amendment ${amendment.number}` },
+      ]}
+    />
+
+    <p class="kicker">
+      Amendment {amendment.number} of {amendments.length} &middot; {amendment.year} &middot; {
+        THEME_LABELS[amendment.theme]
+      }
+    </p>
+    <h1>{amendment.title}</h1>
+    <p class="summary">{amendment.summary}</p>
+
+    {
+      milestones.length > 0 && (
+        <section class="milestones">
+          <h2>Legislative milestones</h2>
+          <dl>
+            {milestones.map((milestone) => (
+              <div>
+                <dt>{milestone.label}</dt>
+                <dd>
+                  <time>{milestone.value}</time>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )
+    }
+
+    {amendment.operativeNote && <p class="operative-note">{amendment.operativeNote}</p>}
+
+    <section class="articles-touched">
+      <h2>Articles touched</h2>
+      {
+        amendment.articlesAffected.length > 0 ? (
+          <ul class="number-grid">
+            {amendment.articlesAffected.map((number) => (
+              <li>
+                <a href={`/articles/${number}/`}>Article {number}</a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>
+            No article level changes are visible in the current consolidated text; this amendment's changes affect
+            schedules, or its footnotes have been superseded by later amendments.
+          </p>
+        )
+      }
+      <p class="attribution">
+        Article attribution is derived from the official edition's footnote markers and is conservative: amendments
+        whose traces were superseded may be undercounted.
+      </p>
+    </section>
+
+    <nav class="pager" aria-label="Amendment navigation">
+      {
+        prev ? (
+          <a href={`/amendments/${prev.number}/`}>
+            <span class="pager-direction">Previous</span>
+            <span class="pager-title">
+              Amendment {prev.number}, {prev.year}
+            </span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next ? (
+          <a href={`/amendments/${next.number}/`}>
+            <span class="pager-direction">Next</span>
+            <span class="pager-title">
+              Amendment {next.number}, {next.year}
+            </span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-8) var(--space-4) var(--space-16);
+    max-width: 48rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    color: var(--color-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .summary {
+    font-size: var(--text-body-l);
+    margin-bottom: var(--space-8);
+  }
+
+  .milestones dl {
+    margin: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .milestones div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-bottom: 1px solid var(--color-line);
+    padding: var(--space-2) 0;
+  }
+
+  .milestones dt {
+    font-weight: 700;
+  }
+
+  .milestones dd {
+    margin: 0;
+  }
+
+  .operative-note {
+    border-left: 3px solid var(--color-amber);
+    background: var(--color-amber-soft);
+    color: var(--color-amber);
+    padding: var(--space-3);
+    border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  }
+
+  .articles-touched h2 {
+    margin: var(--space-8) 0 var(--space-3);
+  }
+
+  .number-grid {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+  }
+
+  .number-grid a {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .number-grid a:hover {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
+  }
+
+  .attribution {
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+    margin-top: var(--space-4);
+  }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-12);
+  }
+
+  .pager a {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-decoration: none;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    background: var(--color-surface);
+  }
+
+  .pager a:hover {
+    border-color: var(--color-navy);
+  }
+
+  .pager a:last-child {
+    text-align: right;
+  }
+
+  .pager-direction {
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+  }
+</style>

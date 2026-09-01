@@ -35,6 +35,15 @@ describe('article schema', () => {
   });
 });
 
+describe('amendment schema', () => {
+  test('accepts a theme classification with a general default', () => {
+    const themed = AmendmentSchema.parse({ ...fixture('valid-amendment'), theme: 'rights' });
+    expect(themed.theme).toBe('rights');
+    const unthemed = AmendmentSchema.parse(fixture('valid-amendment'));
+    expect(unthemed.theme).toBe('general');
+  });
+});
+
 describe('schedule schema', () => {
   test('accepts schedule body text and defaults it to empty', () => {
     const withText = ScheduleSchema.parse({ ...fixture('valid-schedule'), text: 'Languages listed.' });

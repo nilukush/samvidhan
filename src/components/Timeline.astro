@@ -1,0 +1,124 @@
+---
+import { buildTimeline, TIMELINE_THEMES, type TimelineAmendment } from '../lib/timeline';
+
+interface Props {
+  amendments: TimelineAmendment[];
+}
+
+const { amendments } = Astro.props;
+const geometry = buildTimeline(amendments, { width: 1200, height: 170 });
+const legend: Array<{ theme: TimelineAmendment['theme']; label: string }> = [
+  { theme: 'rights', label: 'Rights' },
+  { theme: 'federal', label: 'Federal structure' },
+  { theme: 'emergency', label: 'Emergency era' },
+  { theme: 'social', label: 'Social change' },
+  { theme: 'general', label: 'Other' },
+];
+---
+
+<div class="timeline-wrap">
+  <svg
+    viewBox={`0 0 ${geometry.width} ${geometry.height}`}
+    role="img"
+    aria-label="Timeline of all 106 amendments from 1951 to today"
+    preserveAspectRatio="xMidYMid meet"
+  >
+    <line x1="0" y1={geometry.height - 28} x2={geometry.width} y2={geometry.height - 28} class="tl-axis"></line>
+    {
+      geometry.ticks.map((tick) => (
+        <g>
+          <line x1={tick.x} y1={geometry.height - 32} x2={tick.x} y2={geometry.height - 24} class="tl-tick" />
+          <text x={tick.x} y={geometry.height - 8} class="tl-tick-label" text-anchor="middle">
+            {tick.label}
+          </text>
+        </g>
+      ))
+    }
+    {
+      geometry.nodes.map((node) => (
+        <a href={node.href} class="tl-node">
+          <circle cx={node.x} cy={node.y} r="7" fill={TIMELINE_THEMES[node.amendment.theme]} />
+          <title>{`Amendment ${node.amendment.number}, ${node.amendment.year}: ${node.amendment.title}`}</title>
+        </a>
+      ))
+    }
+  </svg>
+  <ul class="tl-legend">
+    {
+      legend.map((entry) => (
+        <li>
+          <span class="tl-dot" style={`background: ${TIMELINE_THEMES[entry.theme]}`} />
+          {entry.label}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .timeline-wrap {
+    margin: var(--space-8) 0;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .tl-axis {
+    stroke: var(--color-line);
+    stroke-width: 2;
+  }
+
+  .tl-tick {
+    stroke: var(--color-line);
+    stroke-width: 1;
+  }
+
+  .tl-tick-label {
+    font-family: var(--font-text);
+    font-size: 12px;
+    fill: var(--color-ink);
+  }
+
+  .tl-node circle {
+    stroke: var(--color-paper);
+    stroke-width: 2;
+    transition: r 150ms ease-out;
+  }
+
+  .tl-node:hover circle,
+  .tl-node:focus-visible circle {
+    r: 10;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tl-node circle {
+      transition: none;
+    }
+  }
+
+  .tl-legend {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    font-size: var(--text-body-s);
+  }
+
+  .tl-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>

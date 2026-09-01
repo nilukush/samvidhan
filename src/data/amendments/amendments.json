@@ -1,0 +1,1007 @@
+[
+  {
+    "number": 1,
+    "year": 1951,
+    "title": "The Constitution (First Amendment) Act, 1951",
+    "summary": "Enabled special provisions for socially and educationally backward classes and shielded land reform laws from challenge under fundamental rights.",
+    "articlesAffected": ["15", "19", "22", "30", "31D", "85", "176", "338B", "342", "372", "377"],
+    "theme": "social"
+  },
+  {
+    "number": 2,
+    "year": 1952,
+    "title": "The Constitution (Second Amendment) Act, 1952",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 3,
+    "year": 1954,
+    "title": "The Constitution (Third Amendment) Act, 1954",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 4,
+    "year": 1955,
+    "title": "The Constitution (Fourth Amendment) Act, 1955",
+    "summary": "Changed the text of 3 articles in the consolidated text.",
+    "articlesAffected": ["30", "31D", "305"],
+    "theme": "rights"
+  },
+  {
+    "number": 5,
+    "year": 1955,
+    "title": "The Constitution (Fifth Amendment) Act, 1955",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["4"],
+    "theme": "general"
+  },
+  {
+    "number": 6,
+    "year": 1956,
+    "title": "The Constitution (Sixth Amendment) Act, 1956",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["269", "287"],
+    "theme": "federal"
+  },
+  {
+    "number": 7,
+    "year": 1956,
+    "title": "The Constitution (Seventh Amendment) Act, 1956",
+    "summary": "Reorganised states and abolished the four fold classification of states, creating the union territory framework.",
+    "articlesAffected": [
+      "3",
+      "4",
+      "16",
+      "51",
+      "60",
+      "69",
+      "73",
+      "80",
+      "81",
+      "101",
+      "112",
+      "131",
+      "145",
+      "150",
+      "156",
+      "158",
+      "171",
+      "217",
+      "224",
+      "228",
+      "232",
+      "237",
+      "239",
+      "241",
+      "242",
+      "243C",
+      "244A",
+      "246A",
+      "257A",
+      "259",
+      "264",
+      "267",
+      "278",
+      "284",
+      "290A",
+      "297",
+      "300A",
+      "304",
+      "310",
+      "320",
+      "323",
+      "327",
+      "330",
+      "330A",
+      "332A",
+      "335",
+      "338B",
+      "342",
+      "348",
+      "350A",
+      "353",
+      "361",
+      "366",
+      "368",
+      "369",
+      "372A",
+      "378A",
+      "379",
+      "380",
+      "381",
+      "382",
+      "383",
+      "384",
+      "385",
+      "386",
+      "387",
+      "388",
+      "389",
+      "390",
+      "391"
+    ],
+    "theme": "federal"
+  },
+  {
+    "number": 8,
+    "year": 1960,
+    "title": "The Constitution (Eighth Amendment) Act, 1960",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 9,
+    "year": 1960,
+    "title": "The Constitution (Ninth Amendment) Act, 1960",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 10,
+    "year": 1961,
+    "title": "The Constitution (Tenth Amendment) Act, 1961",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 11,
+    "year": 1961,
+    "title": "The Constitution (Eleventh Amendment) Act, 1961",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["66"],
+    "theme": "federal"
+  },
+  {
+    "number": 12,
+    "year": 1961,
+    "title": "The Constitution (Twelfth Amendment) Act, 1961",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 13,
+    "year": 1962,
+    "title": "The Constitution (Thirteenth Amendment) Act, 1962",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["369"],
+    "theme": "general"
+  },
+  {
+    "number": 14,
+    "year": 1962,
+    "title": "The Constitution (Fourteenth Amendment) Act, 1962",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["81", "239"],
+    "theme": "federal"
+  },
+  {
+    "number": 15,
+    "year": 1963,
+    "title": "The Constitution (Fifteenth Amendment) Act, 1963",
+    "summary": "Changed the text of 8 articles in the consolidated text.",
+    "articlesAffected": ["124", "128", "217", "222", "224", "224A", "311", "316"],
+    "theme": "federal"
+  },
+  {
+    "number": 16,
+    "year": 1963,
+    "title": "The Constitution (Sixteenth Amendment) Act, 1963",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["16", "84"],
+    "theme": "rights"
+  },
+  {
+    "number": 17,
+    "year": 1964,
+    "title": "The Constitution (Seventeenth Amendment) Act, 1964",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["31A"],
+    "theme": "rights"
+  },
+  {
+    "number": 18,
+    "year": 1966,
+    "title": "The Constitution (Eighteenth Amendment) Act, 1966",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["4"],
+    "theme": "general"
+  },
+  {
+    "number": 19,
+    "year": 1966,
+    "title": "The Constitution (Nineteenth Amendment) Act, 1966",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["324"],
+    "theme": "general"
+  },
+  {
+    "number": 20,
+    "year": 1966,
+    "title": "The Constitution (Twentieth Amendment) Act, 1966",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["233A"],
+    "theme": "general"
+  },
+  {
+    "number": 21,
+    "year": 1967,
+    "title": "The Constitution (Twenty-first Amendment) Act, 1967",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 22,
+    "year": 1969,
+    "title": "The Constitution (Twenty-second Amendment) Act, 1969",
+    "summary": "Changed the text of 3 articles in the consolidated text.",
+    "articlesAffected": ["244A", "276", "371A"],
+    "theme": "federal"
+  },
+  {
+    "number": 23,
+    "year": 1969,
+    "title": "The Constitution (Twenty-third Amendment) Act, 1969",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["332A"],
+    "theme": "social"
+  },
+  {
+    "number": 24,
+    "year": 1971,
+    "title": "The Constitution (Twenty-fourth Amendment) Act, 1971",
+    "summary": "Declared that Parliament may amend any provision of the Constitution, including fundamental rights, through Article 368.",
+    "articlesAffected": ["13", "368"],
+    "theme": "rights"
+  },
+  {
+    "number": 25,
+    "year": 1971,
+    "title": "The Constitution (Twenty-fifth Amendment) Act, 1971",
+    "summary": "Curtailed the fundamental right to property and widened protection for directive principles over property rights.",
+    "articlesAffected": ["31D"],
+    "theme": "rights"
+  },
+  {
+    "number": 26,
+    "year": 1971,
+    "title": "The Constitution (Twenty-sixth Amendment) Act, 1971",
+    "summary": "Abolished the privy purses and privileges of the former rulers of princely states.",
+    "articlesAffected": ["291", "362", "363A", "366"],
+    "theme": "social"
+  },
+  {
+    "number": 27,
+    "year": 1971,
+    "title": "The Constitution (Twenty-seventh Amendment) Act, 1971",
+    "summary": "Changed the text of 3 articles in the consolidated text.",
+    "articlesAffected": ["239B", "242", "371C"],
+    "theme": "general"
+  },
+  {
+    "number": 28,
+    "year": 1972,
+    "title": "The Constitution (Twenty-eighth Amendment) Act, 1972",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["312A", "314"],
+    "theme": "federal"
+  },
+  {
+    "number": 29,
+    "year": 1972,
+    "title": "The Constitution (Twenty-ninth Amendment) Act, 1972",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 30,
+    "year": 1972,
+    "title": "The Constitution (Thirtieth Amendment) Act, 1972",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["134"],
+    "theme": "federal"
+  },
+  {
+    "number": 31,
+    "year": 1973,
+    "title": "The Constitution (Thirty-first Amendment) Act, 1973",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["81", "330"],
+    "theme": "social"
+  },
+  {
+    "number": 32,
+    "year": 1973,
+    "title": "The Constitution (Thirty-second Amendment) Act, 1973",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["369", "371C"],
+    "theme": "general"
+  },
+  {
+    "number": 33,
+    "year": 1974,
+    "title": "The Constitution (Thirty-third Amendment) Act, 1974",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["101", "190"],
+    "theme": "federal"
+  },
+  {
+    "number": 34,
+    "year": 1974,
+    "title": "The Constitution (Thirty-fourth Amendment) Act, 1974",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 35,
+    "year": 1974,
+    "title": "The Constitution (Thirty-fifth Amendment) Act, 1974",
+    "summary": "Changed the text of 3 articles in the consolidated text.",
+    "articlesAffected": ["3", "80", "81"],
+    "theme": "federal"
+  },
+  {
+    "number": 36,
+    "year": 1975,
+    "title": "The Constitution (Thirty-sixth Amendment) Act, 1975",
+    "summary": "Changed the text of 4 articles in the consolidated text.",
+    "articlesAffected": ["2A", "80", "81", "371E"],
+    "theme": "federal"
+  },
+  {
+    "number": 37,
+    "year": 1975,
+    "title": "The Constitution (Thirty-seventh Amendment) Act, 1975",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 38,
+    "year": 1975,
+    "title": "The Constitution (Thirty-eighth Amendment) Act, 1975",
+    "summary": "Changed the text of 6 articles in the consolidated text.",
+    "articlesAffected": ["124", "213", "352", "356", "359", "360"],
+    "theme": "emergency"
+  },
+  {
+    "number": 39,
+    "year": 1975,
+    "title": "The Constitution (Thirty-ninth Amendment) Act, 1975",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["71", "329"],
+    "theme": "federal"
+  },
+  {
+    "number": 40,
+    "year": 1976,
+    "title": "The Constitution (Fortieth Amendment) Act, 1976",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["297"],
+    "theme": "federal"
+  },
+  {
+    "number": 41,
+    "year": 1976,
+    "title": "The Constitution (Forty-first Amendment) Act, 1976",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["316"],
+    "theme": "general"
+  },
+  {
+    "number": 42,
+    "year": 1976,
+    "title": "The Constitution (Forty-second Amendment) Act, 1976",
+    "summary": "The mini Constitution: inserted Socialist, Secular, and Integrity into the Preamble, curtailed judicial review, extended the Lok Sabha term, and added fundamental duties.",
+    "articlesAffected": [
+      "30",
+      "31D",
+      "32A",
+      "39",
+      "43B",
+      "51",
+      "55",
+      "74",
+      "81",
+      "84",
+      "100",
+      "102",
+      "105",
+      "119",
+      "131",
+      "139A",
+      "145",
+      "150",
+      "170",
+      "189",
+      "191",
+      "194",
+      "208",
+      "217",
+      "225",
+      "226",
+      "228",
+      "257A",
+      "311",
+      "312A",
+      "323",
+      "330",
+      "352",
+      "356",
+      "357",
+      "359",
+      "366",
+      "368",
+      "371E"
+    ],
+    "theme": "emergency"
+  },
+  {
+    "number": 43,
+    "year": 1977,
+    "title": "The Constitution (Forty-third Amendment) Act, 1977",
+    "summary": "Changed the text of 8 articles in the consolidated text.",
+    "articlesAffected": ["31D", "32A", "131A", "145", "225", "226A", "228", "366"],
+    "theme": "rights"
+  },
+  {
+    "number": 44,
+    "year": 1978,
+    "title": "The Constitution (Forty-fourth Amendment) Act, 1978",
+    "summary": "Undid much of the 42nd Amendment: property became an ordinary legal right, Article 31 was omitted, and judicial review was restored.",
+    "articlesAffected": [
+      "16",
+      "19",
+      "22",
+      "30",
+      "31",
+      "31A",
+      "31D",
+      "38",
+      "71",
+      "74",
+      "84",
+      "100",
+      "102",
+      "105",
+      "119",
+      "124",
+      "131",
+      "134",
+      "134A",
+      "139A",
+      "150",
+      "189",
+      "191",
+      "194",
+      "208",
+      "213",
+      "217",
+      "225",
+      "226",
+      "228",
+      "300A",
+      "329",
+      "352",
+      "356",
+      "357",
+      "359",
+      "360",
+      "361A",
+      "371E"
+    ],
+    "theme": "emergency"
+  },
+  {
+    "number": 45,
+    "year": 1980,
+    "title": "The Constitution (Forty-fifth Amendment) Act, 1980",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["335"],
+    "theme": "social"
+  },
+  {
+    "number": 46,
+    "year": 1982,
+    "title": "The Constitution (Forty-sixth Amendment) Act, 1982",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["269", "366"],
+    "theme": "federal"
+  },
+  {
+    "number": 47,
+    "year": 1984,
+    "title": "The Constitution (Forty-seventh Amendment) Act, 1984",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 48,
+    "year": 1984,
+    "title": "The Constitution (Forty-eighth Amendment) Act, 1984",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 49,
+    "year": 1984,
+    "title": "The Constitution (Forty-ninth Amendment) Act, 1984",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["244A"],
+    "theme": "general"
+  },
+  {
+    "number": 50,
+    "year": 1984,
+    "title": "The Constitution (Fiftieth Amendment) Act, 1984",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["32A"],
+    "theme": "rights"
+  },
+  {
+    "number": 51,
+    "year": 1984,
+    "title": "The Constitution (Fifty-first Amendment) Act, 1984",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["330", "330A"],
+    "theme": "social"
+  },
+  {
+    "number": 52,
+    "year": 1985,
+    "title": "The Constitution (Fifty-second Amendment) Act, 1985",
+    "summary": "Defined disqualification of legislators on the ground of defection through the Tenth Schedule.",
+    "articlesAffected": ["101", "102", "190", "191"],
+    "theme": "federal"
+  },
+  {
+    "number": 53,
+    "year": 1986,
+    "title": "The Constitution (Fifty-third Amendment) Act, 1986",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["371G"],
+    "theme": "general"
+  },
+  {
+    "number": 54,
+    "year": 1986,
+    "title": "The Constitution (Fifty-fourth Amendment) Act, 1986",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["125", "217"],
+    "theme": "federal"
+  },
+  {
+    "number": 55,
+    "year": 1986,
+    "title": "The Constitution (Fifty-fifth Amendment) Act, 1986",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["371G"],
+    "theme": "general"
+  },
+  {
+    "number": 56,
+    "year": 1987,
+    "title": "The Constitution (Fifty-sixth Amendment) Act, 1987",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["371H"],
+    "theme": "general"
+  },
+  {
+    "number": 57,
+    "year": 1987,
+    "title": "The Constitution (Fifty-seventh Amendment) Act, 1987",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["330A", "332"],
+    "theme": "social"
+  },
+  {
+    "number": 58,
+    "year": 1987,
+    "title": "The Constitution (Fifty-eighth Amendment) Act, 1987",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["395"],
+    "theme": "general"
+  },
+  {
+    "number": 59,
+    "year": 1988,
+    "title": "The Constitution (Fifty-ninth Amendment) Act, 1988",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["359"],
+    "theme": "emergency"
+  },
+  {
+    "number": 60,
+    "year": 1988,
+    "title": "The Constitution (Sixtieth Amendment) Act, 1988",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["279"],
+    "theme": "federal"
+  },
+  {
+    "number": 61,
+    "year": 1988,
+    "title": "The Constitution (Sixty-first Amendment) Act, 1988",
+    "summary": "Lowered the voting age for Lok Sabha and assembly elections from 21 to 18.",
+    "articlesAffected": ["327"],
+    "theme": "social"
+  },
+  {
+    "number": 62,
+    "year": 1989,
+    "title": "The Constitution (Sixty-second Amendment) Act, 1989",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["335"],
+    "theme": "social"
+  },
+  {
+    "number": 63,
+    "year": 1989,
+    "title": "The Constitution (Sixty-third Amendment) Act, 1989",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["356", "359"],
+    "theme": "emergency"
+  },
+  {
+    "number": 64,
+    "year": 1990,
+    "title": "The Constitution (Sixty-fourth Amendment) Act, 1990",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["356"],
+    "theme": "emergency"
+  },
+  {
+    "number": 65,
+    "year": 1990,
+    "title": "The Constitution (Sixty-fifth Amendment) Act, 1990",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["338", "338A"],
+    "theme": "social"
+  },
+  {
+    "number": 66,
+    "year": 1990,
+    "title": "The Constitution (Sixty-sixth Amendment) Act, 1990",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 67,
+    "year": 1990,
+    "title": "The Constitution (Sixty-seventh Amendment) Act, 1990",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["356"],
+    "theme": "emergency"
+  },
+  {
+    "number": 68,
+    "year": 1991,
+    "title": "The Constitution (Sixty-eighth Amendment) Act, 1991",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["356"],
+    "theme": "emergency"
+  },
+  {
+    "number": 69,
+    "year": 1991,
+    "title": "The Constitution (Sixty-ninth Amendment) Act, 1991",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["239"],
+    "theme": "general"
+  },
+  {
+    "number": 70,
+    "year": 1992,
+    "title": "The Constitution (Seventieth Amendment) Act, 1992",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["54", "239"],
+    "theme": "federal"
+  },
+  {
+    "number": 71,
+    "year": 1992,
+    "title": "The Constitution (Seventy-first Amendment) Act, 1992",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 72,
+    "year": 1992,
+    "title": "The Constitution (Seventy-second Amendment) Act, 1992",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["332"],
+    "theme": "social"
+  },
+  {
+    "number": 73,
+    "year": 1992,
+    "title": "The Constitution (Seventy-third Amendment) Act, 1992",
+    "summary": "Constitutionalised Panchayati Raj with three tier panchayats, reservations for women and Scheduled Castes and Tribes, and the Eleventh Schedule.",
+    "articlesAffected": ["243C", "243I", "243N", "280"],
+    "theme": "social"
+  },
+  {
+    "number": 74,
+    "year": 1992,
+    "title": "The Constitution (Seventy-fourth Amendment) Act, 1992",
+    "summary": "Constitutionalised urban local governments and added the Twelfth Schedule.",
+    "articlesAffected": ["243Q", "243Z", "280"],
+    "theme": "social"
+  },
+  {
+    "number": 75,
+    "year": 1993,
+    "title": "The Constitution (Seventy-fifth Amendment) Act, 1993",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["323B"],
+    "theme": "general"
+  },
+  {
+    "number": 76,
+    "year": 1994,
+    "title": "The Constitution (Seventy-sixth Amendment) Act, 1994",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 77,
+    "year": 1995,
+    "title": "The Constitution (Seventy-seventh Amendment) Act, 1995",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["16"],
+    "theme": "rights"
+  },
+  {
+    "number": 78,
+    "year": 1995,
+    "title": "The Constitution (Seventy-eighth Amendment) Act, 1995",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 79,
+    "year": 1999,
+    "title": "The Constitution (Seventy-ninth Amendment) Act, 1999",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["335"],
+    "theme": "social"
+  },
+  {
+    "number": 80,
+    "year": 2000,
+    "title": "The Constitution (Eightieth Amendment) Act, 2000",
+    "summary": "Changed the text of 3 articles in the consolidated text.",
+    "articlesAffected": ["269", "270", "272"],
+    "theme": "federal"
+  },
+  {
+    "number": 81,
+    "year": 2000,
+    "title": "The Constitution (Eighty-first Amendment) Act, 2000",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["16"],
+    "theme": "rights"
+  },
+  {
+    "number": 82,
+    "year": 2000,
+    "title": "The Constitution (Eighty-second Amendment) Act, 2000",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["335"],
+    "theme": "social"
+  },
+  {
+    "number": 83,
+    "year": 2000,
+    "title": "The Constitution (Eighty-third Amendment) Act, 2000",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["243M"],
+    "theme": "social"
+  },
+  {
+    "number": 84,
+    "year": 2001,
+    "title": "The Constitution (Eighty-fourth Amendment) Act, 2001",
+    "summary": "Changed the text of 6 articles in the consolidated text.",
+    "articlesAffected": ["55", "81", "170", "330", "330A", "332"],
+    "theme": "social"
+  },
+  {
+    "number": 85,
+    "year": 2001,
+    "title": "The Constitution (Eighty-fifth Amendment) Act, 2001",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["16"],
+    "theme": "rights"
+  },
+  {
+    "number": 86,
+    "year": 2002,
+    "title": "The Constitution (Eighty-sixth Amendment) Act, 2002",
+    "summary": "Made free and compulsory education for children aged six to fourteen a fundamental right.",
+    "articlesAffected": ["22", "43B", "51"],
+    "theme": "social"
+  },
+  {
+    "number": 87,
+    "year": 2003,
+    "title": "The Constitution (Eighty-seventh Amendment) Act, 2003",
+    "summary": "Changed the text of 4 articles in the consolidated text.",
+    "articlesAffected": ["81", "84", "170", "330"],
+    "theme": "social"
+  },
+  {
+    "number": 88,
+    "year": 2003,
+    "title": "The Constitution (Eighty-eighth Amendment) Act, 2003",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["264", "270"],
+    "theme": "federal"
+  },
+  {
+    "number": 89,
+    "year": 2003,
+    "title": "The Constitution (Eighty-ninth Amendment) Act, 2003",
+    "summary": "Changed the text of 2 articles in the consolidated text.",
+    "articlesAffected": ["338", "338A"],
+    "theme": "social"
+  },
+  {
+    "number": 90,
+    "year": 2003,
+    "title": "The Constitution (Ninetieth Amendment) Act, 2003",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["332"],
+    "theme": "social"
+  },
+  {
+    "number": 91,
+    "year": 2003,
+    "title": "The Constitution (Ninety-first Amendment) Act, 2003",
+    "summary": "Changed the text of 3 articles in the consolidated text.",
+    "articlesAffected": ["74", "164", "361A"],
+    "theme": "federal"
+  },
+  {
+    "number": 92,
+    "year": 2003,
+    "title": "The Constitution (Ninety-second Amendment) Act, 2003",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 93,
+    "year": 2005,
+    "title": "The Constitution (Ninety-third Amendment) Act, 2005",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["15"],
+    "theme": "rights"
+  },
+  {
+    "number": 94,
+    "year": 2006,
+    "title": "The Constitution (Ninety-fourth Amendment) Act, 2006",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["164"],
+    "theme": "general"
+  },
+  {
+    "number": 95,
+    "year": 2009,
+    "title": "The Constitution (Ninety-fifth Amendment) Act, 2009",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["335"],
+    "theme": "social"
+  },
+  {
+    "number": 96,
+    "year": 2011,
+    "title": "The Constitution (Ninety-sixth Amendment) Act, 2011",
+    "summary": "No article level changes are tracked in the consolidated text for this amendment; see the amending Act for its full scope.",
+    "articlesAffected": [],
+    "theme": "general"
+  },
+  {
+    "number": 97,
+    "year": 2011,
+    "title": "The Constitution (Ninety-seventh Amendment) Act, 2011",
+    "summary": "Gave constitutional status to co operative societies.",
+    "articlesAffected": ["19", "43B"],
+    "theme": "social"
+  },
+  {
+    "number": 98,
+    "year": 2012,
+    "title": "The Constitution (Ninety-eighth Amendment) Act, 2012",
+    "summary": "Changed the text of 1 article in the consolidated text.",
+    "articlesAffected": ["371H"],
+    "theme": "general"
+  },
+  {
+    "number": 99,
+    "year": 2014,
+    "title": "The Constitution (Ninety-ninth Amendment) Act, 2014",
+    "summary": "Created the National Judicial Appointments Commission for judicial appointments; the Commission was struck down by the Supreme Court in 2015.",
+    "articlesAffected": ["124", "128", "217", "224", "224A", "233"],
+    "theme": "federal"
+  },
+  {
+    "number": 100,
+    "year": 2015,
+    "title": "The Constitution (One hundredth Amendment) Act, 2015",
+    "summary": "Gave effect to the land boundary agreement between India and Bangladesh.",
+    "articlesAffected": [],
+    "theme": "federal"
+  },
+  {
+    "number": 101,
+    "year": 2016,
+    "title": "The Constitution (One hundred and first Amendment) Act, 2016",
+    "summary": "Introduced the Goods and Services Tax with a GST Council shared between the Union and the states.",
+    "articlesAffected": ["246A", "249", "264", "268", "269", "270", "273", "279A", "287", "366", "368"],
+    "theme": "federal"
+  },
+  {
+    "number": 102,
+    "year": 2018,
+    "title": "The Constitution (One hundred and second Amendment) Act, 2018",
+    "summary": "Gave constitutional status to the National Commission for Backward Classes.",
+    "articlesAffected": ["338A", "338B", "342A", "366"],
+    "theme": "social"
+  },
+  {
+    "number": 103,
+    "year": 2019,
+    "title": "The Constitution (One hundred and third Amendment) Act, 2019",
+    "summary": "Enabled up to ten per cent reservation for economically weaker sections in education and public employment.",
+    "articlesAffected": ["15", "19"],
+    "theme": "social"
+  },
+  {
+    "number": 104,
+    "year": 2019,
+    "title": "The Constitution (One hundred and fourth Amendment) Act, 2019",
+    "summary": "Extended reservation for Scheduled Castes and Tribes and ended the nomination of Anglo Indians to legislatures.",
+    "articlesAffected": ["332A", "335"],
+    "theme": "social"
+  },
+  {
+    "number": 105,
+    "year": 2021,
+    "title": "The Constitution (One hundred and fifth Amendment) Act, 2021",
+    "summary": "Restored states' power to identify Other Backward Classes for reservation.",
+    "articlesAffected": ["338B", "342A", "366"],
+    "theme": "social"
+  },
+  {
+    "number": 106,
+    "year": 2023,
+    "title": "The Constitution (One hundred and sixth Amendment) Act, 2023",
+    "summary": "The Nari Shakti Vandan Adhiniyam: reserves one third of seats for women in the Lok Sabha, state assemblies, and the Delhi assembly.",
+    "articlesAffected": ["239", "330A", "332A", "334A", "335"],
+    "introducedIn": "2023-09-19",
+    "passedLokSabha": "2023-09-20",
+    "passedRajyaSabha": "2023-09-21",
+    "assent": "2023-09-28",
+    "inForce": "2026-04-16",
+    "operativeNote": "The reservation becomes operative after the first census taken after commencement and a delimitation exercise under Article 334A.",
+    "theme": "social"
+  }
+]

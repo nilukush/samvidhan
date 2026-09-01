@@ -21,6 +21,8 @@ export const ClauseKindEnum = z.enum(['clause', 'explanation', 'illustration', '
 
 export const HouseEnum = z.enum(['lok-sabha', 'rajya-sabha', 'both']);
 
+export const ThemeEnum = z.enum(['rights', 'federal', 'emergency', 'social', 'general']);
+
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'must be an ISO date, YYYY-MM-DD');
 
 export const ClauseSchema = z.object({
@@ -76,6 +78,8 @@ export const AmendmentSchema = z.object({
   inForce: isoDate.optional(),
   /** For example, the 106th's reservation pending census and delimitation. */
   operativeNote: z.string().optional(),
+  /** Timeline colour grouping; general is the fallback. */
+  theme: ThemeEnum.default('general'),
 });
 
 export const BillSchema = z.object({

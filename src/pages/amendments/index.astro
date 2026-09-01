@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Timeline from '../../components/Timeline.astro';
+import { getAmendments } from '../../lib/amendments';
+import { SITE_NAME } from '../../config';
+
+const amendments = getAmendments();
+const lastAmendment = amendments[amendments.length - 1]!;
+---
+
+<BaseLayout
+  title={`Amendments to the Constitution of India, 1951 to ${lastAmendment.year} | ${SITE_NAME}`}
+  description={`All ${amendments.length} amendments to the Constitution of India on one timeline, from the First Amendment of 1951 to the ${lastAmendment.number}th of ${lastAmendment.year}.`}
+>
+  <div class="container page">
+    <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Amendments' }]} />
+    <h1>Amendments</h1>
+    <p class="lede">
+      The Constitution has been amended {amendments.length} times since 1951. Each point on the timeline links to the amendment's
+      page; the list below it carries the same links for reading.
+    </p>
+
+    <Timeline amendments={amendments} />
+
+    <ol class="amendment-list">
+      {
+        amendments.map((amendment) => (
+          <li>
+            <a href={`/amendments/${amendment.number}/`}>
+              <span class="row-year">{amendment.year}</span>
+              <span class="row-number">{amendment.number}.</span>
+              <span class="row-summary">{amendment.summary}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+  }
+
+  h1 {
+    color: var(--color-navy);
+    margin-bottom: var(--space-3);
+  }
+
+  .lede {
+    font-size: var(--text-body-l);
+    max-width: 42rem;
+  }
+
+  .amendment-list {
+    list-style: none;
+    margin: var(--space-8) 0 0;
+    padding: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .amendment-list li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .amendment-list a {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    padding: var(--space-3) 0;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+
+  .amendment-list a:hover .row-summary {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  .row-year {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-ref);
+    color: var(--color-navy);
+    min-width: 3.5rem;
+  }
+
+  .row-number {
+    font-weight: 700;
+    min-width: 2.75rem;
+  }
+
+  .row-summary {
+    font-size: var(--text-body);
+  }
+</style>

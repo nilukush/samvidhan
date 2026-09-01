@@ -137,7 +137,7 @@ function romanToPartNumber(roman: string): string | null {
   return total > 0 ? `${total}${suffix}` : null;
 }
 
-function amendmentId(n: number): string {
+export function amendmentId(n: number): string {
   const suffix =
     n % 100 >= 11 && n % 100 <= 13 ? 'th' : n % 10 === 1 ? 'st' : n % 10 === 2 ? 'nd' : n % 10 === 3 ? 'rd' : 'th';
   return `${n}${suffix}-amendment`;

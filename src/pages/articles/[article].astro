@@ -57,7 +57,13 @@ const description = cleanLegalText(firstClauseText).slice(0, 155);
 
         <div class="badges">
           <Badge status={article.status} article={article} />
-          {article.amendedBy.map((id) => <span class="chip">{id.replace('-amendment', ' Amendment')}</span>)}
+          {
+            article.amendedBy.map((id) => (
+              <a class="chip" href={`/amendments/${Number.parseInt(id, 10)}/`}>
+                {id.replace('-amendment', ' Amendment')}
+              </a>
+            ))
+          }
         </div>
 
         <ol class="clauses">
@@ -182,6 +188,12 @@ const description = cleanLegalText(firstClauseText).slice(0, 155);
     padding: 2px var(--space-2);
     font-size: var(--text-body-s);
     color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .chip:hover {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
   }
 
   .clauses {
