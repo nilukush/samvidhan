@@ -156,11 +156,14 @@ function extractAmendments(text: string): number[] {
 
 /** Strips artwork brackets and collapses doubled terminal periods to one. */
 function cleanTitle(raw: string): string {
-  let title = raw.replace(/\s+/g, ' ').trim();
-  title = title.replace(/\.+$/, '');
-  const bracketed = /^\[(.+)\]$/.exec(title);
-  if (bracketed) title = (bracketed[1] as string).replace(/\.+$/, '');
-  title = title.trim();
+  // Titles never legitimately contain square brackets or marker digits; every
+  // bracket in a title text is editorial apparatus of the official edition.
+  const title = raw
+    .replace(/\d{0,2}\[/g, '')
+    .replace(/\]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\s*\.+$/, '');
   return title === '' ? title : `${title}.`;
 }
 

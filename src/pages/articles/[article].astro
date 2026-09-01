@@ -39,7 +39,11 @@ const firstClauseText = article.clauses[0]?.text ?? '';
 const description = cleanLegalText(firstClauseText).slice(0, 155);
 ---
 
-<BaseLayout title={`Article ${article.number}. ${article.title} | ${SITE_NAME}`} description={description}>
+<BaseLayout
+  searchType="Articles"
+  title={`Article ${article.number}. ${article.title} | ${SITE_NAME}`}
+  description={description}
+>
   <div class="container page">
     <Breadcrumb
       items={[

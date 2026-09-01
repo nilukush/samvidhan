@@ -21,10 +21,10 @@ import { SITE_NAME } from '../config';
       </ul>
     </nav>
 
-    <a class="search-trigger" href="/search">
+    <button class="search-trigger" type="button" data-search-open aria-haspopup="dialog">
       <span>Search</span>
       <kbd aria-hidden="true">/</kbd>
-    </a>
+    </button>
 
     <details class="mobile-menu">
       <summary aria-label="Open menu">Menu</summary>
@@ -36,7 +36,7 @@ import { SITE_NAME } from '../config';
           <li><a href="/schedules">Schedules</a></li>
           <li><a href="/amendments">Amendments</a></li>
           <li><a href="/changes/upcoming">Changes</a></li>
-          <li><a href="/search">Search</a></li>
+          <li><button type="button" data-search-open aria-haspopup="dialog">Search</button></li>
         </ul>
       </nav>
     </details>
@@ -96,6 +96,8 @@ import { SITE_NAME } from '../config';
   }
 
   .search-trigger {
+    font: inherit;
+    cursor: pointer;
     margin-left: auto;
     display: inline-flex;
     align-items: center;
@@ -172,12 +174,19 @@ import { SITE_NAME } from '../config';
       border-top: 1px solid var(--color-line);
     }
 
-    .mobile-nav a {
+    .mobile-nav a,
+    .mobile-nav button {
       display: block;
+      width: 100%;
+      text-align: left;
       padding: var(--space-2) var(--space-3);
       color: var(--color-ink);
       text-decoration: none;
       font-weight: 700;
+      font: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
     }
   }
 </style>

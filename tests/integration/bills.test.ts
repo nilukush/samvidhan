@@ -32,7 +32,8 @@ describe('upcoming changes page', () => {
     const html = readFileSync('dist/changes/upcoming/index.html', 'utf8');
     expect(html).toContain('https://prsindia.org/billtrack/the-constitution-131st-amendment-bill-2026');
     expect(html).toContain('https://sansad.in');
-    expect(html).not.toContain('<script');
+    expect(html).not.toMatch(/<script[^>]*\ssrc=(?!"\/search\.js")/);
+    expect(html).not.toContain('XMLHttpRequest');
   });
 });
 

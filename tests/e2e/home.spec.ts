@@ -8,7 +8,7 @@ test.describe('base layout', () => {
     for (const label of ['Preamble', 'Articles', 'Parts', 'Schedules', 'Amendments', 'Changes']) {
       await expect(page.getByRole('navigation').getByRole('link', { name: label, exact: true })).toBeVisible();
     }
-    await expect(page.getByRole('banner').getByRole('link', { name: /search/i })).toBeVisible();
+    await expect(page.getByRole('banner').getByRole('button', { name: /search/i })).toBeVisible();
   });
 
   test('header collapses to a labeled menu control below 48rem', async ({ page }) => {

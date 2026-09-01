@@ -14,6 +14,13 @@ const astroRecommendedRules =
 
 export default [
   { ignores: ['dist/**', '.astro/**', 'node_modules/**', 'coverage/**', 'playwright-report/**', 'test-results/**'] },
+  {
+    // The search dialog controller is a plain browser script outside any bundler.
+    files: ['public/**/*.js'],
+    languageOptions: {
+      globals: { document: 'readonly', window: 'readonly', setTimeout: 'readonly', clearTimeout: 'readonly' },
+    },
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

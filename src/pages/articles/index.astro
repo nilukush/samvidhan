@@ -16,10 +16,11 @@ const articles = await getCollection('articles');
 ---
 
 <BaseLayout
+  searchType="Pages"
   title={`All Articles of the Constitution of India | ${SITE_NAME}`}
   description="Every article of the Constitution of India, from Article 1 to Article 395, grouped by part."
 >
-  <div class="container page">
+  <div class="container page" data-pagefind-ignore="true">
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Articles' }]} />
     <h1>All articles</h1>
     <p class="lede">
