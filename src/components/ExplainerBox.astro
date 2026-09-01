@@ -1,0 +1,40 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<section class="explainer-box" aria-labelledby="what-it-means">
+  <h2 id="what-it-means">What it means</h2>
+  <p class="explainer-label">Plain words summary of the article above. Not legal advice.</p>
+  <p class="explainer-text">{text}</p>
+</section>
+
+<style>
+  .explainer-box {
+    background: var(--color-saffron-soft);
+    border-radius: var(--radius-m);
+    padding: var(--space-4) var(--space-6);
+    margin: var(--space-8) 0 0;
+    max-width: 42rem;
+  }
+
+  h2 {
+    font-size: var(--text-heading-m);
+    color: var(--color-navy);
+    margin-bottom: var(--space-1);
+  }
+
+  .explainer-label {
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+    margin: 0 0 var(--space-3);
+  }
+
+  .explainer-text {
+    margin: 0;
+    line-height: 1.7;
+  }
+</style>

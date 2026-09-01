@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ArticleSchema, PartSchema, ScheduleSchema } from '../src/lib/schemas/index.ts';
 
@@ -6,6 +6,8 @@ export interface SyncResult {
   articles: number;
   parts: number;
   schedules: number;
+  /** Articles without an explainer when an explainers file is in use. */
+  unexplained: string[];
 }
 
 interface ConstitutionShape {
@@ -40,10 +42,14 @@ const COLLECTIONS = [
  * The output directories are regenerated from scratch on every run, so the
  * result is idempotent and stale files from older editions cannot linger.
  */
-export function syncCollections(inputPath: string, outDir: string): SyncResult {
+export function syncCollections(inputPath: string, outDir: string, options?: { explainersPath?: string }): SyncResult {
   const data = JSON.parse(readFileSync(inputPath, 'utf8')) as ConstitutionShape;
   const errors: string[] = [];
-  const result: SyncResult = { articles: 0, parts: 0, schedules: 0 };
+  const result: SyncResult = { articles: 0, parts: 0, schedules: 0, unexplained: [] };
+  const explainers =
+    options?.explainersPath && existsSync(options.explainersPath)
+      ? (JSON.parse(readFileSync(options.explainersPath, 'utf8')) as Record<string, string>)
+      : undefined;
 
   const partIds = new Set<string>(
     (data.parts ?? []).map((part) => String(part['number'] ?? '')).filter((id) => id !== ''),
@@ -56,7 +62,7 @@ export function syncCollections(inputPath: string, outDir: string): SyncResult {
     mkdirSync(collectionDir, { recursive: true });
 
     const written = new Set<string>();
-    for (const entry of entries) {
+    for (let entry of entries) {
       const id = collection.idOf(entry);
       if (id === '') {
         errors.push(`${collection.name}: entry without a number: ${JSON.stringify(entry).slice(0, 80)}`);
@@ -65,6 +71,12 @@ export function syncCollections(inputPath: string, outDir: string): SyncResult {
       if (written.has(id)) {
         errors.push(`${collection.name}/${id}: duplicate entry`);
         continue;
+      }
+      if (collection.name === 'articles' && explainers) {
+        const explainer = explainers[id];
+        if (typeof explainer === 'string' && explainer.trim() !== '') {
+          entry = { ...entry, explainer };
+        }
       }
       const parsed = collection.schema.safeParse(entry);
       if (!parsed.success) {
@@ -81,6 +93,9 @@ export function syncCollections(inputPath: string, outDir: string): SyncResult {
         }
       }
       written.add(id);
+      if (collection.name === 'articles' && explainers && parsed.data['explainer'] === undefined) {
+        result.unexplained.push(id);
+      }
       writeFileSync(join(collectionDir, `${id}.json`), `${JSON.stringify(parsed.data, null, 2)}\n`);
       result[collection.name] += 1;
     }
@@ -100,10 +115,15 @@ function isDirectRun(): boolean {
 if (isDirectRun()) {
   const inputPath = 'data/processed/constitution.json';
   const outDir = 'src/content';
-  const result = syncCollections(inputPath, outDir);
+  const result = syncCollections(inputPath, outDir, { explainersPath: 'data/processed/explainers/explainers.json' });
   console.log(
     `synced ${result.articles} articles, ${result.parts} parts, ${result.schedules} schedules from ${inputPath} into ${outDir}`,
   );
+  if (result.unexplained.length > 0) {
+    console.warn(
+      `WARNING: ${result.unexplained.length} articles have no explainer yet (batches pending). First 20: ${result.unexplained.slice(0, 20).join(', ')}`,
+    );
+  }
   const files = readdirSync(join(outDir, 'articles')).length;
   console.log(`article files on disk: ${files}`);
 }

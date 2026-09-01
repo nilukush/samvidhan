@@ -18,6 +18,10 @@ Use a non standard local port (for example 4321 is Astro's default; if it is tak
 
 This project follows strict TDD: write the failing test first, then the minimal code, then refactor. See docs/IMPLEMENTATION-PLAN.md. CI runs the full suite on every push, and no step is considered done while any previously green test is red.
 
+## Explainer drafting workflow
+
+Plain words explainers live in data/processed/explainers/explainers.json, one entry per article number. Draft in batches of 20 to 40 articles, keep each between 40 and 140 words, plain English, no banned phrases and no dashes. The linter in src/lib/explainer-lint.ts runs in CI (tests/unit/explainer.test.ts) and fails the build on any violation, so run npm test before committing a batch. The sync step merges the file into the article collection entries and prints a warning listing every article still without an explainer; batches continue until that list is empty. Always read a sample of a new batch against the article text before pushing.
+
 ## The monthly update ritual
 
 The site has no runtime dependency on any government server. Honesty about data age is a core feature, so these dates must be maintained by hand:

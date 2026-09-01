@@ -21,7 +21,10 @@ describe('collection sync', () => {
   test('creates the expected collection entries from a valid dataset', () => {
     const outDir = join(workDir, 'ok');
     const result = syncCollections(fixturePath, outDir);
-    expect(result).toEqual({ articles: 3, parts: 2, schedules: 1 });
+    expect(result.articles).toBe(3);
+    expect(result.parts).toBe(2);
+    expect(result.schedules).toBe(1);
+    expect(result.unexplained).toEqual([]);
     expect(readdirSync(join(outDir, 'articles')).sort()).toEqual(['14.json', '15.json', '51A.json']);
     const article14 = load(join(outDir, 'articles', '14.json')) as Record<string, unknown>;
     expect(article14['number']).toBe('14');

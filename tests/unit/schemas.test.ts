@@ -28,6 +28,11 @@ describe('article schema', () => {
     expect(() => ArticleSchema.parse(article)).not.toThrow();
   });
 
+  test('accepts an explainer summary', () => {
+    const article = ArticleSchema.parse({ ...fixture('valid-article'), explainer: 'Plain words summary.' });
+    expect(article.explainer).toBe('Plain words summary.');
+  });
+
   test('accepts a section heading as article metadata', () => {
     const article = { ...fixture('valid-article'), section: 'Right to Equality' };
     const parsed = ArticleSchema.parse(article);

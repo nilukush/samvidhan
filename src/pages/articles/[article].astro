@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import Badge from '../../components/Badge.astro';
+import ExplainerBox from '../../components/ExplainerBox.astro';
 import { cleanLegalText, compareByDocumentOrder, toRomanPart } from '../../lib/display';
 import { SITE_NAME } from '../../config';
 
@@ -81,6 +82,8 @@ const description = cleanLegalText(firstClauseText).slice(0, 155);
             ))
           }
         </ol>
+
+        {article.explainer && <ExplainerBox text={article.explainer} />}
 
         {
           article.status === 'omitted' && (

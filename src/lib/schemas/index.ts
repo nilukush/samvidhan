@@ -43,6 +43,8 @@ export const ArticleSchema = z.object({
   status: ArticleStatusEnum,
   /** Amendment ids of every amendment that touched this article, for example "42nd-amendment". */
   amendedBy: z.array(z.string()).default([]),
+  /** Plain words summary, labeled as such, never legal text. */
+  explainer: z.string().optional(),
 });
 
 export const PartSchema = z.object({
