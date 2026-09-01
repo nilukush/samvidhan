@@ -35,6 +35,8 @@ export const ArticleSchema = z.object({
   /** Part number as a string key referencing the owning part, for example "3" or "4A" for Part IVA. */
   part: z.string().regex(/^\d{1,2}[A-Z]?$/, 'part reference must look like 3 or 4A'),
   title: z.string().min(1),
+  /** Section heading the article sits under, for example "Right to Equality". */
+  section: z.string().optional(),
   clauses: z.array(ClauseSchema).min(1),
   status: ArticleStatusEnum,
   /** Amendment ids of every amendment that touched this article, for example "42nd-amendment". */
@@ -42,7 +44,8 @@ export const ArticleSchema = z.object({
 });
 
 export const PartSchema = z.object({
-  number: z.number().int().min(1).max(25),
+  /** Part label as a string, for example "3" or "4A", matching article part references. */
+  number: z.string().regex(/^\d{1,2}[A-B]?$/, 'part number must look like 3 or 4A'),
   name: z.string().min(1),
   description: z.string().optional(),
 });
@@ -50,6 +53,8 @@ export const PartSchema = z.object({
 export const ScheduleSchema = z.object({
   number: z.number().int().min(1).max(12),
   title: z.string().min(1),
+  /** Body text of the schedule, kept as one block until pages need structure. */
+  text: z.string().default(''),
 });
 
 export const AmendmentSchema = z.object({

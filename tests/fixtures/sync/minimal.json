@@ -1,0 +1,35 @@
+{
+  "preamble": "WE TEST, DO ADOPT THIS CONSTITUTION.",
+  "parts": [
+    { "number": "3", "name": "FUNDAMENTAL RIGHTS" },
+    { "number": "4A", "name": "FUNDAMENTAL DUTIES" }
+  ],
+  "articles": [
+    {
+      "number": "14",
+      "part": "3",
+      "title": "Equality before law.",
+      "section": "Right to Equality",
+      "clauses": [{ "text": "The State shall not deny to any person equality before the law.", "kind": "clause" }],
+      "status": "in-force",
+      "amendedBy": []
+    },
+    {
+      "number": "15",
+      "part": "3",
+      "title": "Prohibition of discrimination.",
+      "clauses": [{ "number": "1", "text": "The State shall not discriminate against any citizen.", "kind": "clause" }],
+      "status": "amended",
+      "amendedBy": ["1st-amendment"]
+    },
+    {
+      "number": "51A",
+      "part": "4A",
+      "title": "Fundamental duties.",
+      "clauses": [{ "text": "It shall be the duty of every citizen to abide by the Constitution.", "kind": "clause" }],
+      "status": "in-force",
+      "amendedBy": []
+    }
+  ],
+  "schedules": [{ "number": 1, "title": "Languages", "text": "The languages listed here." }]
+}

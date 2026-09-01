@@ -8,6 +8,11 @@ MEMORY.md
 .env.*
 !.env.example
 
+# Generated content collections (created by npm run data:sync)
+src/content/articles/
+src/content/parts/
+src/content/schedules/
+
 # Dependencies and build output
 node_modules/
 dist/

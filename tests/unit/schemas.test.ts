@@ -27,12 +27,27 @@ describe('article schema', () => {
     const article = { ...fixture('valid-article'), part: '4A' };
     expect(() => ArticleSchema.parse(article)).not.toThrow();
   });
+
+  test('accepts a section heading as article metadata', () => {
+    const article = { ...fixture('valid-article'), section: 'Right to Equality' };
+    const parsed = ArticleSchema.parse(article);
+    expect(parsed.section).toBe('Right to Equality');
+  });
+});
+
+describe('schedule schema', () => {
+  test('accepts schedule body text and defaults it to empty', () => {
+    const withText = ScheduleSchema.parse({ ...fixture('valid-schedule'), text: 'Languages listed.' });
+    expect(withText.text).toBe('Languages listed.');
+    const withoutText = ScheduleSchema.parse(fixture('valid-schedule'));
+    expect(withoutText.text).toBe('');
+  });
 });
 
 describe('part and schedule schemas', () => {
   test('accepts a valid part fixture', () => {
     const part = PartSchema.parse(fixture('valid-part'));
-    expect(part.number).toBe(3);
+    expect(part.number).toBe('3');
   });
 
   test('accepts a valid schedule fixture', () => {
