@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { compareByDocumentOrder, toRomanPart } from '../../lib/display';
+import { SITE_NAME } from '../../config';
+
+const parts = (await getCollection('parts')).sort(
+  (a, b) => Number.parseInt(a.id, 10) - Number.parseInt(b.id, 10) || a.id.localeCompare(b.id),
+);
+const articles = await getCollection('articles');
+
+// A compact number directory. Article numbers are the canonical citation
+// form, so they stand alone as link text; titles live on the part and
+// article pages, which carry the SEO weight and the 60 KB budget holds.
+---
+
+<BaseLayout
+  title={`All Articles of the Constitution of India | ${SITE_NAME}`}
+  description="Every article of the Constitution of India, from Article 1 to Article 395, grouped by part."
+>
+  <div class="container page">
+    <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Articles' }]} />
+    <h1>All articles</h1>
+    <p class="lede">
+      {articles.length} articles across {parts.length} parts. Each part section below lists every article it contains.
+    </p>
+
+    {
+      parts.map((part) => {
+        const inPart = articles.filter((entry) => entry.data.part === part.id).sort(compareByDocumentOrder);
+        return (
+          <section class="part-section">
+            <h2>
+              <a href={`/parts/${part.id}/`}>
+                Part {toRomanPart(part.id)}. {part.data.name}
+              </a>
+            </h2>
+            <ul class="number-grid">
+              {inPart.map((entry) => (
+                <li>
+                  <a href={`/articles/${entry.id}/`}>{entry.data.number}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+  }
+
+  h1 {
+    color: var(--color-navy);
+    margin-bottom: var(--space-3);
+  }
+
+  .lede {
+    font-size: var(--text-body-l);
+    margin-bottom: var(--space-8);
+    max-width: 40rem;
+  }
+
+  .part-section {
+    margin-bottom: var(--space-8);
+  }
+
+  .part-section h2 {
+    font-size: var(--text-heading-m);
+    margin-bottom: var(--space-3);
+  }
+
+  .part-section h2 a {
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+
+  .part-section h2 a:hover {
+    text-decoration: underline;
+  }
+
+  .number-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .number-grid a {
+    display: inline-block;
+    min-width: 3rem;
+    padding: var(--space-1) var(--space-2);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-ref);
+    color: var(--color-ink);
+    text-decoration: none;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+  }
+
+  .number-grid a:hover {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
+  }
+</style>

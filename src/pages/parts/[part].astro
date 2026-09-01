@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Badge from '../../components/Badge.astro';
+import { articleSortKey, toRomanPart } from '../../lib/display';
+import { SITE_NAME } from '../../config';
+
+export async function getStaticPaths() {
+  const parts = await getCollection('parts');
+  return parts.map((part) => ({ params: { part: part.id }, props: { part } }));
+}
+
+const { part } = Astro.props;
+const articles = (await getCollection('articles', (entry) => entry.data.part === part.id)).sort(
+  (a, b) => articleSortKey(a.data.number) - articleSortKey(b.data.number) || a.data.number.localeCompare(b.data.number),
+);
+const roman = toRomanPart(part.id);
+const headline = `${part.data.name.charAt(0)}${part.data.name.slice(1).toLowerCase()}`;
+---
+
+<BaseLayout
+  title={`Part ${roman}: ${part.data.name} | ${SITE_NAME}`}
+  description={`Part ${roman} of the Constitution of India, ${headline}: ${articles.length} articles.`}
+>
+  <div class="container page">
+    <Breadcrumb
+      items={[{ label: 'Home', href: '/' }, { label: 'Parts', href: '/parts/' }, { label: `Part ${roman}` }]}
+    />
+    <p class="kicker">Part {roman}</p>
+    <h1>{part.data.name}</h1>
+    <p class="lede">{articles.length} articles.</p>
+
+    <ul class="article-list">
+      {
+        articles.map((entry) => (
+          <li class={entry.data.status === 'omitted' ? 'row-omitted' : undefined}>
+            <a href={`/articles/${entry.id}/`}>
+              <span class="row-number">{entry.data.number}.</span>
+              <span class="row-title">{entry.data.title}</span>
+            </a>
+            {entry.data.status !== 'in-force' && <Badge status={entry.data.status} article={entry.data} />}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 52rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    color: var(--color-navy);
+    margin-bottom: var(--space-3);
+  }
+
+  .lede {
+    margin-bottom: var(--space-8);
+  }
+
+  .article-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .article-list li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .article-list a {
+    display: flex;
+    gap: var(--space-2);
+    color: var(--color-ink);
+    text-decoration: none;
+    flex-grow: 1;
+  }
+
+  .article-list a:hover .row-title {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  .row-number {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-ref);
+    color: var(--color-navy);
+    min-width: 3.5rem;
+  }
+
+  .row-omitted .row-title {
+    opacity: 0.7;
+  }
+</style>

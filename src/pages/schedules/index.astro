@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { SITE_NAME } from '../../config';
+
+const ORDINALS = [
+  'First',
+  'Second',
+  'Third',
+  'Fourth',
+  'Fifth',
+  'Sixth',
+  'Seventh',
+  'Eighth',
+  'Ninth',
+  'Tenth',
+  'Eleventh',
+  'Twelfth',
+];
+const schedules = (await getCollection('schedules')).sort((a, b) => a.data.number - b.data.number);
+---
+
+<BaseLayout
+  title={`Schedules of the Constitution of India | ${SITE_NAME}`}
+  description="All schedules of the Constitution of India, from languages to municipal powers."
+>
+  <div class="container page">
+    <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Schedules' }]} />
+    <h1>Schedules</h1>
+    <p class="lede">
+      {schedules.length} schedules list out details the articles refer to: languages, oaths, federal powers, and more.
+    </p>
+    <ul class="schedule-grid">
+      {
+        schedules.map((schedule) => (
+          <li>
+            <a class="schedule-card" href={`/schedules/${schedule.data.number}/`}>
+              <span class="schedule-number">{ORDINALS[schedule.data.number - 1]} Schedule</span>
+              <span class="schedule-title">{schedule.data.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+  }
+
+  h1 {
+    color: var(--color-navy);
+    margin-bottom: var(--space-3);
+  }
+
+  .lede {
+    font-size: var(--text-body-l);
+    margin-bottom: var(--space-8);
+  }
+
+  .schedule-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--space-4);
+  }
+
+  .schedule-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-m);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--color-ink);
+    height: 100%;
+  }
+
+  .schedule-card:hover {
+    border-color: var(--color-navy);
+  }
+
+  .schedule-number {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+
+  .schedule-title {
+    font-weight: 700;
+  }
+</style>

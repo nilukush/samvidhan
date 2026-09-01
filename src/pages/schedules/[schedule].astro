@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { cleanLegalText } from '../../lib/display';
+import { SITE_NAME } from '../../config';
+
+const ORDINALS = [
+  'First',
+  'Second',
+  'Third',
+  'Fourth',
+  'Fifth',
+  'Sixth',
+  'Seventh',
+  'Eighth',
+  'Ninth',
+  'Tenth',
+  'Eleventh',
+  'Twelfth',
+];
+
+export async function getStaticPaths() {
+  const schedules = await getCollection('schedules');
+  return schedules.map((schedule) => ({ params: { schedule: String(schedule.data.number) }, props: { schedule } }));
+}
+
+const { schedule } = Astro.props;
+const ordinal = ORDINALS[schedule.data.number - 1] ?? String(schedule.data.number);
+const text = cleanLegalText(schedule.data.text);
+---
+
+<BaseLayout
+  title={`${ordinal} Schedule: ${schedule.data.title} | ${SITE_NAME}`}
+  description={`${ordinal} Schedule of the Constitution of India: ${schedule.data.title}.`}
+>
+  <div class="container page">
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: 'Schedules', href: '/schedules/' },
+        { label: `${ordinal} Schedule` },
+      ]}
+    />
+    <p class="kicker">Schedule</p>
+    <h1>{ordinal} Schedule</h1>
+    <p class="subtitle">{schedule.data.title}</p>
+    <div class="schedule-text">{text}</div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 52rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    color: var(--color-navy);
+    margin-bottom: var(--space-2);
+  }
+
+  .subtitle {
+    font-size: var(--text-body-l);
+    margin-bottom: var(--space-8);
+  }
+
+  .schedule-text {
+    white-space: pre-line;
+    font-size: var(--text-body);
+    line-height: 1.7;
+  }
+</style>

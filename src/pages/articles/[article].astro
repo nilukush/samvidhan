@@ -1,0 +1,311 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Badge from '../../components/Badge.astro';
+import { cleanLegalText, compareByDocumentOrder, toRomanPart } from '../../lib/display';
+import { SITE_NAME } from '../../config';
+
+export async function getStaticPaths() {
+  const articles = (await getCollection('articles')).sort(compareByDocumentOrder);
+  return articles.map((entry, index) => ({
+    params: { article: entry.id },
+    props: {
+      entry,
+      prev: articles[index - 1] ?? null,
+      next: articles[index + 1] ?? null,
+    },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const article = entry.data;
+const roman = toRomanPart(article.part);
+const parts = await getCollection('parts');
+const part = parts.find((candidate) => candidate.id === article.part);
+const partName = part?.data.name ?? '';
+const siblings = (await getCollection('articles', (candidate) => candidate.data.part === article.part)).sort(
+  compareByDocumentOrder,
+);
+
+const clauseRows = article.clauses.map((clause) => ({
+  kind: clause.kind,
+  number: clause.number ? `(${clause.number}) ` : '',
+  label: clause.kind === 'explanation' ? 'Explanation.' : clause.kind === 'illustration' ? 'Illustration.' : '',
+  text: cleanLegalText(clause.text),
+}));
+
+const firstClauseText = article.clauses[0]?.text ?? '';
+const description = cleanLegalText(firstClauseText).slice(0, 155);
+---
+
+<BaseLayout title={`Article ${article.number}. ${article.title} | ${SITE_NAME}`} description={description}>
+  <div class="container page">
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: 'Parts', href: '/parts/' },
+        { label: `Part ${roman}: ${partName}`, href: `/parts/${article.part}/` },
+        { label: `Article ${article.number}` },
+      ]}
+    />
+
+    <div class="article-layout">
+      <article>
+        <p class="kicker">Part {roman} &middot; {article.section ?? partName}</p>
+        <h1><span class="article-number">Article {article.number}</span> {article.title}</h1>
+
+        <div class="badges">
+          <Badge status={article.status} article={article} />
+          {article.amendedBy.map((id) => <span class="chip">{id.replace('-amendment', ' Amendment')}</span>)}
+        </div>
+
+        <ol class="clauses">
+          {
+            clauseRows.map((row) => (
+              <li class={row.kind === 'explanation' || row.kind === 'illustration' ? 'note' : undefined}>
+                {row.label && <em class="note-label">{row.label}</em>}
+                {row.number && <span class="clause-number">{row.number}</span>}
+                {row.text}
+              </li>
+            ))
+          }
+        </ol>
+
+        {
+          article.status === 'omitted' && (
+            <p class="omitted-note">
+              This article no longer forms part of the Constitution. It is kept here for the historical record.
+            </p>
+          )
+        }
+
+        <nav class="pager" aria-label="Article navigation">
+          {
+            prev ? (
+              <a class="pager-prev" href={`/articles/${prev.id}/`}>
+                <span class="pager-direction">Previous article</span>
+                <span class="pager-title">
+                  {prev.data.number}. {prev.data.title}
+                </span>
+              </a>
+            ) : (
+              <span />
+            )
+          }
+          {
+            next ? (
+              <a class="pager-next" href={`/articles/${next.id}/`}>
+                <span class="pager-direction">Next article</span>
+                <span class="pager-title">
+                  {next.data.number}. {next.data.title}
+                </span>
+              </a>
+            ) : (
+              <span />
+            )
+          }
+        </nav>
+      </article>
+
+      <aside class="part-nav" aria-label={`Articles in Part ${roman}`}>
+        <h2>Part {roman}</h2>
+        <ul>
+          {
+            siblings.map((sibling) => (
+              <li>
+                <a
+                  href={`/articles/${sibling.id}/`}
+                  aria-current={sibling.id === entry.id ? 'page' : undefined}
+                  class={sibling.id === entry.id ? 'current' : undefined}
+                >
+                  {sibling.data.number}. {sibling.data.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-8) var(--space-4) var(--space-16);
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 64rem) {
+    .article-layout {
+      grid-template-columns: minmax(0, 8fr) minmax(14rem, 4fr);
+    }
+  }
+
+  h1 {
+    color: var(--color-navy);
+    font-size: var(--text-display-l);
+    margin-bottom: var(--space-4);
+  }
+
+  .article-number {
+    display: block;
+    font-size: 0.55em;
+    margin-bottom: var(--space-2);
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-8);
+  }
+
+  .chip {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    padding: 2px var(--space-2);
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+  }
+
+  .clauses {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--text-body-l);
+    max-width: 42rem;
+  }
+
+  .clauses li {
+    margin-bottom: var(--space-4);
+    line-height: 1.75;
+  }
+
+  .clauses .note {
+    border-left: 3px solid var(--color-line);
+    padding-left: var(--space-3);
+  }
+
+  .note-label {
+    font-style: italic;
+    display: inline;
+  }
+
+  .clause-number {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-ref);
+    color: var(--color-navy);
+  }
+
+  .omitted-note {
+    border-left: 3px solid var(--color-red);
+    padding-left: var(--space-3);
+    font-size: var(--text-body-s);
+  }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-12);
+    max-width: 42rem;
+  }
+
+  .pager a {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-decoration: none;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    background: var(--color-surface);
+  }
+
+  .pager a:hover {
+    border-color: var(--color-navy);
+  }
+
+  .pager-next {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .pager-direction {
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+  }
+
+  .pager-title {
+    font-size: var(--text-body-s);
+  }
+
+  .part-nav {
+    display: none;
+  }
+
+  @media (min-width: 64rem) {
+    .part-nav {
+      display: block;
+      position: sticky;
+      top: var(--space-4);
+      align-self: start;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+      border-left: 1px solid var(--color-line);
+      padding-left: var(--space-4);
+      font-size: var(--text-body-s);
+    }
+
+    .part-nav h2 {
+      font-size: var(--text-heading-m);
+      color: var(--color-navy);
+      margin-bottom: var(--space-3);
+    }
+
+    .part-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .part-nav li {
+      margin-bottom: var(--space-1);
+    }
+
+    .part-nav a {
+      display: block;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-s);
+      color: var(--color-ink);
+      text-decoration: none;
+    }
+
+    .part-nav a:hover {
+      background: var(--color-saffron-soft);
+    }
+
+    .part-nav a.current {
+      background: var(--color-navy);
+      color: var(--color-paper);
+    }
+  }
+</style>

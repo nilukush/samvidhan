@@ -1,0 +1,42 @@
+---
+import { statusYear } from '../lib/display';
+
+interface Props {
+  status: 'in-force' | 'amended' | 'omitted' | 'repealed';
+  article?: { clauses: Array<{ text: string }> };
+}
+
+const { status, article } = Astro.props;
+const year = article && (status === 'omitted' || status === 'repealed') ? statusYear(article) : null;
+const label =
+  status === 'in-force' ? 'In force' : status === 'amended' ? 'Amended' : status === 'omitted' ? 'Omitted' : 'Repealed';
+---
+
+<span class={`badge badge-${status}`}>{label}{year ? ` ${year}` : ''}</span>
+
+<style>
+  .badge {
+    display: inline-block;
+    padding: 2px var(--space-2);
+    border-radius: var(--radius-s);
+    font-size: var(--text-body-s);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .badge-in-force {
+    background: var(--color-green-soft);
+    color: var(--color-green);
+  }
+
+  .badge-amended {
+    background: var(--color-saffron-soft);
+    color: var(--color-navy);
+  }
+
+  .badge-omitted,
+  .badge-repealed {
+    background: var(--color-red-soft);
+    color: var(--color-red);
+  }
+</style>

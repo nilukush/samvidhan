@@ -1,27 +1,148 @@
 ---
+import { readFileSync } from 'node:fs';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Chakra from '../components/Chakra.astro';
+import { cleanLegalText } from '../lib/display';
 import { SITE_NAME, SITE_TAGLINE } from '../config';
+
+const { preamble } = JSON.parse(readFileSync('data/processed/constitution.json', 'utf8')) as { preamble: string };
+const preambleOpening = cleanLegalText(preamble).slice(0, 160);
+const articles = await getCollection('articles');
+const parts = await getCollection('parts');
+const schedules = await getCollection('schedules');
 ---
 
-<BaseLayout>
-  <section class="container placeholder">
-    <h1>{SITE_NAME}</h1>
-    <p>{SITE_TAGLINE}</p>
+<BaseLayout title={`${SITE_NAME}: ${SITE_TAGLINE}`} description={SITE_TAGLINE}>
+  <section class="hero">
+    <div class="container hero-inner">
+      <Chakra size={140} class="hero-chakra" />
+      <h1>{SITE_NAME}</h1>
+      <p class="tagline">{SITE_TAGLINE}</p>
+      <p class="preamble-opening">
+        {preambleOpening}&hellip; <a href="/preamble/">Read the Preamble</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="container entries">
+    <h2>Explore the Constitution</h2>
+    <ul class="entry-grid">
+      <li>
+        <a class="entry-card" href="/preamble/">
+          <span class="entry-title">Preamble</span>
+          <span class="entry-note">The words the Republic begins with</span>
+        </a>
+      </li>
+      <li>
+        <a class="entry-card" href="/articles/">
+          <span class="entry-title">Articles</span>
+          <span class="entry-note">{articles.length} articles, current text</span>
+        </a>
+      </li>
+      <li>
+        <a class="entry-card" href="/parts/">
+          <span class="entry-title">Parts</span>
+          <span class="entry-note">{parts.length} parts of the Constitution</span>
+        </a>
+      </li>
+      <li>
+        <a class="entry-card" href="/schedules/">
+          <span class="entry-title">Schedules</span>
+          <span class="entry-note">{schedules.length} schedules of detail</span>
+        </a>
+      </li>
+    </ul>
   </section>
 </BaseLayout>
 
 <style>
-  .placeholder {
-    padding: var(--space-24) var(--space-4);
+  .hero {
+    background: var(--color-navy);
+    color: var(--color-paper);
+    padding: var(--space-16) 0;
+    position: relative;
+    overflow: hidden;
   }
 
-  .placeholder h1 {
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .hero-chakra {
+    color: var(--color-paper);
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    color: var(--color-paper);
     font-size: var(--text-display-xl);
+    margin: 0;
+  }
+
+  .tagline {
+    font-size: var(--text-body-l);
+    margin: 0;
+  }
+
+  .preamble-opening {
+    max-width: 38rem;
+    font-size: var(--text-body);
+    margin: var(--space-2) 0 0;
+    opacity: 0.95;
+  }
+
+  .preamble-opening a {
+    color: var(--color-focus);
+    font-weight: 700;
+  }
+
+  .entries {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+  }
+
+  .entries h2 {
+    color: var(--color-navy);
+    margin-bottom: var(--space-6);
+  }
+
+  .entry-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: var(--space-4);
+  }
+
+  .entry-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-m);
+    padding: var(--space-6) var(--space-4);
+    text-decoration: none;
+    color: var(--color-ink);
+    height: 100%;
+  }
+
+  .entry-card:hover {
+    border-color: var(--color-navy);
+  }
+
+  .entry-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-heading-m);
     color: var(--color-navy);
   }
 
-  .placeholder p {
-    font-size: var(--text-body-l);
-    max-width: 40rem;
+  .entry-note {
+    font-size: var(--text-body-s);
   }
 </style>
