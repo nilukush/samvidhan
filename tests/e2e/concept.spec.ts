@@ -2,13 +2,15 @@ import { expect, test } from '@playwright/test';
 
 test.describe('concept search', () => {
   test('quality gate: a natural question surfaces the equality articles', async ({ page }) => {
-    test.setTimeout(180_000);
+    test.setTimeout(300_000);
     await page.goto('/');
     await page.keyboard.press('/');
     await page.getByRole('dialog').getByRole('tab', { name: 'Concept' }).click();
     await page.getByLabel(/search query/i).fill('can the state discriminate against women');
     const results = page.locator('#concept-results a');
-    await expect(results.first()).toBeVisible({ timeout: 120_000 });
+    // CI runners have 2 cores and slower I/O; the model load plus inference
+    // takes much longer than on a local M1.
+    await expect(results.first()).toBeVisible({ timeout: 240_000 });
     const topFive = await results.allTextContents();
     const hits = ['Article 14', 'Article 15', 'Article 16'].filter((label) =>
       topFive.slice(0, 5).some((text) => text.trim() === label),
