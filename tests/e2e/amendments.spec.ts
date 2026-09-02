@@ -31,7 +31,7 @@ test.describe('amendments timeline', () => {
   test('timeline renders without animation under reduced motion', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/amendments/');
-    await expect(page.locator('svg[role="img"]')).toBeVisible();
+    await expect(page.locator('svg[role="group"]')).toBeVisible();
     expect(await page.locator('animate, animateTransform').count()).toBe(0);
   });
 });
