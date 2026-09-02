@@ -22,7 +22,8 @@
     "data:embed": "node scripts/embed/run.ts",
     "vendor:ai": "./scripts/vendor-ai.sh",
     "model:fetch": "./scripts/fetch-model.sh",
-    "audit:lighthouse": "./scripts/lighthouse-audit.sh"
+    "audit:lighthouse": "./scripts/lighthouse-audit.sh",
+    "audit:smoke": "./scripts/smoke-test.sh"
   },
   "dependencies": {
     "@fontsource/fraunces": "^5.3.0",

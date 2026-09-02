@@ -58,7 +58,7 @@ describe('SEO: unique titles and descriptions', () => {
 describe('SEO: JSON-LD structured data', () => {
   test('article pages embed valid Legislation JSON-LD with required fields', () => {
     for (const number of ['14', '368', '51A']) {
-      const html = readFileSync(`dist/articles/${number}/index.html`, 'utf8');
+      const html = readFileSync(`dist/articles/${number.toLowerCase()}/index.html`, 'utf8');
       const ldMatch = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
       expect(ldMatch, `article ${number} has no JSON-LD`).not.toBeNull();
       const ld = JSON.parse(ldMatch![1]!) as Record<string, unknown>;

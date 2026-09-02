@@ -38,7 +38,7 @@ describe('pagefind integration', () => {
   });
 
   test('the pagefind index captures all article pages with type filters', () => {
-    const html = readFileSync('dist/articles/51A/index.html', 'utf8');
+    const html = readFileSync('dist/articles/51a/index.html', 'utf8');
     expect(html).toContain('data-pagefind-filter="type"');
   });
 });
