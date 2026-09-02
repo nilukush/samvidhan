@@ -1,4 +1,5 @@
 # Agent and session files (never commit)
+docs/
 CLAUDE.md
 AGENTS.md
 MEMORY.md
