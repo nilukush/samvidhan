@@ -23,12 +23,13 @@ After the first deploy, run the smoke tests:
 ./scripts/smoke-test.sh https://samvidhan.pages.dev
 ```
 
-All 24 checks should pass. The script verifies:
+All 27 checks should pass. The script verifies:
 - Home page, article pages, amendment pages, bills tracker all serve content
 - JSON-LD structured data on article pages
 - The sitemap lists articles and amendments
 - robots.txt and llms.txt are reachable
 - The search controller, Pagefind bundle, and concept module are served
+- Unknown paths return a 404 page instead of the homepage
 
 ## Search engine submission (one-time, free)
 

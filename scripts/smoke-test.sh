@@ -77,6 +77,10 @@ check "pagefind bundle served" '[ "$BODY" = "200" ]'
 BODY=$(curl -sL -o /dev/null -w "%{http_code}" "$URL/concept.js" --max-time 30)
 check "concept module served" '[ "$BODY" = "200" ]'
 
+# 404 handling
+BODY=$(curl -s -o /dev/null -w "%{http_code}" "$URL/this-page-does-not-exist" --max-time 30)
+check "unknown path returns 404" '[ "$BODY" = "404" ]'
+
 if [ "$PASS" = false ]; then
   echo "SMOKE TESTS FAILED"
   exit 1

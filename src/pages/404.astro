@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_NAME } from '../config';
+---
+
+<BaseLayout
+  searchType="Pages"
+  title={`Page not found | ${SITE_NAME}`}
+  description="This address does not match a page on Samvidhan. Browse the articles, parts, schedules, and amendments of the Constitution of India."
+>
+  <div class="container page">
+    <p class="kicker">Error 404</p>
+    <h1>Page not found</h1>
+    <p class="note">
+      This address does not point to a page on this site. Nothing is wrong with the Constitution itself.
+    </p>
+    <ul class="ways">
+      <li><a href="/">Start from the homepage</a></li>
+      <li><a href="/articles/">Browse all articles</a></li>
+      <li><a href="/amendments/">Browse the amendments timeline</a></li>
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 46rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: var(--text-display-l);
+    color: var(--color-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .note {
+    font-size: var(--text-body);
+    color: var(--color-ink);
+    margin-bottom: var(--space-6);
+  }
+
+  .ways {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ways a {
+    font-weight: 700;
+    color: var(--color-link);
+  }
+</style>

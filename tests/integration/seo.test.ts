@@ -116,6 +116,15 @@ describe('SEO: sitemap, robots, and llms.txt', () => {
   });
 });
 
+describe('SEO: 404 handling', () => {
+  test('the build emits a 404 page so unknown paths do not serve the homepage', () => {
+    expect(existsSync('dist/404.html')).toBe(true);
+    const html = readFileSync('dist/404.html', 'utf8');
+    expect(html).toContain('Page not found');
+    expect(html).toContain('href="/"');
+  });
+});
+
 describe('GEO: answer ledes', () => {
   test('every article page renders a first paragraph between 40 and 60 words', () => {
     for (const number of ['14', '21', '368', '243z', '51a', '1', '395']) {
