@@ -1,4 +1,17 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
+
+// The rollout adds batches until every article has an explainer, so the
+// "article without a box" case must be picked from the live data, never
+// hardcoded: a new batch would otherwise break this test every time.
+const explainers = JSON.parse(readFileSync('data/processed/explainers/explainers.json', 'utf8')) as Record<
+  string,
+  string
+>;
+const constitution = JSON.parse(readFileSync('data/processed/constitution.json', 'utf8')) as {
+  articles: Array<{ number: string }>;
+};
+const bareArticle = constitution.articles.find((article) => !(article.number in explainers))?.number ?? '395';
 
 test.describe('plain words explainers', () => {
   test('the box renders after the article text with the correct heading and label', async ({ page }) => {
@@ -13,11 +26,11 @@ test.describe('plain words explainers', () => {
     const boxTop = await box.boundingBox();
     expect(clausesBottom?.y).toBeDefined();
     expect(boxTop?.y).toBeDefined();
-    expect(boxTop!.y).toBeGreaterThan(clausesBottom!.y + (clausesBottom!.height ?? 0) - 1);
+    expect(boxTop!.y).toBeGreaterThan((clausesBottom?.y ?? 0) + (clausesBottom?.height ?? 0) - 1);
   });
 
-  test('articles outside the current batch render no box', async ({ page }) => {
-    await page.goto('/articles/1/');
+  test('articles outside the current rollout render no box', async ({ page }) => {
+    await page.goto(`/articles/${bareArticle.toLowerCase()}/`);
     await expect(page.getByRole('region', { name: 'What it means' })).toHaveCount(0);
   });
 
