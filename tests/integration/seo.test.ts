@@ -2,6 +2,7 @@ import { execSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, test } from 'vitest';
+import { SITE_URL } from '../../src/config';
 
 function walk(dir: string): string[] {
   const entries: string[] = [];
@@ -99,6 +100,16 @@ describe('SEO: sitemap, robots, and llms.txt', () => {
     expect(robots).toContain('Sitemap:');
   });
 
+  test('the sitemap and the built page set match exactly', () => {
+    const sitemap = readFileSync('dist/sitemap-0.xml', 'utf8');
+    const urls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]!));
+    const pages = walk('dist').map((page) => SITE_URL + page.replace(/^dist/, '').replace(/index\.html$/, ''));
+    expect(urls.size, 'sitemap and built pages differ in count').toBe(pages.length);
+    for (const page of pages) {
+      expect(urls.has(page), `${page} missing from the sitemap`).toBe(true);
+    }
+  });
+
   test('llms.txt exists as markdown and links every top level section', () => {
     const llms = readFileSync('dist/llms.txt', 'utf8');
     expect(llms.startsWith('# ')).toBe(true);
@@ -113,6 +124,20 @@ describe('SEO: sitemap, robots, and llms.txt', () => {
       expect(llms, `llms.txt missing ${section}`).toContain(section);
     }
     expect(llms).toContain('Constitution of India');
+  });
+});
+
+describe('SEO: canonical URLs', () => {
+  test('every built page declares a canonical URL matching its own path', () => {
+    const pages = walk('dist');
+    expect(pages.length).toBeGreaterThan(500);
+    for (const page of pages) {
+      const html = readFileSync(page, 'utf8');
+      const match = /<link rel="canonical" href="([^"]+)"\s*\/?>/.exec(html);
+      expect(match, `${page} has no canonical link`).not.toBeNull();
+      const expected = SITE_URL + page.replace(/^dist/, '').replace(/index\.html$/, '');
+      expect(match![1]!, `${page} canonical is ${match![1]}`).toBe(expected);
+    }
   });
 });
 

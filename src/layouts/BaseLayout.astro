@@ -6,7 +6,7 @@ import '../styles/tokens.css';
 import '../styles/base.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_NAME, SITE_TAGLINE } from '../config';
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from '../config';
 
 interface Props {
   title?: string;
@@ -32,6 +32,9 @@ if (rawTitle.length <= 60) {
   title = rawTitle.slice(0, 57).trimEnd() + '…';
 }
 const description = rawDescription.length > 155 ? rawDescription.slice(0, 155) : rawDescription;
+// Canonical URL: trailing slash form, which is how the host serves every page.
+const path = Astro.url.pathname.replace(/^\/+|\/+$/g, '');
+const canonical = SITE_URL + (path === '' ? '/' : `/${path}/`);
 ---
 
 <!doctype html>
@@ -40,6 +43,7 @@ const description = rawDescription.length > 155 ? rawDescription.slice(0, 155) :
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
