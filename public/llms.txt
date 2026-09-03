@@ -10,6 +10,8 @@ The full text of the Constitution of India as on 1 May 2026, with all 471 articl
 - [Schedules](https://samvidhan.pages.dev/schedules/): The 12 schedules
 - [Amendments](https://samvidhan.pages.dev/amendments/): Timeline of all 106 amendments from 1951 to 2026
 - [Upcoming changes](https://samvidhan.pages.dev/changes/upcoming/): Constitution amendment bills before Parliament
+- [About](https://samvidhan.pages.dev/about/): What this site is and how it stays current
+- [Sources](https://samvidhan.pages.dev/sources/): Data sources and licensing
 
 ## Key articles
 

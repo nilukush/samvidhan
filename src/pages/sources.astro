@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_NAME } from '../config';
+---
+
+<BaseLayout
+  searchType="Pages"
+  title={`Sources and licensing | ${SITE_NAME}`}
+  description="Every data source behind Samvidhan and its license: the official PDF, amendment facts, bill tracking, and code."
+>
+  <div class="container page">
+    <p class="kicker">Sources</p>
+    <h1>Sources and licensing</h1>
+
+    <dl class="sources">
+      <dt>Constitution text</dt>
+      <dd>
+        The official Legislative Department PDF
+        (<a href="https://www.legislative.gov.in/constitution-of-india">legislative.gov.in</a>), edition as on 1 May
+        2026, vendored into this repository at data/source/. Statutes are public domain under Indian law (EBC v. D.B.
+        Modak, 2008), so the text carries no license obligation. The text is never altered; editorial markers are
+        stripped only for display.
+      </dd>
+
+      <dt>Amendment facts</dt>
+      <dd>
+        Years and milestones are derived from Wikipedia's List of amendments of the Constitution of India (CC BY-SA
+        4.0, attributed), paraphrased. Wherever the official PDF's own citations survive (97 of 106 amendments), the
+        PDF is the source of record. Summaries on landmark amendment pages are written for this site.
+      </dd>
+
+      <dt>Bill tracking</dt>
+      <dd>
+        Pending bills are paraphrased from
+        <a href="https://sansad.in">sansad.in</a> (official) and
+        <a href="https://prsindia.org/billtrack">prsindia.org/billtrack</a>, snapshotted by hand every month. Each row
+        links to its source and shows its last verified date. No analysis text is copied.
+      </dd>
+
+      <dt>Plain words summaries</dt>
+      <dd>
+        Original editorial content by this project, licensed CC BY 4.0. They are summaries, never legal advice, and
+        never a substitute for the text of the Constitution.
+      </dd>
+
+      <dt>Code</dt>
+      <dd>Released under the MIT license. See LICENSE in the repository.</dd>
+
+      <dt>Community datasets, evaluated and rejected</dt>
+      <dd>
+        GitHub datasets of the Constitution (captn3m0, civictech-India) were reviewed and rejected: last updated 2019
+        to 2021, and two of the three carry no license. The MIT licensed Yash Handa JSON is used as a structural cross
+        check only, never as published text.
+      </dd>
+    </dl>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 46rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: var(--text-display-l);
+    color: var(--color-navy);
+    margin-bottom: var(--space-6);
+  }
+
+  dt {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-heading-s);
+    color: var(--color-navy);
+    margin-top: var(--space-6);
+  }
+
+  dd {
+    margin: var(--space-2) 0 0;
+    color: var(--color-ink);
+  }
+
+  a {
+    color: var(--color-link);
+    font-weight: 700;
+  }
+</style>

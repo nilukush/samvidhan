@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_NAME } from '../config';
+---
+
+<BaseLayout
+  searchType="Pages"
+  title={`About | ${SITE_NAME}`}
+  description="What Samvidhan is, how it is built, how it stays current, and why it costs nothing to run."
+>
+  <div class="container page">
+    <p class="kicker">About</p>
+    <h1>{SITE_NAME}, the Constitution made readable</h1>
+
+    <p>
+      {SITE_NAME} is an independent civic project, not a government website. It presents the current text of the
+      Constitution of India as readable, searchable pages: all 471 articles, 26 parts, 12 schedules, a timeline of all
+      106 amendments, and a tracker of amendment bills before Parliament.
+    </p>
+
+    <h2>Where the text comes from</h2>
+    <p>
+      The Constitution text is taken from the official Legislative Department edition, as on 1 May 2026. Statutes are
+      public domain under Indian law, so the text is reproduced in full and never altered. Plain words summaries are
+      original editorial content, labeled as summaries on every article page. See
+      <a href="/sources/">sources and licensing</a> for the full list.
+    </p>
+
+    <h2>How it stays honest about age</h2>
+    <p>
+      There is no live feed of amendments or bills, so every fact carries the date it was verified. The footer records
+      the verification dates for the text, the amendment list, and the bill tracker, and each bill row shows its own
+      last verified date. A monthly update ritual refreshes them; the
+      <a href="/changes/upcoming/">upcoming changes page</a> explains the pending bills in plain words.
+    </p>
+
+    <h2>How it runs</h2>
+    <p>
+      The site is fully static. Search runs in your browser, hosting is free, and nothing about your visit is tracked
+      or sold. It works without JavaScript for reading: every article is complete in the HTML itself.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 46rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: var(--text-display-l);
+    color: var(--color-navy);
+    margin-bottom: var(--space-6);
+  }
+
+  h2 {
+    font-size: var(--text-heading-m);
+    color: var(--color-navy);
+    margin: var(--space-8) 0 var(--space-3);
+  }
+
+  p {
+    color: var(--color-ink);
+    margin-bottom: var(--space-4);
+  }
+
+  a {
+    color: var(--color-link);
+    font-weight: 700;
+  }
+</style>

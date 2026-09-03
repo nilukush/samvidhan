@@ -47,6 +47,16 @@ describe('generated pages', () => {
     expect(preamble).not.toMatch(/\d{1,2}\[/);
   });
 
+  test('about and sources pages exist with their content', () => {
+    const about = bodyMarkup('dist/about/index.html');
+    expect(about).toContain('independent civic project');
+
+    const sources = bodyMarkup('dist/sources/index.html');
+    expect(sources).toContain('D.B. Modak');
+    expect(sources).toContain('legislative.gov.in');
+    expect(sources).toContain('public domain');
+  });
+
   test('page weight stays inside the 60 KB html budget', () => {
     const heavyPages = [
       'dist/articles/index.html',
