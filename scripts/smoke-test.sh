@@ -77,6 +77,11 @@ check "pagefind bundle served" '[ "$BODY" = "200" ]'
 BODY=$(curl -sL -o /dev/null -w "%{http_code}" "$URL/concept.js" --max-time 30)
 check "concept module served" '[ "$BODY" = "200" ]'
 
+# Essentials
+BODY=$(curl -sL "$URL/essentials/" --max-time 30)
+check "essentials page returns 200" '[ -n "$BODY" ]'
+check "essentials carries the 106th caveat" 'echo "$BODY" | grep -q "inoperative"'
+
 # 404 handling
 BODY=$(curl -s -o /dev/null -w "%{http_code}" "$URL/this-page-does-not-exist" --max-time 30)
 check "unknown path returns 404" '[ "$BODY" = "404" ]'

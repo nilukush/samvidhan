@@ -14,6 +14,9 @@ const PAGES = [
   { name: 'amendments index', path: '/amendments/' },
   { name: 'amendment detail', path: '/amendments/42/' },
   { name: 'bills tracker', path: '/changes/upcoming/' },
+  { name: 'essentials', path: '/essentials/' },
+  { name: 'about', path: '/about/' },
+  { name: 'sources', path: '/sources/' },
 ];
 
 test.describe('accessibility audit', () => {

@@ -29,7 +29,8 @@ The site has no runtime dependency on any government server. Honesty about data 
 1. Constitution text: check legislative.gov.in/constitution-of-india for a new edition PDF (amendments are rare, 1 to 2 a year). If there is a new one, download it into `data/source/`, rerun the extraction pipeline, spot check 10 articles against the PDF, and update the "text verified" date in the site data and footer.
 2. Amendment list: verify against Wikipedia's List of amendments of the Constitution of India that no new amendment has been enacted. Add amendment data and timeline entries if one has.
 3. Pending bills: review Constitution amendment bills on sansad.in and prsindia.org/billtrack. Update `src/data/bills/snapshot.json` with status changes, paraphrased in your own words, and set a fresh lastVerified date on every changed row.
-4. Push. Cloudflare Pages rebuilds and deploys automatically. Confirm the deployed verified dates changed.
+4. Essentials: check `src/data/essentials/essentials.json` against anything that changed in steps 1 to 3 (an amendment that lands can change what the summaries must say, especially the 106th entry's Article 334A caveat) and set a fresh lastVerified date.
+5. Push. Cloudflare Pages rebuilds and deploys automatically. Confirm the deployed verified dates changed.
 
 Notes: never scrape at runtime, never copy PRS analysis text verbatim (facts only, paraphrased, linked), never publish constitution text from community GitHub datasets (unlicensed and stale; the official PDF is the only canonical source).
 

@@ -5,7 +5,7 @@ test.describe('base layout', () => {
     await page.goto('/');
     await expect(page.getByRole('banner')).toBeVisible();
     await expect(page.getByRole('banner').getByRole('link', { name: 'Samvidhan' })).toBeVisible();
-    for (const label of ['Preamble', 'Articles', 'Parts', 'Schedules', 'Amendments', 'Changes']) {
+    for (const label of ['Preamble', 'Essentials', 'Articles', 'Parts', 'Schedules', 'Amendments', 'Changes']) {
       await expect(page.getByRole('navigation').getByRole('link', { name: label, exact: true })).toBeVisible();
     }
     await expect(page.getByRole('banner').getByRole('button', { name: /search/i })).toBeVisible();

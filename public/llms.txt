@@ -5,6 +5,7 @@ The full text of the Constitution of India as on 1 May 2026, with all 471 articl
 ## Sections
 
 - [Preamble](https://samvidhan.pages.dev/preamble/): The opening words of the Constitution
+- [Essentials](https://samvidhan.pages.dev/essentials/): Starting points for a general reader: rights, duties, the amendment process, and key amendments
 - [All articles](https://samvidhan.pages.dev/articles/): Every article by number
 - [Parts](https://samvidhan.pages.dev/parts/): The 26 parts of the Constitution
 - [Schedules](https://samvidhan.pages.dev/schedules/): The 12 schedules
@@ -37,3 +38,4 @@ The Constitution text is public domain under Indian law (EBC v. D.B. Modak, 2008
 Constitution text: verified against the official edition as on 1 May 2026, on 31 August 2026.
 Amendments: 1 to 106, verified 31 August 2026.
 Bill tracker: last verified 31 August 2026.
+Essentials summaries: last verified 3 September 2026.

@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEssentials, refLink } from '../lib/essentials';
+import { SITE_NAME } from '../config';
+
+const { lastVerified, entries } = getEssentials();
+const cards = entries.map((entry) => ({ ...entry, links: entry.refs.map((ref) => refLink(ref)) }));
+const verified = new Date(lastVerified).toLocaleDateString('en-IN', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout
+  searchType="Pages"
+  title={`Essentials | ${SITE_NAME}`}
+  description="Starting points in the Constitution of India: fundamental rights, directive principles, duties, the amendment process, and the key amendments."
+>
+  <div class="container page">
+    <p class="kicker">Starting points</p>
+    <h1>Essentials</h1>
+    <p class="intro">
+      Where to begin with the Constitution of India. These are starting points for a general reader, not a ranking of
+      what matters most. Every entry links to the full text it describes.
+    </p>
+
+    <ul class="essentials-grid">
+      {
+        cards.map((card) => (
+          <li class="essential-card">
+            <h2>{card.title}</h2>
+            <p>{card.summary}</p>
+            <ul class="ref-links">
+              {card.links.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="verified">Summaries verified {verified}.</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 60rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: var(--text-display-l);
+    color: var(--color-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .intro {
+    font-size: var(--text-body-l);
+    color: var(--color-ink);
+    max-width: 42rem;
+    margin-bottom: var(--space-8);
+  }
+
+  .essentials-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+    gap: var(--space-4);
+  }
+
+  .essential-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-m);
+    padding: var(--space-6) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .essential-card h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--text-heading-m);
+    color: var(--color-navy);
+    margin: 0;
+  }
+
+  .essential-card p {
+    margin: 0;
+    color: var(--color-ink);
+    font-size: var(--text-body);
+  }
+
+  .ref-links {
+    list-style: none;
+    margin: auto 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .ref-links a {
+    display: inline-block;
+    font-size: var(--text-body-s);
+    font-weight: 700;
+    color: var(--color-navy);
+    text-decoration: none;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    background: var(--color-paper);
+    padding: var(--space-1) var(--space-3);
+  }
+
+  .ref-links a:hover {
+    border-color: var(--color-navy);
+  }
+
+  .verified {
+    margin-top: var(--space-8);
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+  }
+</style>

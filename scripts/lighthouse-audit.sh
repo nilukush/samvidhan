@@ -7,7 +7,7 @@ PORT=${1:-4321}
 CHROME="$(node -e "console.log(require('playwright-core').chromium.executablePath())")"
 PASS=true
 
-for PAGE in / /articles/14/ /amendments/ /changes/upcoming/ /preamble/; do
+for PAGE in / /articles/14/ /amendments/ /changes/upcoming/ /preamble/ /essentials/; do
   NAME=$(echo "$PAGE" | sed 's|/articles/||;s|/changes/||;s|/$||;s|^$|home|;s|/|_|g')
   npx lighthouse "http://127.0.0.1:$PORT$PAGE" \
     --only-categories=performance,accessibility,best-practices,seo \
