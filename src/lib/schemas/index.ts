@@ -95,6 +95,30 @@ export const BillSchema = z.object({
   sourceUrl: z.url(),
 });
 
+export const EssentialRefTypeEnum = z.enum(['article', 'part', 'amendment', 'page']);
+
+export const EssentialRefSchema = z.object({
+  type: EssentialRefTypeEnum,
+  /** Article number "14", part label "3", amendment number "42", or site path "/preamble/". */
+  value: z.string().min(1),
+  /** Link text; required for page refs, whose label cannot be derived from a path. */
+  label: z.string().optional(),
+});
+
+export const EssentialSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/, 'id must be a lowercase slug'),
+  title: z.string().min(1),
+  /** Plain words summary, 15 to 60 words, style linted like explainers. */
+  summary: z.string().min(1),
+  refs: z.array(EssentialRefSchema).min(1),
+});
+
+export const EssentialsFileSchema = z.object({
+  /** The whole curated list must show when its facts were last checked. */
+  lastVerified: isoDate,
+  entries: z.array(EssentialSchema).min(8).max(12),
+});
+
 export type Article = z.infer<typeof ArticleSchema>;
 export type Clause = z.infer<typeof ClauseSchema>;
 export type Part = z.infer<typeof PartSchema>;
@@ -103,3 +127,6 @@ export type Amendment = z.infer<typeof AmendmentSchema>;
 export type Bill = z.infer<typeof BillSchema>;
 export type ArticleStatus = z.infer<typeof ArticleStatusEnum>;
 export type BillStatus = z.infer<typeof BillStatusEnum>;
+export type Essential = z.infer<typeof EssentialSchema>;
+export type EssentialRef = z.infer<typeof EssentialRefSchema>;
+export type EssentialsFile = z.infer<typeof EssentialsFileSchema>;

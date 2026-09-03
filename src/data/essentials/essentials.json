@@ -1,0 +1,97 @@
+{
+  "lastVerified": "2026-09-03",
+  "entries": [
+    {
+      "id": "preamble",
+      "title": "The Preamble",
+      "summary": "India constitutes itself a sovereign, socialist, secular, democratic republic. That is the opening promise of the Constitution. It also secures justice, liberty, equality, and fraternity for all citizens. These words were not all in the 1950 text. The 42nd Amendment added socialist and secular in 1976.",
+      "refs": [{ "type": "page", "value": "/preamble/", "label": "The Preamble" }]
+    },
+    {
+      "id": "fundamental-rights",
+      "title": "Fundamental Rights",
+      "summary": "Part III, Articles 12 to 35, lists the rights every person holds against the State. They include equality before the law and freedom of speech. They also cover life and personal liberty, religion, and protection against exploitation. Courts enforce these rights directly.",
+      "refs": [
+        { "type": "part", "value": "3" },
+        { "type": "article", "value": "14" },
+        { "type": "article", "value": "19" },
+        { "type": "article", "value": "21" },
+        { "type": "article", "value": "32" }
+      ]
+    },
+    {
+      "id": "directive-principles",
+      "title": "Directive Principles",
+      "summary": "Part IV, Articles 36 to 51, sets goals for governments. The goals include village panchayats and free education for children. A uniform civil code and protection of the environment are among them. Courts do not enforce these principles. The State must still apply them when making law.",
+      "refs": [
+        { "type": "part", "value": "4" },
+        { "type": "article", "value": "40" },
+        { "type": "article", "value": "44" },
+        { "type": "article", "value": "48A" }
+      ]
+    },
+    {
+      "id": "fundamental-duties",
+      "title": "Fundamental duties",
+      "summary": "Article 51A lists duties of every citizen. Respect the Constitution, the flag, and the anthem. Protect the environment and safeguard public property. Develop scientific temper and strive toward excellence. The 42nd Amendment added this list in 1976.",
+      "refs": [
+        { "type": "article", "value": "51A" },
+        { "type": "amendment", "value": "42" }
+      ]
+    },
+    {
+      "id": "remedies",
+      "title": "Enforcing your rights",
+      "summary": "Article 32 lets a person go straight to the Supreme Court when a fundamental right is violated. Article 226 gives the high courts a similar and wider power. These remedies are what make fundamental rights real.",
+      "refs": [
+        { "type": "article", "value": "32" },
+        { "type": "article", "value": "226" }
+      ]
+    },
+    {
+      "id": "amendment-process",
+      "title": "How the Constitution changes",
+      "summary": "Article 368 sets out how the Constitution is amended. Most changes pass both houses of Parliament with a two thirds majority of members present. Some also need ratification by half the state legislatures. The timeline lists all 106 amendments since 1950.",
+      "refs": [
+        { "type": "article", "value": "368" },
+        { "type": "page", "value": "/amendments/", "label": "Amendments timeline" }
+      ]
+    },
+    {
+      "id": "schedules",
+      "title": "The schedules",
+      "summary": "The twelve schedules carry detail that the articles refer to. They list the States and Union Territories. They also cover salaries of officials and forms of oath. The Seventh Schedule divides subjects between the Union and the States.",
+      "refs": [{ "type": "page", "value": "/schedules/", "label": "All schedules" }]
+    },
+    {
+      "id": "amendment-42",
+      "title": "The 42nd Amendment (1976)",
+      "summary": "The 42nd Amendment changed more of the Constitution than any before it. Passed during the Emergency, it added the words socialist and secular to the Preamble, inserted fundamental duties, and strengthened the Centre. Several of its changes were later undone.",
+      "refs": [{ "type": "amendment", "value": "42" }]
+    },
+    {
+      "id": "amendment-73-74",
+      "title": "The 73rd and 74th Amendments (1992)",
+      "summary": "These amendments gave constitutional status to village panchayats and urban municipalities. Local elections must now be held regularly. Seats are reserved for scheduled castes, scheduled tribes, and women. Local subjects are listed in the Eleventh and Twelfth Schedules.",
+      "refs": [
+        { "type": "amendment", "value": "73" },
+        { "type": "amendment", "value": "74" }
+      ]
+    },
+    {
+      "id": "amendment-101",
+      "title": "The 101st Amendment (2016)",
+      "summary": "The 101st Amendment introduced the Goods and Services Tax. It replaced many central and state indirect taxes with one shared system, and created the GST Council where the Union and the states set rates together.",
+      "refs": [{ "type": "amendment", "value": "101" }]
+    },
+    {
+      "id": "amendment-106",
+      "title": "The 106th Amendment (2023)",
+      "summary": "The 106th Amendment reserves one third of seats for women in the Lok Sabha and the state assemblies. It came into force on 16 April 2026. The reservation itself stays inoperative for now. Article 334A makes it operative only after the first census held after commencement and the delimitation that follows.",
+      "refs": [
+        { "type": "amendment", "value": "106" },
+        { "type": "article", "value": "334A" }
+      ]
+    }
+  ]
+}

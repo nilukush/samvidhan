@@ -36,6 +36,29 @@ export function lintExplainer(text: string): LintIssue[] {
     issues.push({ rule: 'length', message: `explainer is ${wordCount} words, must be 40 to 140` });
   }
 
+  pushSharedIssues(issues, trimmed, words);
+  return issues;
+}
+
+/**
+ * Style gate for curated short copy, currently the essentials summaries.
+ * Same rules as explainers with a shorter length band: 15 to 60 words.
+ */
+export function lintShortSummary(text: string): LintIssue[] {
+  const issues: LintIssue[] = [];
+  const trimmed = text.trim();
+  const words = trimmed === '' ? [] : trimmed.split(/\s+/);
+  const wordCount = words.length;
+
+  if (wordCount < 15 || wordCount > 60) {
+    issues.push({ rule: 'length', message: `summary is ${wordCount} words, must be 15 to 60` });
+  }
+
+  pushSharedIssues(issues, trimmed, words);
+  return issues;
+}
+
+function pushSharedIssues(issues: LintIssue[], trimmed: string, words: string[]): void {
   const lower = trimmed.toLowerCase();
   for (const phrase of BANNED_PHRASES) {
     if (lower.includes(phrase)) {
@@ -47,7 +70,7 @@ export function lintExplainer(text: string): LintIssue[] {
     issues.push({ rule: 'dash', message: 'contains an em or en dash character' });
   }
 
-  if (wordCount >= 20) {
+  if (words.length >= 20) {
     const grade = fleschKincaidGrade(trimmed);
     if (grade > 11 || grade < 5) {
       issues.push({
@@ -56,8 +79,6 @@ export function lintExplainer(text: string): LintIssue[] {
       });
     }
   }
-
-  return issues;
 }
 
 function countSyllables(word: string): number {
