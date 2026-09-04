@@ -11,7 +11,44 @@ const parsed = parseConstitution(raw, { scheduleOverrides: SCHEDULE_OVERRIDES })
 describe('full document extraction', () => {
   test('article count falls in the sanity band', () => {
     expect(parsed.articles.length).toBeGreaterThanOrEqual(440);
-    expect(parsed.articles.length).toBeLessThanOrEqual(480);
+    expect(parsed.articles.length).toBeLessThanOrEqual(500);
+  });
+
+  test('every article listed in the table of contents exists in the parse', () => {
+    // The table of contents is the edition's own list of articles. Nine
+    // articles (174, 228A, 238, 239A, 268A, 359A, 370, 371D, 371F) were lost
+    // to PDF text layer quirks before this gate existed; it exists so no
+    // edition or parser change can silently drop an article again.
+    const lines = raw.split('\n');
+    const preambleStart = lines.findIndex((l) => l.startsWith('WE, THE PEOPLE'));
+    const tocNumbers = new Set<string>();
+    for (const line of lines.slice(0, preambleStart)) {
+      const match = /^\[?(\d{1,3}[A-Z]?)\.$/.exec(line.trim());
+      if (match) tocNumbers.add(match[1] as string);
+    }
+    expect(tocNumbers.size).toBeGreaterThan(400);
+    const parsedNumbers = new Set(parsed.articles.map((a) => a.number));
+    expect(
+      [...tocNumbers].filter((n) => !parsedNumbers.has(n)),
+      'articles in TOC but missing from parse',
+    ).toEqual([]);
+  });
+
+  test('the nine recovered articles carry their titles', () => {
+    const expected: Array<[string, string]> = [
+      ['174', 'Sessions of the State Legislature'],
+      ['228A', 'disposal of questions'],
+      ['239A', 'Creation of local Legislatures'],
+      ['268A', 'Service tax'],
+      ['359A', 'State of Punjab'],
+      ['370', 'State of Jammu'],
+      ['371D', 'State of Andhra'],
+      ['371F', 'State of Sikkim'],
+    ];
+    for (const [number, fragment] of expected) {
+      expect(parsed.articles.find((a) => a.number === number)?.title, `article ${number}`).toContain(fragment);
+    }
+    expect(parsed.articles.find((a) => a.number === '238')?.status).toBe('omitted');
   });
 
   test('part count falls in the sanity band', () => {

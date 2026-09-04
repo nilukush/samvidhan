@@ -16,7 +16,7 @@ describe('syncing the real extracted constitution', () => {
   test.skipIf(!existsSync(source))('writes every article, part, and schedule, all schema valid', () => {
     const result = syncCollections(source, workDir);
     expect(result.articles).toBeGreaterThanOrEqual(440);
-    expect(result.articles).toBeLessThanOrEqual(480);
+    expect(result.articles).toBeLessThanOrEqual(500);
     expect(result.parts).toBeGreaterThanOrEqual(24);
     expect(result.schedules).toBeGreaterThanOrEqual(10);
 

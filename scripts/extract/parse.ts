@@ -71,11 +71,12 @@ const SCHEDULE_WORDS = [
 const AMENDMENT_ACT_RE = /Constitution\s*\(([^)]+?)\s+Amendment\)\s+Act/gi;
 const ROMAN_RE = /^(X{0,3}(IX|IV|V?I{0,3}))([A-B]?)$/;
 const PAGE_NUMBER_RE = /^\d{1,3}$/;
-const ARTICLE_HEADING_RE = /^(\d{1,3}[A-Z]?)\.\s+(.+)$/;
+const ARTICLE_HEADING_RE = /^(\d{1,4}[A-Z]?)\.\s+(.+)$/;
 const CLAUSE_START_RE = /^\((\d{1,2}[A-Z]?)\)\s*(.*)$/;
 const EXPLANATION_RE = /^Explanation\s*(?:([IVX]+))?\.\s*(.*)$/i;
 const ILLUSTRATION_RE = /^Illustration\b[.:]?\s*(.*)$/i;
-const MARKER_RE = /^(\d{1,2})\[/;
+// The marker may carry a typesetting asterisk: "3*[239A. ..."
+const MARKER_RE = /^(\d{1,2})\*?\[\s*/;
 const FOOTNOTE_SIGNAL_RE =
   /\b(ibid\.|w\.e\.f|vide|notification|ins\.|subs\.|omit|renumber|added|repealed|proviso|explanation|sub-clause|word|words|act,|s\.\s|sch\.)|\b(19|20)\d\d/i;
 
@@ -83,9 +84,13 @@ const FOOTNOTE_SIGNAL_RE =
 function splitMarker(line: string): { clean: string; marker: number | null } {
   // This edition sometimes sets the title separator as ".-" instead of an em dash.
   let normalized = line.replace(/(\.)\s*-\s*/g, '$1\u2014 ');
+  // pdftotext renders decorative dinkus as private use area glyphs; a heading
+  // may arrive as "\uF02A\uF02A1[370. ..." with the glyphs fused before the marker.
+  normalized = normalized.replace(/^[\uE000-\uF8FF]+/, '');
   // An artwork bracket may precede the number: "[2A. ..."
   normalized = normalized.replace(/^\[(?=\d)/, '');
-  const match = /^(\d{1,2})\[\s*/.exec(normalized);
+  // The marker may carry a typesetting asterisk: "3*[239A. ..."
+  const match = /^(\d{1,2})\*?\[\s*/.exec(normalized);
   if (match !== null) {
     return { clean: normalized.slice(match[0].length), marker: Number(match[1]) };
   }
@@ -117,6 +122,29 @@ const PART_NAME_ANCHORS: Record<string, { number: string; name: string }> = {
 };
 
 const SYNTHETIC_PARTS: ParsedPart[] = [{ number: '7', name: '[Omitted.]' }];
+
+/**
+ * Article 238 is omitted by the 7th Amendment together with Part VII, and
+ * this edition prints no body entry for it at all: the table of contents
+ * lists it bracketed as omitted and the body jumps from 237 to 239. The
+ * synthetic entry mirrors the body's own convention for omitted articles so
+ * the article sequence stays complete and honest.
+ */
+const SYNTHETIC_ARTICLES: ParsedArticle[] = [
+  {
+    number: '238',
+    part: '7',
+    title: 'Omitted.',
+    clauses: [
+      {
+        text: '[Omitted.] The official edition prints no entry for this article. The table of contents lists it as omitted, under Part VII, which the Constitution prints as omitted.',
+        kind: 'clause',
+      },
+    ],
+    status: 'omitted',
+    amendedBy: [],
+  },
+];
 
 function squish(line: string): string {
   return line.replace(/\s+/g, '');
@@ -214,6 +242,11 @@ function looksLikeSectionHeading(line: string): boolean {
     trimmed.length > 2 &&
     trimmed.length < 60 &&
     !/[.,;:]$/.test(trimmed) &&
+    // A clause tail such as "Schedule;]" or "State may, by law, determine.]"
+    // is body text, never a section heading: real headings carry no
+    // semicolons and no closing brackets.
+    !trimmed.includes(';') &&
+    !/\]$/.test(trimmed) &&
     !trimmed.startsWith('(') &&
     /^[A-Z]/.test(trimmed) &&
     /[a-z]/.test(trimmed)
@@ -305,7 +338,10 @@ export function parseConstitution(
       // heading such as "Right to Equality"; it closes the previous article.
       if (looksLikeSectionHeading(line)) {
         const next = nextMeaningfulLine(lines, index);
-        if (next !== null && ARTICLE_HEADING_RE.test(next)) {
+        // isStructuralLine, not a bare heading regex: a footnote such as
+        // "1. Subs. by the Constitution (Forty-second Amendment)..." also
+        // matches ^N. and must not masquerade as the next article heading.
+        if (next !== null && isStructuralLine(next)) {
           closeArticle(state);
           state.currentSection = line.trim();
           continue;
@@ -347,10 +383,25 @@ export function parseConstitution(
     }
   parts.sort((a, b) => partSortKey(a.number) - partSortKey(b.number) || a.number.localeCompare(b.number));
 
+  const articles = [...state.articles];
+  if (state.parts.length >= 15)
+    for (const synthetic of SYNTHETIC_ARTICLES) {
+      if (!articles.some((a) => a.number === synthetic.number)) {
+        const syntheticNumeric = Number.parseInt(synthetic.number, 10);
+        const insertAt = articles.findIndex(
+          (a) =>
+            Number.parseInt(a.number, 10) > syntheticNumeric ||
+            (Number.parseInt(a.number, 10) === syntheticNumeric && a.number > synthetic.number),
+        );
+        if (insertAt === -1) articles.push(synthetic);
+        else articles.splice(insertAt, 0, synthetic);
+      }
+    }
+
   return {
     preamble: state.preambleLines.join(' ').replace(/\s+/g, ' ').trim(),
     parts,
-    articles: state.articles,
+    articles,
     schedules: state.schedules,
   };
 }
@@ -366,6 +417,10 @@ function isStructuralLine(line: string): boolean {
   // title dash; wrapped titles without a dash only win when they are not
   // footnote-flavoured. Markers may prefix the whole heading.
   const { clean } = splitMarker(line.trim());
+  // A bare article number line ("174.", often the remnant of "1[174.") opens
+  // an article whose title follows on the next line; footnote collection must
+  // stop here so handleArticleLine can start the article.
+  if (/^(\d{1,3}[A-Z]?)\.$/.test(clean)) return true;
   const dashIndex = indexOfDash(clean);
   const dashHasBody = dashIndex !== -1 && clean.slice(dashIndex + 1).trim().length > 0;
   if (ARTICLE_HEADING_RE.test(clean) && (dashHasBody || !isFootnoteLine(clean))) return true;
@@ -465,6 +520,40 @@ function handleArticleLine(state: ParserState, rawLine: string): boolean {
   }
 
   const heading = ARTICLE_HEADING_RE.exec(line);
+  // A marker span can strand the number alone on its line: "1[174." with the
+  // title on the following line. Accept the bare number as a heading start
+  // only when it continues the document sequence, so table of contents lines
+  // (phase 'pre', no open article) and footnote numbering can never trigger it.
+  if (heading === null && state.article !== null) {
+    const bare = /^(\d{1,3}[A-Z]?)\.$/.exec(line);
+    if (bare !== null) {
+      const numeric = Number.parseInt(bare[1] as string, 10);
+      // Letter suffixed numbers may share their numeric base with the previous
+      // article ("228A." right after "228."), so equality is allowed for them.
+      const suffixAllowsEqual = /[A-Z]$/.test(bare[1] as string);
+      const continuesSequence =
+        (numeric > state.lastArticleNumeric || (suffixAllowsEqual && numeric === state.lastArticleNumeric)) &&
+        numeric <= state.lastArticleNumeric + 40;
+      if (continuesSequence) {
+        closeArticle(state);
+        state.lastArticleNumeric = numeric;
+        state.article = {
+          number: bare[1] as string,
+          part: state.currentPartNumber,
+          title: '',
+          section: state.currentSection || undefined,
+          clauses: [],
+          status: 'in-force',
+          amendedBy: [],
+        };
+        if (headingMarker !== null) state.pendingMarkers.set(headingMarker, state.article);
+        state.titlePending = [];
+        state.titleOpen = true;
+        state.clause = null;
+        return true;
+      }
+    }
+  }
   if (heading) {
     closeArticle(state);
     let number = heading[1] as string;

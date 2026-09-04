@@ -37,6 +37,30 @@ describe('article boundary detection', () => {
   });
 });
 
+describe('bare number headings', () => {
+  const parsed = parseConstitution(read('bare-number-heading'), { startPhase: 'articles' });
+
+  test('recovers an article whose number stands alone after a fused marker', () => {
+    expect(parsed.articles.map((a) => a.number)).toEqual(['173', '174', '175']);
+    const a174 = parsed.articles.find((a) => a.number === '174');
+    expect(a174?.title).toBe('Sessions of the State Legislature, prorogation and dissolution.');
+    expect(a174?.clauses).toHaveLength(2);
+    expect(a174?.clauses[0]?.number).toBe('1');
+    expect(a174?.clauses[0]?.text).toContain('six months shall not intervene');
+    expect(a174?.clauses[1]?.text).toContain('dissolve the Legislative Assembly');
+  });
+
+  test('the preceding article keeps its own text and the following article still parses', () => {
+    const a173 = parsed.articles.find((a) => a.number === '173');
+    expect(a173?.clauses[0]?.text).toContain('possesses such other qualifications');
+    expect(a173?.clauses.every((clause) => !clause.text.includes('Governor shall from time to time summon'))).toBe(
+      true,
+    );
+    const a175 = parsed.articles.find((a) => a.number === '175');
+    expect(a175?.clauses[0]?.text).toContain('may address the Legislative Assembly');
+  });
+});
+
 describe('clause variants', () => {
   test('parses letter suffixed clause 2A and marker prefixed clause lines', () => {
     const parsed = parseConstitution(read('clause-2a-prelude'), { startPhase: 'articles' });
