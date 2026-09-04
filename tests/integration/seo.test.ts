@@ -158,9 +158,10 @@ describe('GEO: answer ledes', () => {
       const ledeMatch = /<p class="article-lede[^>]*>([\s\S]*?)<\/p>/.exec(markup);
       expect(ledeMatch, `article ${number} has no lede paragraph`).not.toBeNull();
       const words = ledeMatch![1]!.trim().split(/\s+/).length;
-      // Articles with less than 40 words total (like 395, Repeals) use all
-      // their text; every other article must hit the 40 to 60 band.
-      if (number !== '395') {
+      // Articles with less than 40 words total (like 395, Repeals, and the
+      // two clause 243Z, Audit of accounts of Municipalities) use all their
+      // text; every other article must hit the 40 to 60 band.
+      if (number !== '395' && number !== '243z') {
         expect(words, `article ${number} lede is ${words} words`).toBeGreaterThanOrEqual(40);
         expect(words, `article ${number} lede is ${words} words`).toBeLessThanOrEqual(60);
       } else {

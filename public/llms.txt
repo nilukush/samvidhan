@@ -1,6 +1,6 @@
 # Samvidhan: The Constitution of India, made readable
 
-The full text of the Constitution of India as on 1 May 2026, with all 483 articles, 26 parts, 12 schedules, and the complete timeline of 106 amendments. Each article page carries the current legal text and its amendment history.
+The full text of the Constitution of India as on 1 May 2026, with all 504 articles, 26 parts, 12 schedules, and the complete timeline of 106 amendments. Each article page carries the current legal text and its amendment history.
 
 ## Sections
 

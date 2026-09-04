@@ -11,7 +11,7 @@ const parsed = parseConstitution(raw, { scheduleOverrides: SCHEDULE_OVERRIDES })
 describe('full document extraction', () => {
   test('article count falls in the sanity band', () => {
     expect(parsed.articles.length).toBeGreaterThanOrEqual(440);
-    expect(parsed.articles.length).toBeLessThanOrEqual(500);
+    expect(parsed.articles.length).toBeLessThanOrEqual(520);
   });
 
   test('every article listed in the table of contents exists in the parse', () => {
@@ -23,7 +23,7 @@ describe('full document extraction', () => {
     const preambleStart = lines.findIndex((l) => l.startsWith('WE, THE PEOPLE'));
     const tocNumbers = new Set<string>();
     for (const line of lines.slice(0, preambleStart)) {
-      const match = /^\[?(\d{1,3}[A-Z]?)\.$/.exec(line.trim());
+      const match = /^\[?(\d{1,3}[A-Z]{0,2})\.$/.exec(line.trim());
       if (match) tocNumbers.add(match[1] as string);
     }
     expect(tocNumbers.size).toBeGreaterThan(400);
@@ -34,7 +34,7 @@ describe('full document extraction', () => {
     ).toEqual([]);
   });
 
-  test('the nine recovered articles carry their titles', () => {
+  test('the recovered articles carry their titles', () => {
     const expected: Array<[string, string]> = [
       ['174', 'Sessions of the State Legislature'],
       ['228A', 'disposal of questions'],
@@ -44,6 +44,11 @@ describe('full document extraction', () => {
       ['370', 'State of Jammu'],
       ['371D', 'State of Andhra'],
       ['371F', 'State of Sikkim'],
+      ['239AA', 'Delhi'],
+      ['239AB', 'constitutional machinery'],
+      ['243ZA', 'Elections to the Municipalities'],
+      ['243ZL', 'Supersession and suspension'],
+      ['243ZT', 'Continuance of existing laws'],
     ];
     for (const [number, fragment] of expected) {
       expect(parsed.articles.find((a) => a.number === number)?.title, `article ${number}`).toContain(fragment);

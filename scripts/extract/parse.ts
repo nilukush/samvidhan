@@ -71,7 +71,7 @@ const SCHEDULE_WORDS = [
 const AMENDMENT_ACT_RE = /Constitution\s*\(([^)]+?)\s+Amendment\)\s+Act/gi;
 const ROMAN_RE = /^(X{0,3}(IX|IV|V?I{0,3}))([A-B]?)$/;
 const PAGE_NUMBER_RE = /^\d{1,3}$/;
-const ARTICLE_HEADING_RE = /^(\d{1,4}[A-Z]?)\.\s+(.+)$/;
+const ARTICLE_HEADING_RE = /^(\d{1,4}[A-Z]{0,2})\.\s+(.+)$/;
 const CLAUSE_START_RE = /^\((\d{1,2}[A-Z]?)\)\s*(.*)$/;
 const EXPLANATION_RE = /^Explanation\s*(?:([IVX]+))?\.\s*(.*)$/i;
 const ILLUSTRATION_RE = /^Illustration\b[.:]?\s*(.*)$/i;
@@ -420,7 +420,7 @@ function isStructuralLine(line: string): boolean {
   // A bare article number line ("174.", often the remnant of "1[174.") opens
   // an article whose title follows on the next line; footnote collection must
   // stop here so handleArticleLine can start the article.
-  if (/^(\d{1,3}[A-Z]?)\.$/.test(clean)) return true;
+  if (/^(\d{1,3}[A-Z]{0,2})\.$/.test(clean)) return true;
   const dashIndex = indexOfDash(clean);
   const dashHasBody = dashIndex !== -1 && clean.slice(dashIndex + 1).trim().length > 0;
   if (ARTICLE_HEADING_RE.test(clean) && (dashHasBody || !isFootnoteLine(clean))) return true;
@@ -525,7 +525,7 @@ function handleArticleLine(state: ParserState, rawLine: string): boolean {
   // only when it continues the document sequence, so table of contents lines
   // (phase 'pre', no open article) and footnote numbering can never trigger it.
   if (heading === null && state.article !== null) {
-    const bare = /^(\d{1,3}[A-Z]?)\.$/.exec(line);
+    const bare = /^(\d{1,3}[A-Z]{0,2})\.$/.exec(line);
     if (bare !== null) {
       const numeric = Number.parseInt(bare[1] as string, 10);
       // Letter suffixed numbers may share their numeric base with the previous
@@ -568,7 +568,7 @@ function handleArticleLine(state: ParserState, rawLine: string): boolean {
       const alt = number.slice(1);
       const altNumeric = Number.parseInt(alt, 10);
       if (
-        /^\d{1,3}[A-Z]?$/.test(alt) &&
+        /^\d{1,3}[A-Z]{0,2}$/.test(alt) &&
         Number.isNaN(altNumeric) === false &&
         altNumeric <= state.lastArticleNumeric + 40
       ) {
