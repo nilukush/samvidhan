@@ -8,19 +8,6 @@
 
 export type LineKind = 'body' | 'footnote' | 'furniture';
 
-/** Amendment citation signals of the Hindi edition's footnotes. */
-const CITATION_SIGNALS = [
-  'अधिनियम',
-  'प्रतिस्थापित',
-  'अंतःस्थापित',
-  'लोप',
-  'द्वारा',
-  'के स्थान पर',
-  'संशोधन',
-  'w.e.f',
-  'अध्यादेश',
-];
-
 /**
  * Signals that ONLY footnotes carry. Body headings legitimately contain
  * words like द्वारा (article 34) and संशोधन (article 368's own title), so

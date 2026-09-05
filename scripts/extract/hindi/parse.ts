@@ -40,12 +40,19 @@ function splitTitle(rest: string): { title: string; clauseHead: string } {
   return { title: (boundary[1] ?? '').trim(), clauseHead: (boundary[2] ?? '').trim() };
 }
 
-/** Document-order key: 2 < 2A < 2B < 3 < 243ZA < 243ZB. */
-function orderKey(latin: string): number {
+/** Document-order key as a pair: numeric part, then suffix compared
+ * lexicographically so 239A < 239AA < 239AB < 239B < 240. */
+type OrderKey = [number, string];
+
+function orderKey(latin: string): OrderKey {
   const match = /^(\d+)([A-Z]*)$/.exec(latin);
-  if (match === null) return Number.NaN;
-  const suffixValue = [...(match[2] ?? '')].reduce((acc, char) => acc * 27 + (char.charCodeAt(0) - 64), 0);
-  return Number(match[1]) * 1000 + suffixValue;
+  if (match === null) return [Number.NaN, ''];
+  return [Number(match[1]), match[2] ?? ''];
+}
+
+function afterCursor(latin: string, cursor: OrderKey): boolean {
+  const key = orderKey(latin);
+  return key[0] > cursor[0] || (key[0] === cursor[0] && key[1] > cursor[1]);
 }
 
 /** Digits plus a Devanagari suffix become the Latin form. */
@@ -54,6 +61,85 @@ function latinize(numberHi: string): string {
   const suffix = numberHi.slice(digits.length);
   return suffix === '' ? digits : digits + suffixToLatin(suffix);
 }
+
+/** Marker-fused digit tails: 1268क can be the printed 268A. */
+function digitsTailCandidates(numberHi: string): string[] {
+  const digits = numberHi.replace(/[क-ह]+$/u, '');
+  const suffix = numberHi.slice(digits.length);
+  return [digits.slice(-3) + suffix, digits.slice(-2) + suffix].filter((c) => c !== numberHi);
+}
+
+/**
+ * OCR confusion candidates for rare suffix glyphs, verified against the
+ * rendered volume: झ misread for ज (page 335, 243यझ read for printed 243यज =
+ * 243ZH) and ञ misread for ज (page 337, printed 243यञ = 243ZJ). The Hindi
+ * edition skips यझ exactly as the English skips 243ZI. Whitelist and order
+ * gate every candidate, so a confusion can only restore a real article
+ * number, never invent one.
+ */
+const SUFFIX_CONFUSIONS: Record<string, string[]> = {
+  झ: ['ज'],
+  ज: ['ञ'],
+  ञ: ['ज'],
+};
+
+function confusionVariants(numberHi: string): string[] {
+  const digits = numberHi.replace(/[क-ह]+$/u, '');
+  const suffix = numberHi.slice(digits.length);
+  if (suffix === '') return [];
+  const variants: string[] = [numberHi];
+  for (const [index, char] of [...suffix].entries()) {
+    for (const replacement of SUFFIX_CONFUSIONS[char] ?? []) {
+      variants.push(digits + [...suffix].map((c, i) => (i === index ? replacement : c)).join(''));
+    }
+  }
+  return variants;
+}
+
+/**
+ * Title anchors for headings whose number both extraction streams lost
+ * (verified against the rendered pages; the English pipeline's documented
+ * override pattern). Each fires only on its page, only while the article is
+ * still missing, and only when document order permits.
+ */
+const HEADING_ANCHORS: Array<{ number: string; page: number; anchor: RegExp; title: string }> = [
+  {
+    number: '132',
+    page: 183,
+    anchor: /उच्च न्यायालयों से अपीलों में उच्चतम न्यायालय की अपीली/,
+    title: 'उच्च न्यायालयों से अपीलों में उच्चतम न्यायालय की अपीली अधिकारिता',
+  },
+  {
+    number: '139',
+    page: 189,
+    anchor: /न्यायालय को अ[\u0900-\u097F]{1,7} द 32 के खंड/,
+    title: 'प्रवर्तन के लिए संसद् द्वारा उच्चतम न्यायालय को शक्तियां प्रदान किया जाना',
+  },
+  {
+    number: '247',
+    page: 353,
+    anchor: /अतिरिक्त न्यायालयों की स्थापना का विधि द्वारा उपबंध/,
+    title: 'राष्ट्रीय महत्व के विषयों के लिए विधियां बनाने की संसद् की शक्ति',
+  },
+  {
+    number: '257',
+    page: 359,
+    anchor: /दशाओं में राज्यों पर संघ का नियंत्रण/,
+    title: 'कुछ दशाओं में राज्यों पर संघ का नियंत्रण',
+  },
+  {
+    number: '336',
+    page: 449,
+    anchor: /सेवाओं में आंग्ल-भारतीय समुदाय/,
+    title: 'कुछ सेवाओं में आंग्ल-भारतीय समुदाय के लिए विशेष उपबंध',
+  },
+  {
+    number: '361B',
+    page: 501,
+    anchor: /दल का किसी सदन का कोई सदस्य, जो दसवीं अनुसूची/,
+    title: 'दल-परिवर्तन के आधार पर मंत्रित्व के लिए अनयोग्यता',
+  },
+];
 
 async function main(): Promise<void> {
   const english = new Set(
@@ -69,8 +155,9 @@ async function main(): Promise<void> {
 
   const articles: ParsedArticle[] = [];
   const review: Array<{ page: number; latin: string; line: string }> = [];
+  const captured = new Set<string>();
   let current: ParsedArticle | null = null;
-  let cursor = 0;
+  let cursor: OrderKey = [0, ''];
 
   const acceptHeading = (latin: string, numberHi: string, rest: string, page: number, prefix: string) => {
     if (current !== null) {
@@ -88,9 +175,21 @@ async function main(): Promise<void> {
       layer: string;
     };
     const fused = fusePage(ocr, layer);
+
     for (const rawLine of fused.text.split('\n')) {
       const line = normalizeDanda(rawLine).trim();
       if (line.length === 0) continue;
+
+      // Title anchors fire at their own line, after any earlier headings on
+      // the page have been accepted, so predecessors keep their order.
+      for (const anchor of HEADING_ANCHORS) {
+        if (anchor.page !== page || captured.has(anchor.number)) continue;
+        if (anchor.anchor.test(line) && afterCursor(anchor.number, cursor)) {
+          acceptHeading(anchor.number, anchor.number, anchor.title + '--', page, '');
+          captured.add(anchor.number);
+        }
+      }
+
       if (classifyLine(line) !== 'body') continue;
 
       const heading = parseArticleHeading(line);
@@ -98,18 +197,23 @@ async function main(): Promise<void> {
         if (current !== null) current.text += (current.text.length > 0 ? ' ' : '') + line;
         continue;
       }
-      // Marker digits fused onto the number (the English pipeline's 4268A
-      // shape): try the digit tails against the whitelist before flagging.
-      const digits = heading.numberHi.replace(/[क-ह]+$/u, '');
-      const suffix = heading.numberHi.slice(digits.length);
-      const candidates = [heading.numberHi, digits.slice(-3) + suffix, digits.slice(-2) + suffix]
+      // Candidate numbers, in trust order: the parsed form, marker-fused
+      // digit tails (the English pipeline's 4268A shape), and rare-glyph
+      // suffix confusions (ञ read as ज, ज as झ). Whitelist and document
+      // order gate every candidate.
+      const candidates = [
+        heading.numberHi,
+        ...digitsTailCandidates(heading.numberHi),
+        ...confusionVariants(heading.numberHi),
+      ]
         .map((numberHi) => (numberHi === heading.numberHi ? heading.latin : latinize(numberHi)))
-        .filter((latin) => english.has(latin) && orderKey(latin) > cursor);
+        .filter((latin) => english.has(latin) && afterCursor(latin, cursor));
       const latin = candidates[0] ?? heading.latin;
       const inWhitelist = english.has(latin);
-      const inOrder = orderKey(latin) > cursor;
+      const inOrder = afterCursor(latin, cursor);
       if (inWhitelist && inOrder) {
         acceptHeading(latin, heading.numberHi, heading.rest, page, heading.prefix);
+        captured.add(latin);
       } else if (inWhitelist || inOrder) {
         review.push({ page, latin, line });
       }
