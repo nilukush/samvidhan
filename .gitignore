@@ -37,3 +37,6 @@ data/scratch/
 
 # Transient detector report (the workflow attaches it to issues instead)
 data/ritual/last-report.md
+
+# Hindi raw extraction cache (OCR + layer dumps, regenerated locally; see scripts/extract/hindi/raw.ts)
+data/raw-hindi/
