@@ -1,0 +1,62 @@
+import { describe, expect, test } from 'vitest';
+import { buildSuffixMap, classifyLine, parseArticleHeading, type LineKind } from '../../src/lib/hindi/parse';
+
+describe('parseArticleHeading', () => {
+  test('a plain body heading yields number and title', () => {
+    expect(parseArticleHeading('2. परिभाषा-इस भाग में, जब तक कि संदर्भ से अन्यथा अपेक्षित न हो,')).toEqual({
+      numberHi: '2',
+      latin: '2',
+      rest: 'परिभाषा-इस भाग में, जब तक कि संदर्भ से अन्यथा अपेक्षित न हो,',
+    });
+  });
+
+  test('a Devanagari letter suffix maps through the suffix map', () => {
+    expect(parseArticleHeading('21क. प्राण और दैहिक स्वतंत्रता का अधिकार-', { '21क': '21A' })).toEqual({
+      numberHi: '21क',
+      latin: '21A',
+      rest: 'प्राण और दैहिक स्वतंत्रता का अधिकार-',
+    });
+  });
+
+  test('clause enumerations and years are not article headings', () => {
+    expect(parseArticleHeading('(1) इस संविधान में किसी बात के होते हुए भी,')).toBeNull();
+    expect(parseArticleHeading('1971 की धारा 3 द्वारा प्रतिस्थापित ।')).toBeNull();
+  });
+
+  test('a marker digit fused before the number does not disguise the heading (4268A shape)', () => {
+    expect(parseArticleHeading('268क. विधियों द्वारा करों का विनियमन-', { '268क': '268A' })?.latin).toBe('268A');
+    expect(parseArticleHeading('1268क. सहायता अनुदान-', { '1268क': '268A' })?.latin).toBe('268A');
+  });
+});
+
+describe('classifyLine', () => {
+  test('running headers, bare page numbers, and part running heads are furniture', () => {
+    expect(classifyLine('भारत का संविधान')).toBe<LineKind>('furniture');
+    expect(classifyLine('126')).toBe<LineKind>('furniture');
+    expect(classifyLine('(भाग 3—मूल अधिकार)')).toBe<LineKind>('furniture');
+  });
+
+  test('footnote lines with amendment citations are apparatus', () => {
+    expect(classifyLine('1. संविधान (बयालीसवाँ संशोधन) अधिनियम, 1976 की धारा 2 द्वारा प्रतिस्थापित ।')).toBe<LineKind>(
+      'footnote',
+    );
+  });
+
+  test('body text passes through', () => {
+    expect(classifyLine('राज्य किसी नागरिक के साथ धर्म के आधार पर भेद नहीं करेगा ।')).toBe<LineKind>('body');
+  });
+});
+
+describe('buildSuffixMap', () => {
+  test('document-order zip of the Hindi and English article sets yields the suffix map', () => {
+    const hindi = ['1', '2', '2क', '3', '3ख', '4'];
+    const english = ['1', '2', '2A', '3', '3B', '4'];
+    expect(buildSuffixMap(hindi, english)).toEqual({ '2क': '2A', '3ख': '3B' });
+  });
+
+  test('numeric parts must agree position by position or the zip refuses', () => {
+    const hindi = ['1', '2', '2क', '5'];
+    const english = ['1', '2', '2A', '3'];
+    expect(() => buildSuffixMap(hindi, english)).toThrow(/numeric parts/);
+  });
+});
