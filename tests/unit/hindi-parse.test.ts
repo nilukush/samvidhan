@@ -14,6 +14,7 @@ describe('parseArticleHeading', () => {
       numberHi: '2',
       latin: '2',
       rest: 'परिभाषा-इस भाग में, जब तक कि संदर्भ से अन्यथा अपेक्षित न हो,',
+      prefix: '',
     });
   });
 
@@ -22,6 +23,7 @@ describe('parseArticleHeading', () => {
       numberHi: '21क',
       latin: '21A',
       rest: 'प्राण और दैहिक स्वतंत्रता का अधिकार-',
+      prefix: '',
     });
   });
 
@@ -108,5 +110,48 @@ describe('suffixToLatin', () => {
 
   test('consonants beyond the Latin alphabet refuse loudly', () => {
     expect(() => suffixToLatin('र')).toThrow(/no Latin letter/);
+  });
+});
+
+describe('parseArticleHeading body titles that contain citation-like words', () => {
+  test('article 34 carries द्वारा in its own text and is still a heading', () => {
+    expect(
+      parseArticleHeading('34. जब किसी में सेना विधि प्रवृत्त है तब इस भाग द्वारा अधिकारों पर पूर्वगामी उपबंध')?.latin,
+    ).toBe('34');
+  });
+
+  test('article 368 carries संशोधन in its title and is still a heading', () => {
+    expect(parseArticleHeading('368. संविधान का संशोधन करने की संसद् की शक्ति और उसके लिए प्रक्रिया,--')?.latin).toBe(
+      '368',
+    );
+  });
+
+  test('footnotes keep their citation shape and stay rejected', () => {
+    expect(
+      parseArticleHeading('2. आंध्र प्रदेश पुनर्गठन 2014 की धारा 96 द्वारा के स्थान पर प्रतिस्थापित ।'),
+    ).toBeNull();
+  });
+
+  test('an insertion bracket before the number does not hide the heading', () => {
+    expect(parseArticleHeading('[270. उद्गम कर और उनका संघ तथा राज्यों के बीच वितरण')?.latin).toBe('270');
+    expect(parseArticleHeading('।] 273. जूट पर और जूट उत्पादों पर शुल्क के स्थान पर अनुदान')?.latin).toBe('273');
+  });
+});
+
+describe('parseArticleHeading versus real Part III defect shapes', () => {
+  test('article 31 heading with a fused amendment-note tail is a heading', () => {
+    expect(
+      parseArticleHeading('[संपत्ति 31. का अनिवार्य अर्जन ।]-संविधान (चवालीसवां संशोधन) अधिनियम, 1978')?.latin,
+    ).toBe('31');
+  });
+
+  test('article 31B names अधिनियम in its own title and is a heading', () => {
+    expect(parseArticleHeading('[31ख. कुछ अधिनियम और विनियम का विधिमान्यकरण')?.latin).toBe('31B');
+  });
+
+  test('single-digit footnote lines with a leading citation stay rejected', () => {
+    expect(
+      parseArticleHeading('1. संविधान (बयालीसवां संशोधन) अधिनियम, 1976 की धारा 2 द्वारा प्रतिस्थापित ।'),
+    ).toBeNull();
   });
 });
