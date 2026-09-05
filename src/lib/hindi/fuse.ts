@@ -47,21 +47,29 @@ export interface FuseResult {
 
 const LETTER_OR_DIGIT = /[^\s|.,;:()[\]'"\u2013\u2014]/;
 
+export interface Token {
+  word: string;
+  /** 0-based source line index; the layer's line breaks are the structural
+   * source for the parser, so fused output keeps them. */
+  line: number;
+}
+
 /**
- * Whitespace tokens, with punctuation-only tokens (the pipe misread for
- * danda, dashes, bare commas) attached to the preceding word so word splits
- * like OCR "हैं |" versus layer "हैं।" align as one pair.
+ * Whitespace tokens with their line numbers, punctuation-only tokens (the
+ * pipe misread for danda, dashes, bare commas) attached to the preceding word
+ * so word splits like OCR "हैं |" versus layer "हैं।" align as one pair.
  */
-export function tokenize(text: string): string[] {
-  const raw = text.split(/\s+/).filter((word) => word.length > 0);
-  const tokens: string[] = [];
-  for (const word of raw) {
-    if (tokens.length > 0 && !LETTER_OR_DIGIT.test(word)) {
-      tokens[tokens.length - 1] += word;
-    } else {
-      tokens.push(word);
+export function tokenize(text: string): Token[] {
+  const tokens: Token[] = [];
+  text.split('\n').forEach((line, lineIndex) => {
+    for (const word of line.split(/\s+/).filter((w) => w.length > 0)) {
+      if (tokens.length > 0 && !LETTER_OR_DIGIT.test(word)) {
+        tokens[tokens.length - 1].word += word;
+      } else {
+        tokens.push({ word, line: lineIndex });
+      }
     }
-  }
+  });
   return tokens;
 }
 
@@ -83,7 +91,7 @@ function similar(a: string, b: string): boolean {
   return distance <= Math.max(2, Math.floor(Math.min(a.length, b.length) / 3));
 }
 
-type Op = { ocr: string | null; layer: string | null };
+type Op = { ocr: Token | null; layer: Token | null };
 
 /**
  * Skeleton-anchored LCS alignment. Words equal in Devanagari letters anchor
@@ -91,9 +99,9 @@ type Op = { ocr: string | null; layer: string | null };
  * when they look alike (the letter-level disagreements); the rest stay
  * single-sided.
  */
-export function alignWords(ocr: string[], layer: string[]): Op[] {
-  const ocrSk = ocr.map(skeleton);
-  const layerSk = layer.map(skeleton);
+export function alignWords(ocr: Token[], layer: Token[]): Op[] {
+  const ocrSk = ocr.map((token) => skeleton(token.word));
+  const layerSk = layer.map((token) => skeleton(token.word));
   const rows = ocr.length;
   const cols = layer.length;
   const lcs: number[][] = Array.from({ length: rows + 1 }, () => new Array<number>(cols + 1).fill(0));
@@ -125,7 +133,7 @@ export function alignWords(ocr: string[], layer: string[]): Op[] {
     const width = Math.min(ocrGap.length, layerGap.length);
     let k = 0;
     for (; k < width; k += 1) {
-      if (similar(skeleton(ocrGap[k]), skeleton(layerGap[k]))) {
+      if (similar(skeleton(ocrGap[k].word), skeleton(layerGap[k].word))) {
         pairs.push({ ocr: ocrGap[k], layer: layerGap[k] });
       } else {
         pairs.push({ ocr: ocrGap[k], layer: null });
@@ -161,46 +169,57 @@ function violations(word: string): number {
  * OCR word wins as the orthography source, flagged for review. Layer-only
  * words that carry replacement or private-use garbage are dropped, flagged.
  */
-function fusePair(pair: Op): { word: string | null; flag: FuseFlag | null } {
+function fusePair(pair: Op): { word: Token | null; flag: FuseFlag | null } {
   const { ocr, layer } = pair;
   if (ocr !== null && layer === null) {
-    return { word: ocr, flag: { word: ocr, ocr, layer: null } };
+    return { word: ocr, flag: { word: ocr.word, ocr: ocr.word, layer: null } };
   }
   if (ocr === null && layer !== null) {
-    if (violations(layer) > 0) {
-      return { word: null, flag: { word: layer, ocr: null, layer } };
+    if (violations(layer.word) > 0) {
+      return { word: null, flag: { word: layer.word, ocr: null, layer: layer.word } };
     }
-    return { word: layer, flag: { word: layer, ocr: null, layer } };
+    return { word: layer, flag: { word: layer.word, ocr: null, layer: layer.word } };
   }
   if (ocr === null || layer === null) {
     return { word: null, flag: null };
   }
-  if (ocr === layer) {
-    return { word: ocr, flag: null };
+  if (ocr.word === layer.word) {
+    return { word: layer, flag: null };
   }
-  const ocrClean = violations(ocr) === 0;
-  const layerClean = violations(layer) === 0;
-  if (skeleton(ocr) === skeleton(layer)) {
+  const ocrClean = violations(ocr.word) === 0;
+  const layerClean = violations(layer.word) === 0;
+  if (skeleton(ocr.word) === skeleton(layer.word)) {
     if (layerClean) {
       return { word: layer, flag: null };
     }
     if (ocrClean) {
-      return { word: ocr, flag: { word: ocr, ocr, layer } };
+      return { word: ocr, flag: { word: ocr.word, ocr: ocr.word, layer: layer.word } };
     }
-    return { word: layer, flag: { word: layer, ocr, layer } };
+    return { word: layer, flag: { word: layer.word, ocr: ocr.word, layer: layer.word } };
   }
-  const word = ocrClean || !layerClean ? ocr : layer;
-  return { word, flag: { word, ocr, layer } };
+  const chosen = ocrClean || !layerClean ? ocr : layer;
+  return { word: chosen, flag: { word: chosen.word, ocr: ocr.word, layer: layer.word } };
 }
 
 export function fusePage(ocrText: string, layerText: string): FuseResult {
   const pairs = alignWords(tokenize(ocrText), tokenize(layerText));
-  const words: string[] = [];
+  const lines: string[][] = [];
   const flags: FuseFlag[] = [];
   for (const pair of pairs) {
     const { word, flag } = fusePair(pair);
-    if (word !== null) words.push(word);
     if (flag !== null) flags.push(flag);
+    if (word === null) continue;
+    // The layer's line structure drives the parser's heading grammar; OCR
+    // line numbers cover words the layer lost.
+    const line = pair.layer?.line ?? word.line;
+    while (lines.length <= line) lines.push([]);
+    lines[line].push(word.word);
   }
-  return { text: words.join(' '), flags };
+  return {
+    text: lines
+      .map((words) => words.join(' '))
+      .filter((line) => line.length > 0)
+      .join('\n'),
+    flags,
+  };
 }

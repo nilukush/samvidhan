@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { alignWords, fusePage, skeleton } from '../../src/lib/hindi/fuse';
+import { alignWords, fusePage, skeleton, tokenize } from '../../src/lib/hindi/fuse';
 
 /** Real word behavior drawn from the spike pages. */
 
@@ -14,20 +14,20 @@ describe('skeleton', () => {
 
 describe('alignWords', () => {
   test('identical streams align one to one', () => {
-    const pairs = alignWords(['क', 'ख', 'ग'], ['क', 'ख', 'ग']);
-    expect(pairs).toEqual([
-      { ocr: 'क', layer: 'क' },
-      { ocr: 'ख', layer: 'ख' },
-      { ocr: 'ग', layer: 'ग' },
+    const pairs = alignWords(tokenize('क ख ग'), tokenize('क ख ग'));
+    expect(pairs.map((pair) => [pair.ocr?.word, pair.layer?.word])).toEqual([
+      ['क', 'क'],
+      ['ख', 'ख'],
+      ['ग', 'ग'],
     ]);
   });
 
   test('an inserted OCR word stays unaligned on one side', () => {
-    const pairs = alignWords(['अ', 'ब', 'स'], ['अ', 'स']);
-    expect(pairs).toEqual([
-      { ocr: 'अ', layer: 'अ' },
-      { ocr: 'ब', layer: null },
-      { ocr: 'स', layer: 'स' },
+    const pairs = alignWords(tokenize('अ ब स'), tokenize('अ स'));
+    expect(pairs.map((pair) => [pair.ocr?.word ?? null, pair.layer?.word ?? null])).toEqual([
+      ['अ', 'अ'],
+      ['ब', null],
+      ['स', 'स'],
     ]);
   });
 });
@@ -79,5 +79,10 @@ describe('fusePage', () => {
     const fused = fusePage('अ स', 'अ नाग\uFFFDरक\uFFFD स');
     expect(fused.text).toBe('अ स');
     expect(fused.flags.some((flag) => flag.word.includes('\uFFFD'))).toBe(true);
+  });
+
+  test('the layer line structure is preserved for the parser', () => {
+    const fused = fusePage('भाग 3\nमूल अधिकार\n14. कानून के समक्ष समता', 'भाग 3\nमूल अ�िकार\n14. कानून के समक्ष समता');
+    expect(fused.text.split('\n')).toEqual(['भाग 3', 'मूल अधिकार', '14. कानून के समक्ष समता']);
   });
 });
