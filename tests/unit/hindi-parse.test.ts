@@ -1,5 +1,12 @@
 import { describe, expect, test } from 'vitest';
-import { buildSuffixMap, classifyLine, parseArticleHeading, type LineKind } from '../../src/lib/hindi/parse';
+import {
+  buildSuffixMap,
+  classifyLine,
+  extractTocNumbers,
+  parseArticleHeading,
+  suffixToLatin,
+  type LineKind,
+} from '../../src/lib/hindi/parse';
 
 describe('parseArticleHeading', () => {
   test('a plain body heading yields number and title', () => {
@@ -58,5 +65,48 @@ describe('buildSuffixMap', () => {
     const hindi = ['1', '2', '2क', '5'];
     const english = ['1', '2', '2A', '3'];
     expect(() => buildSuffixMap(hindi, english)).toThrow(/numeric parts/);
+  });
+});
+
+describe('extractTocNumbers', () => {
+  test('real TOC shapes yield the article numbers in order, page numbers do not match', () => {
+    const lines = [
+      'भाग 1',
+      'संघ और उसका राज्यक्षेत्र',
+      '1. संघ का नाम और राज्यक्षेत्र 2',
+      '2. नए राज्यों का प्रवेश या स्थापना...................................................... 2',
+      'सिक्किम [2क. का संघ के साथ सहयुक्त किया जाना– - लोप किया गया।].. 2',
+      '3. नए राज्यों का निर्माण और वर्तमान राज्यों के क्षेत्रों, सीमाओं या नामों',
+      'में परिवर्तन 2',
+    ];
+    expect(extractTocNumbers(lines)).toEqual(['1', '2', '2क', '3']);
+  });
+
+  test('noise is filtered: zero-led tokens, out-of-range years, non-monotonic garbage', () => {
+    const lines = [
+      '0.. भारत का संविधान',
+      '115. अनुपूरक, अतिरिक्त या अधिक अनुदान... 53',
+      '.....................८८८--८८८८८८८',
+      '1976 की धारा 2 द्वारा',
+      '116. लेखानुदान, प्रत्ययानुदान और अपवादानुदान... 54',
+      '99. यह क्रम टूट गया',
+    ];
+    expect(extractTocNumbers(lines)).toEqual(['115', '116']);
+  });
+});
+
+describe('suffixToLatin', () => {
+  test('single consonants map by position, doubles compose', () => {
+    expect(suffixToLatin('क')).toBe('A');
+    expect(suffixToLatin('ग')).toBe('C');
+    expect(suffixToLatin('य')).toBe('Z');
+    expect(suffixToLatin('कक')).toBe('AA');
+    expect(suffixToLatin('कख')).toBe('AB');
+    expect(suffixToLatin('यक')).toBe('ZA');
+    expect(suffixToLatin('यख')).toBe('ZB');
+  });
+
+  test('consonants beyond the Latin alphabet refuse loudly', () => {
+    expect(() => suffixToLatin('र')).toThrow(/no Latin letter/);
   });
 });
