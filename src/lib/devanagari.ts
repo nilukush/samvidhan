@@ -11,7 +11,23 @@
  */
 
 /** Dependent vowel signs: must attach to a preceding consonant. */
-const VOWEL_SIGNS = new Set(['\u093E', '\u093F', '\u0940', '\u0941', '\u0942', '\u0943', '\u0944', '\u0945', '\u0946', '\u0947', '\u0948', '\u0949', '\u094A', '\u094B', '\u094C']);
+const VOWEL_SIGNS = new Set([
+  '\u093E',
+  '\u093F',
+  '\u0940',
+  '\u0941',
+  '\u0942',
+  '\u0943',
+  '\u0944',
+  '\u0945',
+  '\u0946',
+  '\u0947',
+  '\u0948',
+  '\u0949',
+  '\u094A',
+  '\u094B',
+  '\u094C',
+]);
 /** Letters (consonants, independent vowels, digits) in the block. */
 function isDevanagariLetter(char: string): boolean {
   const code = char.codePointAt(0) ?? 0;
@@ -36,7 +52,7 @@ function isWordStart(text: string, i: number): boolean {
   while (j >= 0) {
     const char = text[j];
     if (/\s/.test(char)) return true;
-    if (isDevanagariLetter(char) || /[.\-,;:()\[\]"'\u0964\u0965\d]/.test(char)) return false;
+    if (isDevanagariLetter(char) || /[.,;:()[\]"'\u0964\u0965\d]/.test(char)) return false;
     j -= 1;
   }
   return true;
