@@ -2,6 +2,10 @@
 import '@fontsource/fraunces/latin-600.css';
 import '@fontsource/public-sans/latin-400.css';
 import '@fontsource/public-sans/latin-700.css';
+// Devanagari subset only; the unicode-range in these files means browsers
+// never download it for pages without Devanagari text.
+import '@fontsource/noto-sans-devanagari/devanagari-400.css';
+import '@fontsource/noto-sans-devanagari/devanagari-700.css';
 import '../styles/tokens.css';
 import '../styles/base.css';
 import Header from '../components/Header.astro';

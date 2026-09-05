@@ -30,6 +30,9 @@
   /* Type families */
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-text: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Hindi edition text; loaded via unicode-range, so English-only pages
+     never fetch it. */
+  --font-devanagari: 'Noto Sans Devanagari', 'Public Sans', system-ui, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
 
   /* Fluid type scale, 1.25 ratio */

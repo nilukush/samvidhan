@@ -7,6 +7,20 @@ import { SITE_NAME } from '../config';
 
 const { preamble } = JSON.parse(readFileSync('data/processed/constitution.json', 'utf8')) as { preamble: string };
 const text = cleanLegalText(preamble);
+
+const hindi = JSON.parse(readFileSync('src/data/hindi/preamble.json', 'utf8')) as {
+  title: string;
+  text: string;
+  sourcePage: number;
+  lastVerified: string;
+};
+const hindiText = cleanLegalText(hindi.text);
+const verifiedOn = new Date(`${hindi.lastVerified}T00:00:00Z`).toLocaleDateString('en-IN', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
 ---
 
 <BaseLayout
@@ -24,6 +38,16 @@ const text = cleanLegalText(preamble);
     </p>
     <blockquote class="preamble-text">{text}</blockquote>
     <p class="source">Text of the official edition, as on 1 May 2026.</p>
+
+    <section class="hindi" lang="hi">
+      <p class="kicker">भारत का संविधान</p>
+      <h2>{hindi.title}</h2>
+      <blockquote class="preamble-text hindi-text">{hindiText}</blockquote>
+    </section>
+    <p class="source">
+      Text of the Rajbhasha (Hindi) edition, as on 1 May 2026. Verified against page {hindi.sourcePage} of the official volume
+      on {verifiedOn}.
+    </p>
   </div>
 </BaseLayout>
 
@@ -66,5 +90,28 @@ const text = cleanLegalText(preamble);
   .source {
     font-size: var(--text-body-s);
     color: var(--color-ink);
+  }
+
+  .hindi {
+    margin-top: var(--space-16);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .hindi h2 {
+    font-family: var(--font-devanagari);
+    font-size: var(--text-heading-l);
+    color: var(--color-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .hindi .kicker {
+    font-family: var(--font-devanagari);
+    text-transform: none;
+  }
+
+  .hindi-text {
+    font-family: var(--font-devanagari);
+    margin: var(--space-8) 0 var(--space-4);
   }
 </style>

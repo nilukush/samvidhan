@@ -77,6 +77,10 @@ check "pagefind bundle served" '[ "$BODY" = "200" ]'
 BODY=$(curl -sL -o /dev/null -w "%{http_code}" "$URL/concept.js" --max-time 30)
 check "concept module served" '[ "$BODY" = "200" ]'
 
+# Preamble
+BODY=$(curl -sL "$URL/preamble/" --max-time 30)
+check "preamble carries the Hindi text" 'echo "$BODY" | grep -q "उद्देशिका"'
+
 # Essentials
 BODY=$(curl -sL "$URL/essentials/" --max-time 30)
 check "essentials page returns 200" '[ -n "$BODY" ]'
