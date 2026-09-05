@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 
-// The rollout adds batches until every article has an explainer, so the
-// "article without a box" case must be picked from the live data, never
-// hardcoded: a new batch would otherwise break this test every time.
+// The rollout is complete: every article of the Constitution carries an
+// explainer. The data files are the source of truth; if a future edition
+// adds articles without explainers, the fallback article is the first
+// uncovered one, and the no-box test applies again.
 const explainers = JSON.parse(readFileSync('data/processed/explainers/explainers.json', 'utf8')) as Record<
   string,
   string
@@ -11,7 +12,7 @@ const explainers = JSON.parse(readFileSync('data/processed/explainers/explainers
 const constitution = JSON.parse(readFileSync('data/processed/constitution.json', 'utf8')) as {
   articles: Array<{ number: string }>;
 };
-const bareArticle = constitution.articles.find((article) => !(article.number in explainers))?.number ?? '395';
+const uncovered = constitution.articles.filter((article) => !(article.number in explainers));
 
 test.describe('plain words explainers', () => {
   test('the box renders after the article text with the correct heading and label', async ({ page }) => {
@@ -29,7 +30,17 @@ test.describe('plain words explainers', () => {
     expect(boxTop!.y).toBeGreaterThan((clausesBottom?.y ?? 0) + (clausesBottom?.height ?? 0) - 1);
   });
 
-  test('articles outside the current rollout render no box', async ({ page }) => {
+  test('the rollout covers every article, or the uncovered one renders no box', async ({ page }) => {
+    if (uncovered.length === 0) {
+      // Complete rollout: every article page must render the box.
+      const sample = ['395', '393', '394', '370'];
+      for (const number of sample) {
+        await page.goto(`/articles/${number}/`);
+        await expect(page.getByRole('region', { name: 'What it means' })).toBeVisible();
+      }
+      return;
+    }
+    const bareArticle = uncovered[0]!.number;
     await page.goto(`/articles/${bareArticle.toLowerCase()}/`);
     await expect(page.getByRole('region', { name: 'What it means' })).toHaveCount(0);
   });
