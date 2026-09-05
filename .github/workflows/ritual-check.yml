@@ -1,0 +1,52 @@
+name: Ritual check
+
+# Monthly detector for the update ritual (CONTRIBUTING.md). Fetches the
+# official sources, compares against the committed detector baseline, and
+# opens an issue when something moved. The detector only observes; the
+# ritual itself, with its honest lastVerified dates, stays with people.
+# Zero cost: public repo, free Actions minutes, no secrets beyond the
+# default GITHUB_TOKEN.
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - name: Run the detector
+        id: ritual
+        run: npx tsx scripts/ritual/run.ts
+        continue-on-error: true
+
+      - name: Show the report
+        if: always()
+        run: cat data/ritual/last-report.md || echo "no report written"
+
+      - name: Record detector state and open an issue
+        if: steps.ritual.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "ritual-detector"
+          git config user.email "actions@github.com"
+          git add data/ritual/detector-state.json
+          git commit -m "chore: ritual detector baseline update" || echo "no state change to commit"
+          git push
+          gh issue create \
+            --title "Update ritual: source changes detected ($(date -u +%Y-%m-%d))" \
+            --body-file data/ritual/last-report.md

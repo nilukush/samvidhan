@@ -34,3 +34,6 @@ data/scratch/
 
 # OS noise
 .DS_Store
+
+# Transient detector report (the workflow attaches it to issues instead)
+data/ritual/last-report.md
