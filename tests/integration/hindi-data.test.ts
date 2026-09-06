@@ -58,3 +58,27 @@ describe('hindi edition data', () => {
     expect(issues.length).toBeLessThanOrEqual(30);
   });
 });
+
+describe('hindi title repairs', () => {
+  test('the five page-verified repaired titles are in place', () => {
+    const byNumber = new Map(hindi.articles.map((article) => [article.number, article]));
+    expect(byNumber.get('1')?.title).toBe('संघ का नाम और राज्यक्षेत्र');
+    expect(byNumber.get('112')?.title).toBe('वार्षिक वित्तीय विवरण');
+    expect(byNumber.get('202')?.title).toBe('वार्षिक वित्तीय विवरण');
+    expect(byNumber.get('277')?.title).toBe('व्यावृत्ति');
+    expect(byNumber.get('393')?.title).toBe('संक्षिप्त नाम');
+  });
+
+  test('article 1 opens with its printed sentence and carries numbered clauses', () => {
+    const one = hindi.articles.find((article) => article.number === '1');
+    expect(one?.clauses[0]?.text).toContain('भारत, अर्थात्');
+    expect(one?.clauses.some((clause) => clause.number === '2')).toBe(true);
+  });
+
+  test('clause structure is recovered corpus-wide', () => {
+    const withNumbers = hindi.articles.filter((article) =>
+      article.clauses.some((clause) => clause.number !== undefined),
+    );
+    expect(withNumbers.length).toBeGreaterThan(250);
+  });
+});

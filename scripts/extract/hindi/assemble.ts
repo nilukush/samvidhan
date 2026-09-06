@@ -17,6 +17,7 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { fusePage } from '../../../src/lib/hindi/fuse.ts';
 import { classifyLine, parseArticleHeading, suffixToLatin } from '../../../src/lib/hindi/parse.ts';
 import { repairDevanagari } from '../../../src/lib/hindi/repair.ts';
+import { splitHindiClauses } from '../../../src/lib/hindi/clauses.ts';
 import { lintDevanagari } from '../../../src/lib/devanagari.ts';
 
 const INTERMEDIATE = 'data/raw-hindi/articles.json';
@@ -48,6 +49,24 @@ interface IntermediateArticle {
   text: string;
   page: number;
 }
+
+/**
+ * Titles lost to column interleave, verified against the rendered pages
+ * (psm-6 reads): 112 and 202 wrap "वार्षिक वित्तीय विवरण" across lines
+ * (p163 line 39, p245 line 7); 277 prints "व्यावृत्ति" (p379 line 17, the
+ * official Hindi for Savings); 393 prints "संक्षिप्त नाम" (p565 line 4).
+ */
+const TITLE_OVERRIDES: Record<string, string> = {
+  '1': 'संघ का नाम और राज्यक्षेत्र',
+  '112': 'वार्षिक वित्तीय विवरण',
+  '202': 'वार्षिक वित्तीय विवरण',
+  '277': 'व्यावृत्ति',
+  '393': 'संक्षिप्त नाम',
+};
+
+/** Article 1's printed opening (p65 psm-6 read), restored before the
+ * clause text that had absorbed its mangled form. */
+const ARTICLE_1_OPENING = 'भारत, अर्थात्‌ इंडिया, राज्यों का संघ होगा ।';
 
 /** Mechanical cleanups plus the linter-directed displaced i-matra repair. */
 function cleanText(text: string): string {
@@ -127,16 +146,28 @@ async function main(): Promise<void> {
     process.stdout.write(`part extraction gaps (english without hindi): ${partDiff.join(' ')}\n`);
   }
 
-  const articles = intermediate.map((article) => ({
-    number: article.number,
-    numberHi: article.numberHi,
-    part: englishByNumber.get(article.number)?.part ?? '',
-    status: englishByNumber.get(article.number)?.status ?? 'in force',
-    amendedBy: englishByNumber.get(article.number)?.amendedBy ?? [],
-    title: cleanText(article.title),
-    clauses: [{ text: cleanText(article.text), kind: 'clause' as const }],
-    page: article.page,
-  }));
+  const articles = intermediate.map((article) => {
+    let text = cleanText(article.text);
+    // Article 1's opening sentence was mangled across the title boundary;
+    // the page-verified clause text restores it.
+    if (article.number === '1') {
+      text = cleanText(ARTICLE_1_OPENING + ' ' + text.replace(/^अर्थात्\s*इंडिया, राज्यों\s*\d*\s*/, '').trim());
+    }
+    return {
+      number: article.number,
+      numberHi: article.numberHi,
+      part: englishByNumber.get(article.number)?.part ?? '',
+      status: englishByNumber.get(article.number)?.status ?? 'in force',
+      amendedBy: englishByNumber.get(article.number)?.amendedBy ?? [],
+      title: TITLE_OVERRIDES[article.number] ?? cleanText(article.title),
+      clauses: splitHindiClauses(text).map((clause) => ({
+        text: clause.text,
+        kind: clause.kind,
+        ...(clause.number === null ? {} : { number: clause.number }),
+      })),
+      page: article.page,
+    };
+  });
 
   // Article 238 is printed by neither edition; mirror the English pipeline's
   // honest synthetic entry, in Hindi, citing exactly what the edition prints.
