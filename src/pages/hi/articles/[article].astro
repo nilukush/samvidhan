@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import JsonLd from '../../../components/JsonLd.astro';
+import ExplainerBox from '../../../components/ExplainerBox.astro';
 import { cleanLegalText, compareByDocumentOrder } from '../../../lib/display';
 import { SITE_NAME, SITE_URL } from '../../../config';
 
@@ -92,6 +93,16 @@ const alternates = [
             ))
           }
         </ol>
+
+        {
+          article.explainer && (
+            <ExplainerBox
+              text={article.explainer}
+              heading="इसका अर्थ"
+              label="ऊपर लिखे अनुच्छेद का सार। यह कानूनी सलाह नहीं है।"
+            />
+          )
+        }
 
         <p class="cross-lang">
           <a lang="en" href={`/articles/${entry.id.toLowerCase()}/`}>Article {article.number} in English</a>

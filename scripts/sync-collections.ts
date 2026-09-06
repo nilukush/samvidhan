@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ArticleSchema, PartSchema, ScheduleSchema } from '../src/lib/schemas/index.ts';
+import { lintHindiExplainer } from '../src/lib/hindi/explainer-lint.ts';
 
 export interface SyncResult {
   articles: number;
@@ -128,13 +129,29 @@ if (isDirectRun()) {
   console.log(`article files on disk: ${files}`);
 
   // Hindi edition collections: same flow, written under articles-hi/ and
-  // parts-hi/ with their Devanagari fields intact.
+  // parts-hi/ with their Devanagari fields intact. Explainers from
+  // data/processed/explainers-hi merge in, every one style-linted first
+  // (fail loudly naming the article, never ship an unlabeled explainer).
   const hindiPath = 'data/processed/constitution-hindi.json';
   if (existsSync(hindiPath)) {
     const hindi = JSON.parse(readFileSync(hindiPath, 'utf8')) as {
       articles: Array<Record<string, unknown>>;
       parts: Array<Record<string, unknown>>;
     };
+    const explainersHiPath = 'data/processed/explainers-hi/explainers-hi.json';
+    const explainersHi = existsSync(explainersHiPath)
+      ? (JSON.parse(readFileSync(explainersHiPath, 'utf8')) as Record<string, string>)
+      : {};
+    const knownNumbers = new Set(hindi.articles.map((entry) => String(entry['number'] ?? '')));
+    for (const [id, text] of Object.entries(explainersHi)) {
+      if (!knownNumbers.has(id)) {
+        throw new Error(`explainers-hi/${id}: no such article in the Hindi corpus`);
+      }
+      const issues = lintHindiExplainer(text);
+      if (issues.length > 0) {
+        throw new Error(`explainers-hi/${id}: ${issues.map((issue) => issue.message).join('; ')}`);
+      }
+    }
     for (const [name, entries, dir] of [
       ['articles-hi', hindi.articles, join(outDir, 'articles-hi')],
       ['parts-hi', hindi.parts, join(outDir, 'parts-hi')],
@@ -144,9 +161,11 @@ if (isDirectRun()) {
       for (const entry of entries) {
         const id = String(entry['number'] ?? '');
         if (id === '') throw new Error(`${name}: entry without a number`);
-        writeFileSync(join(dir, `${id}.json`), `${JSON.stringify(entry, null, 2)}\n`);
+        const merged = explainersHi[id] !== undefined ? { ...entry, explainer: explainersHi[id] } : entry;
+        writeFileSync(join(dir, `${id}.json`), `${JSON.stringify(merged, null, 2)}\n`);
       }
       console.log(`synced ${entries.length} ${name}`);
     }
+    console.log(`merged ${Object.keys(explainersHi).length} hindi explainers`);
   }
 }

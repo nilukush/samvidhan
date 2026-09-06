@@ -1,14 +1,22 @@
 ---
 interface Props {
   text: string;
+  /** Box heading; Hindi pages pass इसका अर्थ. */
+  heading?: string;
+  /** Disclaimer label under the heading; Hindi pages pass their own. */
+  label?: string;
 }
 
-const { text } = Astro.props;
+const {
+  text,
+  heading = 'What it means',
+  label = 'Plain words summary of the article above. Not legal advice.',
+} = Astro.props;
 ---
 
 <section class="explainer-box" aria-labelledby="what-it-means">
-  <h2 id="what-it-means">What it means</h2>
-  <p class="explainer-label">Plain words summary of the article above. Not legal advice.</p>
+  <h2 id="what-it-means">{heading}</h2>
+  <p class="explainer-label">{label}</p>
   <p class="explainer-text">{text}</p>
 </section>
 

@@ -82,3 +82,20 @@ describe('hindi title repairs', () => {
     expect(withNumbers.length).toBeGreaterThan(250);
   });
 });
+
+describe('hindi explainers (Phase 3)', () => {
+  test('batch 1: 31 explainers, every one passes the Hindi style gate and belongs to a real article', async () => {
+    const { lintHindiExplainer } = await import('../../src/lib/hindi/explainer-lint');
+    const fs = await import('node:fs');
+    const explainers = JSON.parse(fs.readFileSync('data/processed/explainers-hi/explainers-hi.json', 'utf8')) as Record<
+      string,
+      string
+    >;
+    const numbers = new Set(hindi.articles.map((article) => article.number));
+    expect(Object.keys(explainers).length).toBeGreaterThanOrEqual(31);
+    for (const [number, text] of Object.entries(explainers)) {
+      expect(numbers.has(number), `unknown article ${number}`).toBe(true);
+      expect(lintHindiExplainer(text), number).toEqual([]);
+    }
+  });
+});
