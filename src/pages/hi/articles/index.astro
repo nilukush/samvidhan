@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { compareByDocumentOrder } from '../../../lib/display';
+import { SITE_NAME, SITE_URL } from '../../../config';
+
+const parts = (await getCollection('partsHi')).sort(
+  (a, b) => Number.parseInt(a.id, 10) - Number.parseInt(b.id, 10) || a.id.localeCompare(b.id),
+);
+const articles = await getCollection('articlesHi');
+
+// A compact number directory mirroring the English articles index.
+const alternates = [
+  { lang: 'en', href: `${SITE_URL}/articles/` },
+  { lang: 'x-default', href: `${SITE_URL}/articles/` },
+];
+---
+
+<BaseLayout
+  searchType="Pages"
+  lang="hi"
+  title={`सभी अनुच्छेद | ${SITE_NAME}`}
+  description="भारत के संविधान के सभी 504 अनुच्छेद, भाग के अनुसार, राजभाषा संस्करण के हिन्दी पाठ में।"
+  alternates={alternates}
+>
+  <div class="container page" data-pagefind-ignore="true">
+    <Breadcrumb items={[{ label: 'होम', href: '/hi/' }, { label: 'अनुच्छेद' }]} />
+    <h1>सभी अनुच्छेद</h1>
+    <p class="lede">
+      {articles.length} अनुच्छेद, {parts.length} भागों में। नीचे हर भाग अपने सभी अनुच्छेद सूचीबद्ध करता है।
+    </p>
+
+    {
+      parts.map((part) => {
+        const inPart = articles.filter((entry) => entry.data.part === part.id).sort(compareByDocumentOrder);
+        return (
+          <section class="part-section">
+            <h2>
+              <a href={`/hi/parts/${part.id}/`}>
+                भाग {part.data.numberHi}. {part.data.name}
+              </a>
+            </h2>
+            <ul class="number-grid">
+              {inPart.map((entry) => (
+                <li>
+                  <a href={`/hi/articles/${entry.id}/`}>{entry.data.numberHi}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+  }
+
+  h1 {
+    color: var(--color-navy);
+    font-size: var(--text-display-l);
+    margin-bottom: var(--space-4);
+  }
+
+  .lede {
+    font-size: var(--text-body-l);
+    margin-bottom: var(--space-8);
+  }
+
+  .part-section {
+    margin-bottom: var(--space-8);
+  }
+
+  .part-section h2 {
+    font-size: var(--text-heading-m);
+    margin-bottom: var(--space-3);
+  }
+
+  .part-section a {
+    color: var(--color-link);
+  }
+
+  .number-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+    gap: var(--space-2);
+    padding: 0;
+  }
+
+  .number-grid a {
+    display: block;
+    text-align: center;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-s);
+    padding: var(--space-2);
+    text-decoration: none;
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: var(--text-mono-ref);
+  }
+
+  .number-grid a:hover {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
+  }
+</style>

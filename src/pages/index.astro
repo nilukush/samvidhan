@@ -4,16 +4,20 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Chakra from '../components/Chakra.astro';
 import { cleanLegalText } from '../lib/display';
-import { SITE_NAME, SITE_TAGLINE } from '../config';
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from '../config';
 
 const { preamble } = JSON.parse(readFileSync('data/processed/constitution.json', 'utf8')) as { preamble: string };
 const preambleOpening = cleanLegalText(preamble).slice(0, 160);
 const articles = await getCollection('articles');
 const parts = await getCollection('parts');
 const schedules = await getCollection('schedules');
+const alternates = [
+  { lang: 'hi', href: `${SITE_URL}/hi/` },
+  { lang: 'x-default', href: `${SITE_URL}/` },
+];
 ---
 
-<BaseLayout title={`${SITE_NAME}: ${SITE_TAGLINE}`} description={SITE_TAGLINE}>
+<BaseLayout title={`${SITE_NAME}: ${SITE_TAGLINE}`} description={SITE_TAGLINE} alternates={alternates}>
   <section class="hero">
     <div class="container hero-inner">
       <Chakra size={140} class="hero-chakra" />

@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { SITE_NAME, SITE_URL } from '../../../config';
+
+const parts = (await getCollection('partsHi')).sort(
+  (a, b) => Number.parseInt(a.id, 10) - Number.parseInt(b.id, 10) || a.id.localeCompare(b.id),
+);
+const articles = await getCollection('articlesHi');
+const alternates = [
+  { lang: 'en', href: `${SITE_URL}/parts/` },
+  { lang: 'x-default', href: `${SITE_URL}/parts/` },
+];
+---
+
+<BaseLayout
+  searchType="Pages"
+  lang="hi"
+  title={`सभी भाग | ${SITE_NAME}`}
+  description="भारत के संविधान के सभी 26 भाग, राजभाषा संस्करण के हिन्दी पाठ में।"
+  alternates={alternates}
+>
+  <div class="container page" data-pagefind-ignore="true">
+    <Breadcrumb items={[{ label: 'होम', href: '/hi/' }, { label: 'भाग' }]} />
+    <h1>सभी भाग</h1>
+    <p class="lede">संविधान के {parts.length} भाग।</p>
+    <ul class="part-list">
+      {
+        parts.map((part) => {
+          const count = articles.filter((entry) => entry.data.part === part.id).length;
+          return (
+            <li>
+              <a href={`/hi/parts/${part.id}/`}>
+                भाग {part.data.numberHi}. {part.data.name}
+              </a>
+              <span class="count">{count} अनुच्छेद</span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 46rem;
+  }
+
+  h1 {
+    color: var(--color-navy);
+    font-size: var(--text-display-l);
+    margin-bottom: var(--space-4);
+  }
+
+  .lede {
+    font-size: var(--text-body-l);
+    margin-bottom: var(--space-8);
+  }
+
+  .part-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .part-list li {
+    border-bottom: 1px solid var(--color-line);
+    padding: var(--space-3) 0;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+
+  .part-list a {
+    color: var(--color-link);
+    text-decoration: none;
+  }
+
+  .part-list a:hover {
+    text-decoration: underline;
+  }
+
+  .count {
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+</style>

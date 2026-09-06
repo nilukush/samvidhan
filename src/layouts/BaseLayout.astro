@@ -2,8 +2,8 @@
 import '@fontsource/fraunces/latin-600.css';
 import '@fontsource/public-sans/latin-400.css';
 import '@fontsource/public-sans/latin-700.css';
-// Devanagari subset only; the unicode-range in these files means browsers
-// never download it for pages without Devanagari text.
+// Devanagari subset files. The family is applied only through the
+// html[lang='hi'] rule in base.css, so English pages never fetch it.
 import '@fontsource/noto-sans-devanagari/devanagari-400.css';
 import '@fontsource/noto-sans-devanagari/devanagari-700.css';
 import '../styles/tokens.css';
@@ -17,6 +17,10 @@ interface Props {
   description?: string;
   /** Pagefind filter value used to group search results. */
   searchType?: string;
+  /** Page language; Hindi pages carry hi so assistive tech switches voice. */
+  lang?: 'en' | 'hi';
+  /** hreflang alternates for this page, plus the x-default pairing. */
+  alternates?: Array<{ lang: string; href: string }>;
 }
 
 const props = Astro.props;
@@ -36,18 +40,21 @@ if (rawTitle.length <= 60) {
   title = rawTitle.slice(0, 57).trimEnd() + '…';
 }
 const description = rawDescription.length > 155 ? rawDescription.slice(0, 155) : rawDescription;
+const pageLang = props.lang ?? 'en';
+const alternates = props.alternates ?? [];
 // Canonical URL: trailing slash form, which is how the host serves every page.
 const path = Astro.url.pathname.replace(/^\/+|\/+$/g, '');
 const canonical = SITE_URL + (path === '' ? '/' : `/${path}/`);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={pageLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.lang} href={alt.href} />)}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>

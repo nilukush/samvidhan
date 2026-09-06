@@ -93,3 +93,9 @@ summary:focus-visible,
     padding-inline: var(--space-6);
   }
 }
+
+/* Hindi edition pages: Devanagari body type throughout (the font ships via
+   unicode-range, so English pages never download it). */
+html[lang='hi'] body {
+  font-family: var(--font-devanagari);
+}

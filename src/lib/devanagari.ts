@@ -79,7 +79,9 @@ export function lintDevanagari(text: string): DevanagariIssue[] {
       const prev = text[i - 1] ?? '';
       if (isWordStart(text, i)) {
         issues.push(issue(text, i, 'sign-at-start'));
-      } else if (VOWEL_SIGNS.has(prev) || prev === '\u093C' || prev === '\u094D') {
+      } else if (VOWEL_SIGNS.has(prev) || prev === '\u094D') {
+        // A sign after the nukta (रूढ़ि, बाड़ी) is legal: the nukta belongs
+        // to the base consonant and the matra attaches after it.
         issues.push(issue(text, i, 'sign-after-sign'));
       }
     } else if (char === '\u093C' && VOWEL_SIGNS.has(text[i - 1] ?? '')) {

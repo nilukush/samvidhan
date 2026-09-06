@@ -5,6 +5,10 @@ The full text of the Constitution of India as on 1 May 2026, with all 504 articl
 ## Sections
 
 - [Preamble](https://samvidhan.pages.dev/preamble/): The opening words of the Constitution
+- [Samvidhan in Hindi](https://samvidhan.pages.dev/hi/): The Constitution in the authoritative Hindi text (Rajbhasha edition), all 504 articles
+- [Hindi Preamble / उद्देशिका](https://samvidhan.pages.dev/hi/preamble/): The Preamble in Hindi
+- [All Hindi articles](https://samvidhan.pages.dev/hi/articles/): Every article in Hindi
+- [Hindi parts](https://samvidhan.pages.dev/hi/parts/): The 26 parts in Hindi
 - [Essentials](https://samvidhan.pages.dev/essentials/): Starting points for a general reader: rights, duties, the amendment process, and key amendments
 - [All articles](https://samvidhan.pages.dev/articles/): Every article by number
 - [Parts](https://samvidhan.pages.dev/parts/): The 26 parts of the Constitution

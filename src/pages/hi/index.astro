@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_NAME, SITE_URL } from '../../config';
+
+const description = 'भारत का संविधान, राजभाषा संस्करण से। सभी 504 अनुच्छेद, उद्देशिका और भाग, हिन्दी में।';
+const alternates = [
+  { lang: 'en', href: `${SITE_URL}/` },
+  { lang: 'x-default', href: `${SITE_URL}/` },
+];
+---
+
+<BaseLayout
+  searchType="Pages"
+  lang="hi"
+  title={`संविधान हिन्दी में | ${SITE_NAME}`}
+  description={description}
+  alternates={alternates}
+>
+  <div class="container page">
+    <p class="kicker">भारत का संविधान</p>
+    <h1>संविधान हिन्दी में</h1>
+    <p class="intro">
+      यह संस्करण भारत सरकार के विधि और न्याय मंत्रालय, विधायी विभाग द्वारा प्रकाशित राजभाषा संस्करण से लिया गया है, जो 1
+      मई 2026 तक के संशोधनों सहित है। संविधान का हिन्दी पाठ राष्ट्रपति की अधिसूचना से प्राधिकृत है (अनुच्छेद 394क)।
+    </p>
+    <ul class="links">
+      <li><a href="/hi/preamble/">उद्देशिका</a></li>
+      <li><a href="/hi/articles/">सभी अनुच्छेद</a></li>
+      <li><a href="/hi/parts/">सभी भाग</a></li>
+      <li><a href="/" lang="en">The Constitution in English</a></li>
+    </ul>
+    <p class="source">
+      पाठ 5 सितंबर 2026 को सत्यापित किया गया। अंग्रेज़ी संस्करण में अनुच्छेद देखें: हर हिन्दी पृष्ठ से अंग्रेज़ी पाठ का
+      सीधा संबंध है।
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 46rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: var(--text-display-l);
+    color: var(--color-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .intro {
+    font-size: var(--text-body-l);
+    line-height: 1.9;
+    margin-bottom: var(--space-8);
+  }
+
+  .links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .links a {
+    display: inline-block;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-m);
+    padding: var(--space-3) var(--space-4);
+    text-decoration: none;
+    color: var(--color-navy);
+    background: var(--color-surface);
+  }
+
+  .links a:hover {
+    border-color: var(--color-navy);
+  }
+
+  .source {
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+  }
+</style>
