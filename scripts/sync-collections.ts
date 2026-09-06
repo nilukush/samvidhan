@@ -126,4 +126,27 @@ if (isDirectRun()) {
   }
   const files = readdirSync(join(outDir, 'articles')).length;
   console.log(`article files on disk: ${files}`);
+
+  // Hindi edition collections: same flow, written under articles-hi/ and
+  // parts-hi/ with their Devanagari fields intact.
+  const hindiPath = 'data/processed/constitution-hindi.json';
+  if (existsSync(hindiPath)) {
+    const hindi = JSON.parse(readFileSync(hindiPath, 'utf8')) as {
+      articles: Array<Record<string, unknown>>;
+      parts: Array<Record<string, unknown>>;
+    };
+    for (const [name, entries, dir] of [
+      ['articles-hi', hindi.articles, join(outDir, 'articles-hi')],
+      ['parts-hi', hindi.parts, join(outDir, 'parts-hi')],
+    ] as const) {
+      rmSync(dir, { recursive: true, force: true });
+      mkdirSync(dir, { recursive: true });
+      for (const entry of entries) {
+        const id = String(entry['number'] ?? '');
+        if (id === '') throw new Error(`${name}: entry without a number`);
+        writeFileSync(join(dir, `${id}.json`), `${JSON.stringify(entry, null, 2)}\n`);
+      }
+      console.log(`synced ${entries.length} ${name}`);
+    }
+  }
 }

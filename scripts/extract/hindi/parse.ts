@@ -200,19 +200,21 @@ async function main(): Promise<void> {
       // Candidate numbers, in trust order: the parsed form, marker-fused
       // digit tails (the English pipeline's 4268A shape), and rare-glyph
       // suffix confusions (ञ read as ज, ज as झ). Whitelist and document
-      // order gate every candidate.
+      // order gate every candidate; the accepted pair's numberHi records
+      // what the edition actually prints.
       const candidates = [
         heading.numberHi,
         ...digitsTailCandidates(heading.numberHi),
         ...confusionVariants(heading.numberHi),
       ]
-        .map((numberHi) => (numberHi === heading.numberHi ? heading.latin : latinize(numberHi)))
-        .filter((latin) => english.has(latin) && afterCursor(latin, cursor));
-      const latin = candidates[0] ?? heading.latin;
+        .map((numberHi) => ({ numberHi, latin: numberHi === heading.numberHi ? heading.latin : latinize(numberHi) }))
+        .filter((candidate) => english.has(candidate.latin) && afterCursor(candidate.latin, cursor));
+      const accepted = candidates[0];
+      const latin = accepted?.latin ?? heading.latin;
       const inWhitelist = english.has(latin);
       const inOrder = afterCursor(latin, cursor);
       if (inWhitelist && inOrder) {
-        acceptHeading(latin, heading.numberHi, heading.rest, page, heading.prefix);
+        acceptHeading(latin, accepted?.numberHi ?? heading.numberHi, heading.rest, page, heading.prefix);
         captured.add(latin);
       } else if (inWhitelist || inOrder) {
         review.push({ page, latin, line });

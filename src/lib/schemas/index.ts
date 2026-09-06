@@ -130,3 +130,30 @@ export type BillStatus = z.infer<typeof BillStatusEnum>;
 export type Essential = z.infer<typeof EssentialSchema>;
 export type EssentialRef = z.infer<typeof EssentialRefSchema>;
 export type EssentialsFile = z.infer<typeof EssentialsFileSchema>;
+
+/**
+ * Hindi edition (Rajbhasha volume) schemas. The article carries the same
+ * structural fields as English (both editions describe the same document)
+ * plus numberHi (the Devanagari-suffix form as printed, e.g. 21क) and the
+ * source page for provenance.
+ */
+export const HindiArticleSchema = ArticleSchema.extend({
+  numberHi: z.string().min(1),
+  page: z.number().int().min(0),
+});
+
+export const HindiPartSchema = PartSchema.extend({
+  numberHi: z.string().min(1),
+});
+
+export const HindiFileSchema = z.object({
+  edition: z.string().min(1),
+  lastVerified: isoDate,
+  preamble: z.string().min(50),
+  articles: z.array(HindiArticleSchema).min(500, 'the edition carries 504 articles').max(520),
+  parts: z.array(HindiPartSchema).length(26, 'the edition carries 26 parts'),
+});
+
+export type HindiArticle = z.infer<typeof HindiArticleSchema>;
+export type HindiPart = z.infer<typeof HindiPartSchema>;
+export type HindiFile = z.infer<typeof HindiFileSchema>;

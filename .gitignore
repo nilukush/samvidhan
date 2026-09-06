@@ -11,6 +11,8 @@ MEMORY.md
 
 # Generated content collections (created by npm run data:sync)
 src/content/articles/
+src/content/articles-hi/
+src/content/parts-hi/
 src/content/parts/
 src/content/schedules/
 

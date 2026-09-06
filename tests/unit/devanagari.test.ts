@@ -54,3 +54,9 @@ describe('lintDevanagari', () => {
     expect(lintDevanagari('संसद्\u200C की')[0]?.rule).toBe('zwnj');
   });
 });
+
+describe('lintDevanagari nukta sequences', () => {
+  test('a vowel sign after the nukta is legal (रूढ़ि, बाड़ी)', () => {
+    expect(lintDevanagari('रूढ़ि प्रथा और बाड़ी का बंटवारा')).toEqual([]);
+  });
+});
