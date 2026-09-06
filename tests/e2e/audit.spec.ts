@@ -17,6 +17,10 @@ const PAGES = [
   { name: 'essentials', path: '/essentials/' },
   { name: 'about', path: '/about/' },
   { name: 'sources', path: '/sources/' },
+  { name: 'hindi home', path: '/hi/' },
+  { name: 'hindi preamble', path: '/hi/preamble/' },
+  { name: 'hindi article', path: '/hi/articles/14/' },
+  { name: 'hindi part', path: '/hi/parts/3/' },
 ];
 
 test.describe('accessibility audit', () => {

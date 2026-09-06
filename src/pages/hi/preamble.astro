@@ -1,0 +1,89 @@
+---
+import { readFileSync } from 'node:fs';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { cleanLegalText } from '../../lib/display';
+import { SITE_NAME, SITE_URL } from '../../config';
+
+const hindi = JSON.parse(readFileSync('data/processed/constitution-hindi.json', 'utf8')) as {
+  preamble: string;
+  lastVerified: string;
+};
+const text = cleanLegalText(hindi.preamble);
+const verifiedOn = new Date(`${hindi.lastVerified}T00:00:00Z`).toLocaleDateString('en-IN', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+const alternates = [
+  { lang: 'en', href: `${SITE_URL}/preamble/` },
+  { lang: 'x-default', href: `${SITE_URL}/preamble/` },
+];
+---
+
+<BaseLayout
+  searchType="Pages"
+  lang="hi"
+  title={`उद्देशिका | ${SITE_NAME}`}
+  description="भारत के संविधान की उद्देशिका, राजभाषा संस्करण के प्राधिकृत हिन्दी पाठ में।"
+  alternates={alternates}
+>
+  <div class="container page">
+    <Breadcrumb items={[{ label: 'होम', href: '/hi/' }, { label: 'उद्देशिका' }]} />
+    <p class="kicker">भारत का संविधान</p>
+    <h1>उद्देशिका</h1>
+    <p class="adopted">
+      संविधान सभा द्वारा 26 नवम्बर 1949 को अंगीकृत; 'संपूर्ण प्रभुत्व-संपन्न' और 'पंथनिरपेक्ष' शब्द संविधान (बयालीसवाँ
+      संशोधन) अधिनियम, 1976 द्वारा जोड़े गए।
+    </p>
+    <blockquote class="preamble-text">{text}</blockquote>
+    <p class="source">
+      राजभाषा संस्करण का पाठ, 1 मई 2026 तक। सत्यापन: {verifiedOn}। <a lang="en" href="/preamble/"
+        >The Preamble in English</a
+      >
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 46rem;
+  }
+
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-body-s);
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: var(--text-display-l);
+    color: var(--color-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .adopted {
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+    border-left: 3px solid var(--color-saffron);
+    padding-left: var(--space-3);
+  }
+
+  .preamble-text {
+    font-family: var(--font-devanagari);
+    font-size: var(--text-body-l);
+    line-height: 1.9;
+    margin: var(--space-8) 0;
+    padding: 0;
+  }
+
+  .source {
+    font-size: var(--text-body-s);
+    color: var(--color-ink);
+  }
+</style>

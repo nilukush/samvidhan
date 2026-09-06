@@ -1,0 +1,167 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { compareByDocumentOrder } from '../../../lib/display';
+import { SITE_NAME, SITE_URL } from '../../../config';
+
+export async function getStaticPaths() {
+  const parts = (await getCollection('partsHi')).sort(
+    (a, b) => Number.parseInt(a.id, 10) - Number.parseInt(b.id, 10) || a.id.localeCompare(b.id),
+  );
+  return parts.map((entry, index) => ({
+    params: { part: entry.id },
+    props: { entry, prev: parts[index - 1] ?? null, next: parts[index + 1] ?? null },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const part = entry.data;
+const siblings = (await getCollection('articlesHi', (candidate) => candidate.data.part === entry.id)).sort(
+  compareByDocumentOrder,
+);
+const alternates = [
+  { lang: 'en', href: `${SITE_URL}/parts/${entry.id}/` },
+  { lang: 'x-default', href: `${SITE_URL}/parts/${entry.id}/` },
+];
+---
+
+<BaseLayout
+  searchType="Pages"
+  lang="hi"
+  title={`भाग ${part.numberHi} | ${SITE_NAME}`}
+  description={`संविधान का भाग ${part.numberHi}: ${part.name}, ${siblings.length} अनुच्छेद।`}
+  alternates={alternates}
+>
+  <div class="container page">
+    <Breadcrumb
+      items={[{ label: 'होम', href: '/hi/' }, { label: 'भाग', href: '/hi/parts/' }, { label: `भाग ${part.numberHi}` }]}
+    />
+    <h1>भाग {part.numberHi}</h1>
+    <p class="part-name">{part.name}</p>
+    <p class="cross-lang">
+      <a lang="en" href={`/parts/${entry.id}/`}>Part {entry.id} in English</a>
+    </p>
+
+    <ol class="article-list">
+      {
+        siblings.map((sibling) => (
+          <li>
+            <a href={`/hi/articles/${sibling.id}/`}>
+              {sibling.data.numberHi}. {sibling.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+
+    <nav class="pager" aria-label="भाग नेविगेशन">
+      {
+        prev ? (
+          <a class="pager-prev" href={`/hi/parts/${prev.id}/`}>
+            <span class="pager-direction">पिछला भाग</span>
+            <span class="pager-title">
+              {prev.data.numberHi}. {prev.data.name}
+            </span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next ? (
+          <a class="pager-next" href={`/hi/parts/${next.id}/`}>
+            <span class="pager-direction">अगला भाग</span>
+            <span class="pager-title">
+              {next.data.numberHi}. {next.data.name}
+            </span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+    </nav>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    max-width: 46rem;
+  }
+
+  h1 {
+    color: var(--color-navy);
+    font-size: var(--text-display-l);
+    margin-bottom: var(--space-2);
+  }
+
+  .part-name {
+    font-size: var(--text-heading-m);
+    color: var(--color-navy);
+    margin-bottom: var(--space-2);
+  }
+
+  .cross-lang {
+    font-size: var(--text-body-s);
+    margin-bottom: var(--space-8);
+  }
+
+  .cross-lang a {
+    color: var(--color-link);
+  }
+
+  .article-list {
+    padding: 0;
+    list-style: none;
+  }
+
+  .article-list li {
+    border-bottom: 1px solid var(--color-line);
+    padding: var(--space-3) 0;
+  }
+
+  .article-list a {
+    color: var(--color-link);
+    text-decoration: none;
+    line-height: 1.7;
+  }
+
+  .article-list a:hover {
+    text-decoration: underline;
+  }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-12);
+  }
+
+  .pager a {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-decoration: none;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-m);
+    padding: var(--space-3);
+    background: var(--color-surface);
+    font-size: var(--text-body-s);
+  }
+
+  .pager a:hover {
+    border-color: var(--color-navy);
+  }
+
+  .pager-next {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .pager-direction {
+    color: var(--color-navy);
+    font-weight: 700;
+  }
+</style>

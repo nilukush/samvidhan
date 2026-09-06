@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import { cleanLegalText } from '../lib/display';
-import { SITE_NAME } from '../config';
+import { SITE_NAME, SITE_URL } from '../config';
 
 const { preamble } = JSON.parse(readFileSync('data/processed/constitution.json', 'utf8')) as { preamble: string };
 const text = cleanLegalText(preamble);
@@ -21,9 +21,14 @@ const verifiedOn = new Date(`${hindi.lastVerified}T00:00:00Z`).toLocaleDateStrin
   year: 'numeric',
   timeZone: 'UTC',
 });
+const alternates = [
+  { lang: 'hi', href: `${SITE_URL}/hi/preamble/` },
+  { lang: 'x-default', href: `${SITE_URL}/preamble/` },
+];
 ---
 
 <BaseLayout
+  alternates={alternates}
   searchType="Pages"
   title={`The Preamble to the Constitution of India | ${SITE_NAME}`}
   description="The Preamble to the Constitution of India: the people of India adopt, enact, and give to themselves the Constitution."
