@@ -86,6 +86,20 @@ BODY=$(curl -sL "$URL/essentials/" --max-time 30)
 check "essentials page returns 200" '[ -n "$BODY" ]'
 check "essentials carries the 106th caveat" 'echo "$BODY" | grep -q "inoperative"'
 
+# Hindi edition
+BODY=$(curl -sL "$URL/hi/" --max-time 30)
+check "hindi home returns 200" '[ -n "$BODY" ]'
+check "hindi home carries the Hindi title" 'echo "$BODY" | grep -q "संविधान हिन्दी में"'
+
+BODY=$(curl -sL "$URL/hi/articles/14/" --max-time 30)
+check "hindi article 14 carries Devanagari" 'echo "$BODY" | grep -q "अनुच्छेद 14"'
+
+BODY=$(curl -sL "$URL/hi/preamble/" --max-time 30)
+check "hindi preamble carries udeshika" 'echo "$BODY" | grep -q "उद्देशिका"'
+
+BODY=$(curl -sL "$URL/articles/14/" --max-time 30)
+check "english article reciprocates hreflang" 'echo "$BODY" | grep -q "hreflang=\"hi\""'
+
 # 404 handling
 BODY=$(curl -s -o /dev/null -w "%{http_code}" "$URL/this-page-does-not-exist" --max-time 30)
 check "unknown path returns 404" '[ "$BODY" = "404" ]'
