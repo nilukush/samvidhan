@@ -33,8 +33,6 @@ function atBoundary(text: string, index: number): boolean {
   return false;
 }
 
-const MARKER_PREFIX = /\[?\((?:\d{1,2}[क-ह]?|[क-ह])\)\s*/u;
-
 export function splitHindiClauses(text: string): HindiClause[] {
   // Empty-paren noise from OCR ("() (1) प्रत्येक...", "(|) (1) राज्यपाल...").
   const cleaned = text
