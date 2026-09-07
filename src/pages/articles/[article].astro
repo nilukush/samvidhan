@@ -120,6 +120,10 @@ const alternates = [
 
         {article.explainer && <ExplainerBox text={article.explainer} />}
 
+        <p class="cross-lang">
+          <a lang="hi" href={`/hi/articles/${entry.id.toLowerCase()}/`}>अनुच्छेद {article.number} हिन्दी में</a>
+        </p>
+
         {
           article.status === 'omitted' && (
             <p class="omitted-note">
@@ -274,6 +278,16 @@ const alternates = [
     font-family: var(--font-mono);
     font-size: var(--text-mono-ref);
     color: var(--color-navy);
+  }
+
+  .cross-lang {
+    margin-top: var(--space-8);
+    font-size: var(--text-body-s);
+  }
+
+  .cross-lang a {
+    color: var(--color-link);
+    font-family: var(--font-devanagari);
   }
 
   .omitted-note {

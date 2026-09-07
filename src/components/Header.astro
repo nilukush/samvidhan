@@ -1,17 +1,39 @@
 ---
 import Chakra from './Chakra.astro';
 import { SITE_NAME } from '../config';
+
+interface Props {
+  /** Page language; the header shows the switch to the other edition. */
+  lang?: 'en' | 'hi';
+}
+
+const { lang = 'en' } = Astro.props;
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="wordmark" href="/">
+    <a class="wordmark" href={lang === 'hi' ? '/hi/' : '/'}>
       <Chakra size={28} class="wordmark-chakra" />
       <span>{SITE_NAME}</span>
     </a>
 
     <nav aria-label="Primary" class="primary-nav">
       <ul>
+        {
+          lang === 'hi' ? (
+            <li>
+              <a class="lang-switch" lang="en" href="/">
+                English
+              </a>
+            </li>
+          ) : (
+            <li>
+              <a class="lang-switch" lang="hi" href="/hi/">
+                हिन्दी
+              </a>
+            </li>
+          )
+        }
         <li><a href="/preamble">Preamble</a></li>
         <li><a href="/essentials">Essentials</a></li>
         <li><a href="/articles">Articles</a></li>
@@ -31,6 +53,21 @@ import { SITE_NAME } from '../config';
       <summary aria-label="Open menu">Menu</summary>
       <nav aria-label="Primary" class="mobile-nav">
         <ul>
+          {
+            lang === 'hi' ? (
+              <li>
+                <a lang="en" href="/">
+                  English
+                </a>
+              </li>
+            ) : (
+              <li>
+                <a lang="hi" href="/hi/">
+                  हिन्दी
+                </a>
+              </li>
+            )
+          }
           <li><a href="/preamble">Preamble</a></li>
           <li><a href="/essentials">Essentials</a></li>
           <li><a href="/articles">Articles</a></li>
@@ -90,6 +127,11 @@ import { SITE_NAME } from '../config';
     text-decoration: none;
     font-weight: 700;
     font-size: var(--text-body-s);
+  }
+
+  .lang-switch {
+    font-family: var(--font-devanagari);
+    color: var(--color-saffron);
   }
 
   .primary-nav a:hover {

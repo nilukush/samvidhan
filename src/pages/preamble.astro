@@ -43,6 +43,7 @@ const alternates = [
     </p>
     <blockquote class="preamble-text">{text}</blockquote>
     <p class="source">Text of the official edition, as on 1 May 2026.</p>
+    <p class="source"><a lang="hi" href="/hi/preamble/">उद्देशिका हिन्दी में</a></p>
 
     <section class="hindi" lang="hi">
       <p class="kicker">भारत का संविधान</p>
@@ -95,6 +96,11 @@ const alternates = [
   .source {
     font-size: var(--text-body-s);
     color: var(--color-ink);
+  }
+
+  .source a {
+    color: var(--color-link);
+    font-family: var(--font-devanagari);
   }
 
   .hindi {

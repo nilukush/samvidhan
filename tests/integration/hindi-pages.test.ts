@@ -69,4 +69,21 @@ describe('hindi edition pages', () => {
     // English pages never fetch the woff2.
     expect(css).toMatch(/html\[lang=.?hi.?\]\s*body\{font-family:var\(--font-devanagari\)\}/);
   });
+
+  test('the header shows the language switch on both editions', () => {
+    const english = raw('dist/articles/14/index.html');
+    expect(english).toMatch(/<a[^>]*lang="hi"[^>]*href="\/hi\/"[^>]*>हिन्दी/);
+    const hindi = raw('dist/hi/articles/14/index.html');
+    expect(hindi).toMatch(/<a[^>]*lang="en"[^>]*href="\/"[^>]*>English/);
+  });
+
+  test('English article, preamble, and part pages carry visible Hindi cross-links', () => {
+    const article = bodyMarkup('dist/articles/14/index.html');
+    expect(article).toContain('अनुच्छेद 14 हिन्दी में');
+    expect(article).toContain('/hi/articles/14/');
+    const preamble = bodyMarkup('dist/preamble/index.html');
+    expect(preamble).toContain('उद्देशिका हिन्दी में');
+    const part = bodyMarkup('dist/parts/3/index.html');
+    expect(part).toContain('यह भाग हिन्दी में');
+  });
 });

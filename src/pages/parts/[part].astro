@@ -36,6 +36,7 @@ const alternates = [
     <p class="kicker">Part {roman}</p>
     <h1>{part.data.name}</h1>
     <p class="lede">{articles.length} articles.</p>
+    <p class="cross-lang"><a lang="hi" href={`/hi/parts/${part.id}/`}>यह भाग हिन्दी में</a></p>
 
     <ul class="article-list">
       {
@@ -71,6 +72,16 @@ const alternates = [
   h1 {
     color: var(--color-navy);
     margin-bottom: var(--space-3);
+  }
+
+  .cross-lang {
+    font-size: var(--text-body-s);
+    margin-bottom: var(--space-6);
+  }
+
+  .cross-lang a {
+    color: var(--color-link);
+    font-family: var(--font-devanagari);
   }
 
   .lede {

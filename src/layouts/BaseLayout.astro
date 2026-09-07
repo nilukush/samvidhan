@@ -60,7 +60,7 @@ const canonical = SITE_URL + (path === '' ? '/' : `/${path}/`);
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <Header />
+    <Header lang={pageLang} />
     <main id="main" tabindex="-1">
       <span class="search-filter" data-pagefind-filter="type" aria-hidden="true">{searchType}</span>
       <slot />
