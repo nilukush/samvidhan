@@ -3,6 +3,8 @@ docs/
 CLAUDE.md
 AGENTS.md
 MEMORY.md
+.zcodeignore
+.mimosa/
 
 # Environment
 .env

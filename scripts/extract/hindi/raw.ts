@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { assertSafeFetchUrl } from '../../../src/lib/net.ts';
 
 /**
  * Hindi raw extraction (docs/HINDI-IMPLEMENTATION-PLAN.md H2). For every odd
@@ -9,9 +10,13 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
  * data/raw-hindi/ which is gitignored; the fused and parsed outputs derived
  * from it are what gets committed.
  *
- * Usage: npx tsx scripts/extract/hindi/raw.ts [--from N] [--to N]
+ * Usage: npm run hindi:raw -- [--from N] [--to N]
+ * OCR needs tesseract; on this Mac it is an Intel binary, so run from an
+ * x86_64 node or a Rosetta terminal when a future edition needs re-OCR.
  * Cache-aware: pages with an existing record are skipped, so the run resumes
- * after interruption. Nothing is written under /tmp (tesseract/Leptonica
+ * after interruption. The source PDF is split once into per-page files under
+ * data/raw-hindi/separated so child processes take page data only after an
+ * option terminator. Nothing is written under /tmp (tesseract/Leptonica
  * cannot read images from there on this machine).
  */
 
@@ -19,15 +24,23 @@ const PDF_PATH = 'data/source/constitution-of-india-hindi.pdf';
 const CACHE_DIR = 'data/raw-hindi/pages';
 const IMG_DIR = 'data/raw-hindi/img';
 const TESSDATA_DIR = 'data/raw-hindi/tessdata';
+const SEP_DIR = 'data/raw-hindi/separated';
 const TESSDATA_BASE = 'https://github.com/tesseract-ocr/tessdata_best/raw/main';
 
-function ensureTessdata(): void {
+async function ensureTessdata(): Promise<void> {
   mkdirSync(TESSDATA_DIR, { recursive: true });
   for (const model of ['hin.traineddata', 'osd.traineddata']) {
     const target = `${TESSDATA_DIR}/${model}`;
     if (!existsSync(target)) {
+      const url = `${TESSDATA_BASE}/${model}`;
+      assertSafeFetchUrl(url);
       process.stdout.write(`fetching ${model}... `);
-      execFileSync('curl', ['-sL', '-o', target, `${TESSDATA_BASE}/${model}`], { stdio: 'inherit' });
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`fetching ${model} failed: HTTP ${response.status}`);
+      }
+      writeFileSync(target, Buffer.from(await response.arrayBuffer()));
+      process.stdout.write('done\n');
     }
   }
 }
@@ -43,35 +56,98 @@ function pad(page: number): string {
   return String(page).padStart(3, '0');
 }
 
+/**
+ * Page numbers reach child process arguments only through this gate. pageArg
+ * already rejects anything but a positive integer; digits() re-asserts that
+ * the rendered value is digit only, so a child argument built from it can
+ * never be read as an option or a flag.
+ */
+function digits(value: number): string {
+  const text = String(value);
+  if (!/^\d+$/.test(text)) {
+    throw new Error(`expected a digit only page number, got ${text}`);
+  }
+  return text;
+}
+
+/**
+ * Page numbers reach file paths only through this gate. pageArg already
+ * rejects anything but a positive integer; digits() re-asserts that the
+ * rendered value is digit only, so the separated page lookup is always a
+ * plain generated file name.
+ */
+function ensureSeparatedPages(): void {
+  mkdirSync(SEP_DIR, { recursive: true });
+  const marker = `${SEP_DIR}/source.txt`;
+  const stats = statSync(PDF_PATH);
+  const fingerprint = `${PDF_PATH} ${stats.size} ${stats.mtimeMs}`;
+  if (existsSync(marker) && readFileSync(marker, 'utf8').trim() === fingerprint) return;
+  rmSync(SEP_DIR, { recursive: true, force: true });
+  mkdirSync(SEP_DIR, { recursive: true });
+  execFileSync('pdfseparate', ['--', PDF_PATH, `${SEP_DIR}/p%d.pdf`]);
+  writeFileSync(marker, fingerprint);
+}
+
 function extractPage(page: number): void {
   const target = `${CACHE_DIR}/p${pad(page)}.json`;
   if (existsSync(target)) return;
 
-  const imgPrefix = `${IMG_DIR}/p${pad(page)}`;
-  execFileSync('pdftoppm', ['-f', String(page), '-l', String(page), '-r', '300', '-gray', '-png', PDF_PATH, imgPrefix]);
-  const img = `${imgPrefix}-${pad(page)}.png`;
-  const ocr = execFileSync('tesseract', [img, '-', '-l', 'hin', '--psm', '1'], {
-    encoding: 'utf8',
-    env: { ...process.env, TESSDATA_PREFIX: TESSDATA_DIR },
+  // The separated page is fed to poppler on stdin and rendered under a fixed
+  // literal name, so no child process argument depends on the page number.
+  const pageBytes = readFileSync(`${SEP_DIR}/p${digits(page)}.pdf`);
+  execFileSync('pdftoppm', ['-r', '300', '-gray', '-png', '--', '-', 'page'], {
+    cwd: IMG_DIR,
+    input: pageBytes,
   });
-  const layer = execFileSync('pdftotext', ['-f', String(page), '-l', String(page), '-layout', PDF_PATH, '-'], {
+  const img = `${IMG_DIR}/page-1.png`;
+  let ocr: string;
+  try {
+    ocr = execFileSync('tesseract', ['stdin', '-', '-l', 'hin', '--psm', '1'], {
+      encoding: 'utf8',
+      env: { ...process.env, TESSDATA_PREFIX: TESSDATA_DIR },
+      input: readFileSync(img),
+    });
+  } catch (error: unknown) {
+    const code = String((error as NodeJS.ErrnoException).code ?? '');
+    if (code.includes('-86')) {
+      throw new Error(
+        'tesseract here is an Intel binary and this node process is arm64; macOS 25.6 does not translate spawned children. Run the script from an x86_64 node or a Rosetta terminal.',
+        { cause: error },
+      );
+    }
+    throw error;
+  }
+  const layer = execFileSync('pdftotext', ['-layout', '--', '-', '-'], {
     encoding: 'utf8',
+    input: pageBytes,
   });
-  execFileSync('rm', [img]);
+  rmSync(img);
   writeFileSync(target, JSON.stringify({ page, ocr, layer }));
 }
 
-function main(): void {
+function pageArg(args: string[], name: string, fallback: number): number {
+  const flag = `--${name}`;
+  const index = args.indexOf(flag);
+  const raw = index === -1 ? undefined : args[index + 1];
+  const value = raw === undefined ? fallback : Number(raw);
+  if (!Number.isInteger(value) || value < 1) {
+    throw new Error(`${flag} expects a positive integer`);
+  }
+  return value;
+}
+
+async function main(): Promise<void> {
   if (!existsSync(PDF_PATH)) {
     throw new Error(`missing ${PDF_PATH}; vendor the Rajbhasha PDF first (see data/source/README.md)`);
   }
   const args = process.argv.slice(2);
-  const from = Number(args[args.indexOf('--from') + 1] || 1);
+  const from = pageArg(args, 'from', 1);
   const total = pageCount();
-  const to = Math.min(Number(args[args.indexOf('--to') + 1] || total), total);
+  const to = Math.min(pageArg(args, 'to', total), total);
   mkdirSync(CACHE_DIR, { recursive: true });
   mkdirSync(IMG_DIR, { recursive: true });
-  ensureTessdata();
+  ensureSeparatedPages();
+  await ensureTessdata();
 
   const oddPages: number[] = [];
   for (let page = from; page <= to; page += 1) {
@@ -94,4 +170,7 @@ function main(): void {
   process.stdout.write(`wrote data/raw-hindi/pages.jsonl (${records.length} pages)\n`);
 }
 
-main();
+main().catch((error: unknown) => {
+  console.error(error);
+  process.exitCode = 1;
+});

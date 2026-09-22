@@ -1,4 +1,4 @@
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { parseConstitution } from './parse.ts';
 import { validateConstitution } from './validate.ts';
@@ -15,7 +15,7 @@ function ensureRawText(): string {
     if (!existsSync(PDF_PATH)) {
       throw new Error(`missing ${PDF_PATH}; vendor the official PDF first (see data/source/README.md)`);
     }
-    execSync(`pdftotext ${PDF_PATH} ${RAW_PATH}`, { stdio: 'inherit' });
+    execFileSync('pdftotext', [PDF_PATH, RAW_PATH], { stdio: 'inherit' });
   }
   return readFileSync(RAW_PATH, 'utf8');
 }

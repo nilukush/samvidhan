@@ -20,6 +20,7 @@
     "e2e": "playwright test",
     "data:amendments": "npx tsx scripts/extract/amendments.ts",
     "data:embed": "npx tsx scripts/embed/run.ts",
+    "hindi:raw": "npx tsx scripts/extract/hindi/raw.ts",
     "vendor:ai": "./scripts/vendor-ai.sh",
     "model:fetch": "./scripts/fetch-model.sh",
     "audit:lighthouse": "./scripts/lighthouse-audit.sh",
