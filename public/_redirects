@@ -1,0 +1,3 @@
+# The conventional /sitemap.xml URL redirects to the sitemap index the build
+# actually emits (sitemap-index.xml + sitemap-0.xml). See docs/ISSUES.md.
+/sitemap.xml /sitemap-index.xml 301

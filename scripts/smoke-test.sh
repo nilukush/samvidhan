@@ -50,6 +50,10 @@ BODY=$(curl -sL "$URL/sitemap-0.xml" --max-time 30)
 check "sitemap lists article 14" 'echo "$BODY" | grep -q "/articles/14/"'
 check "sitemap lists amendment 106" 'echo "$BODY" | grep -q "/amendments/106/"'
 
+# Conventional sitemap URL
+BODY=$(curl -s -o /dev/null -w "%{http_code} %{redirect_url}" "$URL/sitemap.xml" --max-time 30)
+check "conventional /sitemap.xml redirects to the sitemap index" '[ "$BODY" = "301 $URL/sitemap-index.xml" ]'
+
 # Robots
 BODY=$(curl -sL "$URL/robots.txt" --max-time 30)
 check "robots.txt reachable" '[ -n "$BODY" ]'
