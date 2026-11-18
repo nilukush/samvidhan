@@ -2,13 +2,13 @@
 
 A zero cost, static website that presents the Constitution of India as beautiful, readable, searchable pages: the current text of every article, plain language summaries, a timeline of all 106 amendments, and a tracker of pending Constitution amendment bills.
 
+**Live at https://samvidhan.pages.dev**
+
 ## Status
 
-Planning complete. Analysis, design system, and implementation plan are in the docs directory. No code yet.
+Complete and deployed. Both editions are live: the English site and the full Hindi edition at /hi/. Every one of the 504 articles has a page and a plain language explainer in each language, current through the 106th Amendment from the official Legislative Department volumes. An automated check on GitHub Actions watches for new amendments and bill movement every month.
 
-- [docs/ANALYSIS.md](docs/ANALYSIS.md): feasibility analysis, data sources, architecture decision, risk register
-- [docs/DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md): the Samvidhan design system, grounded in USWDS, GOV.UK, and Indian national visual heritage
-- [docs/IMPLEMENTATION-PLAN.md](docs/IMPLEMENTATION-PLAN.md): 14 step TDD implementation plan
+The planning documents that shaped the build are working files kept outside the repository.
 
 ## What this project is
 
@@ -19,7 +19,7 @@ Planning complete. Analysis, design system, and implementation plan are in the d
 - Keyword search (Pagefind) and opt in semantic search (Orama hybrid with build time precomputed embeddings), both running entirely in the browser at zero server cost
 - Static HTML on Cloudflare Pages free tier, engineered to stay portable to any static host
 
-## Planned stack
+## Stack
 
 | Layer | Choice | License | Why |
 | --- | --- | --- | --- |
