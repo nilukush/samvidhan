@@ -1,4 +1,22 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
+
+/** The banner must state whatever date the snapshot actually carries, so derive it. */
+function expectedVerifiedBannerDate(): string {
+  const snapshot = JSON.parse(readFileSync('src/data/bills/snapshot.json', 'utf8')) as Array<{
+    lastVerified: string;
+  }>;
+  const latest = snapshot
+    .map((bill) => bill.lastVerified)
+    .sort()
+    .at(-1);
+  return new Date(`${latest}T00:00:00Z`).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+}
 
 test.describe('upcoming changes table', () => {
   test('cells run left to right in DOM order, so reading order matches sight', async ({ page }) => {
@@ -17,7 +35,7 @@ test.describe('upcoming changes table', () => {
   test('the verified banner states the latest check date and links live sources', async ({ page }) => {
     await page.goto('/changes/upcoming/');
     const banner = page.getByRole('note');
-    await expect(banner).toContainText(/31 August 2026/);
+    await expect(banner).toContainText(expectedVerifiedBannerDate());
     await expect(banner.getByRole('link', { name: /sansad\.in/i })).toHaveAttribute(
       'href',
       'https://sansad.in/ls/legislation/bills',
